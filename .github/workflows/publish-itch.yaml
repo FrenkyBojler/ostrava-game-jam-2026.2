@@ -50,7 +50,7 @@ jobs:
           gameData: ./build
           itchUsername: ${{ vars.ITCH_USERNAME}}
           itchGameId: ${{ vars.ITCH_GAME_ID }}
-          buildChannel: linux
+          buildChannel: webgl
 
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
