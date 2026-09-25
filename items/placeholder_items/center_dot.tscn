@@ -16,4 +16,5 @@ item_resource = SubResource("Resource_lrroe")
 metadata/_custom_type_script = "uid://csco2c5mpou0l"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1173703962]
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("3_mohgk")

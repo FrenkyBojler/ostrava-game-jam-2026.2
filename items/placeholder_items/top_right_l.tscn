@@ -18,6 +18,5 @@ script = ExtResource("1_on820")
 item_resource = SubResource("Resource_vk8gi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218811131]
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_vk8gi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1523059297]

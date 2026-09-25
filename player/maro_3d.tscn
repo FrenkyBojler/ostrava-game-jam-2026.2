@@ -31,7 +31,8 @@ item = SubResource("Resource_yxfud")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_lrroe")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=611189393]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=611189393]
+unique_name_in_owner = true
 texture = ExtResource("1_dq4t7")
 
 [node name="MaroCamera" type="Camera2D" parent="." unique_id=319745639 node_paths=PackedStringArray("target")]
@@ -61,3 +62,11 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1595143311]
 shape = SubResource("CircleShape2D_lrroe")
+
+[node name="ItemPositionRight" type="Marker2D" parent="." unique_id=1947470993]
+unique_name_in_owner = true
+position = Vector2(3, 4)
+
+[node name="ItemPositionLeft" type="Marker2D" parent="." unique_id=1851385574]
+unique_name_in_owner = true
+position = Vector2(-5, 4)

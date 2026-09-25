@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dxdgqqmuh6egl" path="res://assets/textures/placeholder/map_ai_walls.png" id="2_dq6g1"]
 [ext_resource type="Script" uid="uid://b6jxchruxw32b" path="res://scenes/walls.gd" id="3_5tcau"]
 [ext_resource type="Script" uid="uid://d2qxg2shcfebk" path="res://scenes/darken_level.gd" id="5_5tcau"]
+[ext_resource type="PackedScene" uid="uid://dkl7842wtdjw0" path="res://items/placeholder_items/top_right_l.tscn" id="6_dq6g1"]
+[ext_resource type="PackedScene" uid="uid://d3i0oocp0t8gn" path="res://items/placeholder_items/bottom_line.tscn" id="7_sfj0f"]
+[ext_resource type="PackedScene" uid="uid://brlp0fok0sl6j" path="res://items/placeholder_items/center_dot.tscn" id="8_jj3xy"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -50,3 +53,12 @@ position = Vector2(504, -173)
 visible = false
 color = Color(0.015971808, 0.015971798, 0.015971813, 1)
 script = ExtResource("5_5tcau")
+
+[node name="TopRightL" parent="." unique_id=973099346 instance=ExtResource("6_dq6g1")]
+position = Vector2(123, -139)
+
+[node name="bottom_line" parent="." unique_id=1321071022 instance=ExtResource("7_sfj0f")]
+position = Vector2(234, -139)
+
+[node name="center_dot" parent="." unique_id=1762631102 instance=ExtResource("8_jj3xy")]
+position = Vector2(175, -199)
