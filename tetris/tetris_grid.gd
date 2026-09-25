@@ -2,6 +2,7 @@ class_name TetrisGrid extends Node2D
 
 @onready var piece: Sprite2D = $Piece
 @onready var container: Node2D = $Container
+@onready var entry_trigger: EntryTrigger = $EntryTrigger
 
 # Borders
 @onready var border_top: Node2D = $BorderT
@@ -13,9 +14,10 @@ class_name TetrisGrid extends Node2D
 @onready var border_right: Node2D = $BorderR
 @onready var border_left: Node2D = $BorderL
 
-var grid_size: int = 16
-var grid_matrix_size: int = 5
-var exits: Array[Vector2] = [] 
+@export var exit_border_padding: int = 2
+@export var grid_size: int = 16
+@export var grid_matrix_size: int = 5
+@export var exits: Array[Vector2] = [] 
 
 func initialize(size: int, matrix_size: int, exits_arr: Array[Vector2]) -> void:
 	grid_size = size
@@ -42,6 +44,11 @@ func draw_grid() -> void:
 			piece_instance.position = Vector2(x * grid_size, y * grid_size)
 			piece_instance.visible = true
 			container.add_child(piece_instance)	
+
+	entry_trigger.resize_self(
+		Vector2(exit_border_padding, exit_border_padding),
+		Vector2(grid_matrix_size * grid_size - exit_border_padding, grid_matrix_size * grid_size - exit_border_padding)
+	)
 
 
 func draw_border(x: int, y: int) -> void:

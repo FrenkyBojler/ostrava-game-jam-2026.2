@@ -1,22 +1,21 @@
-extends CharacterBody2D
+class_name Maro3D extends CharacterBody2D
 
-@export
-var move_speed := 100.0
-@export
-var item: ItemResource
+@export var item: ItemResource
+@onready var interact_area: Area2D = %InteractArea
 
-@onready
-var interact_area := %InteractArea
+var space_controller: MaroSpaceController = MaroSpaceController.new()
+var tetris_controller: TetrisController = TetrisController.new()
+
+var controller: MaroController = space_controller
 
 func _ready() -> void:
+	controller = space_controller
 	interact_area.body_entered.connect(_on_interact_area_enter)
 	interact_area.body_exited.connect(_on_interact_area_exit)
 
 func _process(delta: float) -> void:
-	var horizontal_input := Input.get_axis("move_left_p1", "move_right_p1")
-	var vertical_input := Input.get_axis("move_up_p1", "move_down_p1")
-	
-	move_and_collide(Vector2(horizontal_input, vertical_input) * move_speed * delta)
+	var movement_input: Vector2 = controller.get_movement_input(delta)
+	move_and_collide(movement_input)
 
 func _on_interact_area_enter(body: Node2D) -> void:
 	if body is Item:
@@ -25,3 +24,10 @@ func _on_interact_area_enter(body: Node2D) -> void:
 func _on_interact_area_exit(body: Node2D) -> void:
 	if body is Item:
 		(body as Item).toggle_outline(false)
+
+func to_tetris(entry_pos: Vector2) -> void:
+	controller = tetris_controller
+	position = entry_pos
+
+func to_space() -> void:
+	controller = space_controller

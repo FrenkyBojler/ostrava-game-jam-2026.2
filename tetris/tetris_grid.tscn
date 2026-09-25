@@ -5,12 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://bc2515bx1qgao" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0013.png" id="3_p2yjh"]
 [ext_resource type="Texture2D" uid="uid://dxfymq28w27j1" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0016.png" id="4_lf5iq"]
 [ext_resource type="Texture2D" uid="uid://bf3vjuiox1ycv" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0015.png" id="5_waadn"]
+[ext_resource type="Script" uid="uid://ce341luvvxmae" path="res://tetris/entry_trigger.gd" id="6_lf5iq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80t16"]
 
 [node name="TetrisGrid" type="Node2D" unique_id=1266041450]
-scale = Vector2(3, 3)
 script = ExtResource("1_as6nv")
+exits = Array[Vector2]([Vector2(0, 2), Vector2(2, 0), Vector2(4, 2), Vector2(2, 4)])
 
 [node name="Container" type="Node2D" parent="." unique_id=1668081454]
 
@@ -110,3 +111,11 @@ texture = ExtResource("4_lf5iq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderTL/StaticBody2D" unique_id=1291484532]
 shape = SubResource("RectangleShape2D_80t16")
+
+[node name="EntryTrigger" type="Area2D" parent="." unique_id=1043671933]
+script = ExtResource("6_lf5iq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EntryTrigger" unique_id=1437653804]
+
+[connection signal="body_entered" from="EntryTrigger" to="EntryTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="EntryTrigger" to="EntryTrigger" method="_on_body_exited"]
