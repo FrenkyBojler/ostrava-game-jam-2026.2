@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://4ebij1ov5y7s"]
 
+[ext_resource type="Script" uid="uid://b71cd5wwhvrhi" path="res://tetris/tetris_character.gd" id="1_4tq2h"]
 [ext_resource type="Texture2D" uid="uid://cpjswvni4djkk" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0109.png" id="1_giv7a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80t16"]
 
-[node name="Character" type="CharacterBody2D" unique_id=1675119152]
+[node name="TetrisCharacter" type="CharacterBody2D" unique_id=1675119152]
+scale = Vector2(3, 3)
+script = ExtResource("1_4tq2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1706726299]
 shape = SubResource("RectangleShape2D_80t16")

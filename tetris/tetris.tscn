@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bgtpvfjgm6l1b"]
+
+[ext_resource type="Script" uid="uid://b061njjp31gqs" path="res://tetris.gd" id="1_hgm63"]
+[ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="2_ol2bj"]
+[ext_resource type="PackedScene" uid="uid://4ebij1ov5y7s" path="res://tetris/tetris_character.tscn" id="3_ew6bo"]
+
+[node name="Tetris" type="Node2D" unique_id=1179759684]
+script = ExtResource("1_hgm63")
+exits = Array[Vector2]([Vector2(2, 0), Vector2(2, 4), Vector2(4, 2), Vector2(0, 2)])
+
+[node name="TetrisGrid" parent="." unique_id=1266041450 instance=ExtResource("2_ol2bj")]
+
+[node name="TetrisCharacter" parent="." unique_id=1675119152 instance=ExtResource("3_ew6bo")]

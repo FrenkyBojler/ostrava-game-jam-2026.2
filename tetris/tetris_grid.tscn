@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cxex76o8gv40p"]
+
+[ext_resource type="Script" uid="uid://4iykdpw6tmmi" path="res://tetris/tetris_grid.gd" id="1_as6nv"]
+[ext_resource type="Texture2D" uid="uid://cna0rtew85k7y" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0060.png" id="2_tgouq"]
+[ext_resource type="Texture2D" uid="uid://bc2515bx1qgao" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0013.png" id="3_p2yjh"]
+[ext_resource type="Texture2D" uid="uid://dxfymq28w27j1" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0016.png" id="4_lf5iq"]
+[ext_resource type="Texture2D" uid="uid://bf3vjuiox1ycv" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0015.png" id="5_waadn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80t16"]
+
+[node name="TetrisGrid" type="Node2D" unique_id=1266041450]
+scale = Vector2(3, 3)
+script = ExtResource("1_as6nv")
+
+[node name="Container" type="Node2D" parent="." unique_id=1668081454]
+
+[node name="Piece" type="Sprite2D" parent="." unique_id=1425992638]
+visible = false
+texture = ExtResource("2_tgouq")
+
+[node name="BorderR" type="Node2D" parent="." unique_id=58756288]
+visible = false
+
+[node name="BorderR" type="Sprite2D" parent="BorderR" unique_id=869251011]
+texture = ExtResource("3_p2yjh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderR" unique_id=1493312960]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderR/StaticBody2D" unique_id=2129940657]
+shape = SubResource("RectangleShape2D_80t16")
+
+[node name="BorderT" type="Node2D" parent="." unique_id=981225282]
+visible = false
+
+[node name="Sprite" type="Sprite2D" parent="BorderT" unique_id=560495925]
+rotation = 4.712389
+texture = ExtResource("3_p2yjh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderT" unique_id=82886119]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderT/StaticBody2D" unique_id=1487462710]
+shape = SubResource("RectangleShape2D_80t16")
+
+[node name="BorderTR" type="Node2D" parent="." unique_id=1282016531]
+visible = false
+
+[node name="Sprite" type="Sprite2D" parent="BorderTR" unique_id=239316043]
+rotation = 3.1415927
+texture = ExtResource("4_lf5iq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderTR" unique_id=708407892]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderTR/StaticBody2D" unique_id=2070580296]
+shape = SubResource("RectangleShape2D_80t16")
+
+[node name="BorderBR" type="Node2D" parent="." unique_id=731838779]
+visible = false
+
+[node name="Sprite" type="Sprite2D" parent="BorderBR" unique_id=1025252770]
+rotation = 4.712389
+texture = ExtResource("4_lf5iq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderBR" unique_id=1485148057]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderBR/StaticBody2D" unique_id=613366844]
+shape = SubResource("RectangleShape2D_80t16")
+
+[node name="BorderB" type="Node2D" parent="." unique_id=1741808888]
+visible = false
+
+[node name="Sprite" type="Sprite2D" parent="BorderB" unique_id=1357330536]
+rotation = 1.5707964
+texture = ExtResource("3_p2yjh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderB" unique_id=1125132130]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderB/StaticBody2D" unique_id=159191008]
+shape = SubResource("RectangleShape2D_80t16")
+
+[node name="BorderBL" type="Node2D" parent="." unique_id=515550206]
+visible = false
+
+[node name="Sprite" type="Sprite2D" parent="BorderBL" unique_id=2033207915]
+texture = ExtResource("4_lf5iq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderBL" unique_id=492732188]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderBL/StaticBody2D" unique_id=1553773601]
+shape = SubResource("RectangleShape2D_80t16")
+
+[node name="BorderL" type="Node2D" parent="." unique_id=1777558844]
+visible = false
+
+[node name="Sprite" type="Sprite2D" parent="BorderL" unique_id=216426078]
+texture = ExtResource("5_waadn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderL" unique_id=2026820732]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderL/StaticBody2D" unique_id=1339046578]
+shape = SubResource("RectangleShape2D_80t16")
+
+[node name="BorderTL" type="Node2D" parent="." unique_id=1985262199]
+visible = false
+
+[node name="Sprite" type="Sprite2D" parent="BorderTL" unique_id=1498932029]
+rotation = 1.5707964
+texture = ExtResource("4_lf5iq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BorderTL" unique_id=801816238]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderTL/StaticBody2D" unique_id=1291484532]
+shape = SubResource("RectangleShape2D_80t16")
