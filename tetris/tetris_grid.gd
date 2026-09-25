@@ -14,10 +14,12 @@ class_name TetrisGrid extends Node2D
 @onready var border_right: Node2D = $BorderR
 @onready var border_left: Node2D = $BorderL
 
-@export var exit_border_padding: int = 2
+@export var exit_border_padding: int = 0
 @export var grid_size: int = 16
 @export var grid_matrix_size: int = 5
 @export var exits: Array[Vector2] = [] 
+
+var entry_points: Array[Vector2] = []
 
 func initialize(size: int, matrix_size: int, exits_arr: Array[Vector2]) -> void:
 	grid_size = size
@@ -26,6 +28,8 @@ func initialize(size: int, matrix_size: int, exits_arr: Array[Vector2]) -> void:
 	draw_grid()
 
 func _ready() -> void:
+	entry_trigger.body_entered.connect(_on_body_entered)
+	entry_trigger.body_exited.connect(_on_body_exited)
 	draw_grid()
 
 func draw_grid() -> void:
@@ -40,16 +44,15 @@ func draw_grid() -> void:
 			if x == 0 or x == grid_matrix_size - 1 or y == 0 or y == grid_matrix_size - 1:
 				continue
 
-			var piece_instance: Sprite2D = piece.duplicate() as Sprite2D
-			piece_instance.position = Vector2(x * grid_size, y * grid_size)
-			piece_instance.visible = true
+			var piece_instance: Piece = piece.duplicate() as Piece
+			piece_instance.initialize(Vector2(x, y), grid_size)
 			container.add_child(piece_instance)	
 
+	var half_grid_size: int = grid_size / 2.0
 	entry_trigger.resize_self(
-		Vector2(exit_border_padding, exit_border_padding),
-		Vector2(grid_matrix_size * grid_size - exit_border_padding, grid_matrix_size * grid_size - exit_border_padding)
+		Vector2(grid_size + exit_border_padding - half_grid_size, grid_size + exit_border_padding - half_grid_size),
+		Vector2(grid_matrix_size * (grid_size - 3) - half_grid_size - exit_border_padding, grid_matrix_size * (grid_size - 3) - half_grid_size - exit_border_padding)
 	)
-
 
 func draw_border(x: int, y: int) -> void:
 	var is_exit: bool = exits.has(Vector2(x, y))
@@ -81,3 +84,26 @@ func draw_border(x: int, y: int) -> void:
 	border_instance.position = Vector2(x * grid_size, y * grid_size)
 	border_instance.visible = true
 	container.add_child(border_instance)
+
+func _on_body_entered(body: Node) -> void:
+	if body is Maro3D:
+		var maro: Maro3D = body as Maro3D
+
+		# Find nearest piece from container to maro's position
+		var nearest_piece: Piece = null
+		var nearest_distance: float = INF
+		for child in container.get_children():
+			if child is Piece:
+				var child_piece: Piece = child as Piece
+				var distance: float = maro.position.distance_to(child_piece.global_position)
+				if distance < nearest_distance:
+					nearest_distance = distance
+					nearest_piece = child_piece
+
+		if nearest_piece != null:
+			maro.to_tetris(nearest_piece.global_position)
+
+func _on_body_exited(body: Node) -> void:
+	if body is Maro3D:
+		var maro: Maro3D = body as Maro3D
+		maro.to_space()

@@ -14,5 +14,5 @@ func get_movement_input(_delta: float) -> Vector2:
         input_vector.y -= grid_size
     elif Input.is_action_just_pressed("move_down_p1"):
         input_vector.y += grid_size
-
+    
     return input_vector
