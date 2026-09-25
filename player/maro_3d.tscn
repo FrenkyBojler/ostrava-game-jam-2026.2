@@ -45,6 +45,7 @@ script = ExtResource("2_6yihr")
 [node name="PointLight2D" type="PointLight2D" parent="MaroLightDirectional" unique_id=1502110705]
 rotation = 1.5707964
 scale = Vector2(2, 1)
+range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("2_1tmmx")
 offset = Vector2(0, -51)
