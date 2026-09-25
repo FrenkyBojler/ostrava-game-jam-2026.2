@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bmo4r5jgpekrv"]
+
+[ext_resource type="Script" uid="uid://b3whkir0h4x6p" path="res://scripts/placeholder.gd" id="1_3wf17"]
+[ext_resource type="Texture2D" uid="uid://b63bkh2ic00c3" path="res://assets/textures/placeholder/kenney_toon-characters/Female adventurer/Tilesheet/character_femaleAdventurer_sheetHD.png" id="1_c40o3"]
+
+[sub_resource type="Animation" id="Animation_3wf17"]
+resource_name = "Jump"
+length = 0.23333667883612214
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 0, 0),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_o52t6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j22yv"]
+_data = {
+&"Jump": SubResource("Animation_3wf17"),
+&"RESET": SubResource("Animation_o52t6")
+}
+
+[node name="Placeholder" type="Node2D" unique_id=860589203]
+script = ExtResource("1_3wf17")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1777884479]
+texture = ExtResource("1_c40o3")
+hframes = 9
+vframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=500427150]
+libraries/ = SubResource("AnimationLibrary_j22yv")
+speed_scale = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=808383477]
