@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_lrroe")
 texture = ExtResource("1_dq4t7")
 
 [node name="MaroCamera" type="Camera2D" parent="." unique_id=319745639 node_paths=PackedStringArray("target")]
-zoom = Vector2(7.74, 7.74)
+zoom = Vector2(7.4, 7.4)
 script = ExtResource("3_n2osa")
 target = NodePath("..")
 
