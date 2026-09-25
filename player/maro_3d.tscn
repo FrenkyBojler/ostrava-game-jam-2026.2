@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://da7yse1k7rgad"]
+
+[ext_resource type="Texture2D" uid="uid://wwb6c3b5nl7n" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0121.png" id="1_dq4t7"]
+[ext_resource type="Script" uid="uid://d4abjp5ixuimh" path="res://player/maro_3d.gd" id="1_escr7"]
+[ext_resource type="Texture2D" uid="uid://d210dgh2guasw" path="res://assets/textures/placeholder/lights/cone_composed_c.png" id="2_1tmmx"]
+[ext_resource type="Script" uid="uid://ditehidc2oy3h" path="res://player/maro_light.gd" id="2_6yihr"]
+[ext_resource type="Script" uid="uid://prlmkqvnte0e" path="res://player/maro_camera.gd" id="3_n2osa"]
+[ext_resource type="Texture2D" uid="uid://ev742xv04sp2" path="res://assets/textures/placeholder/lights/circle_c.png" id="6_yxfud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
+size = Vector2(8, 7)
+
+[node name="Maro3D" type="CharacterBody2D" unique_id=197759219]
+script = ExtResource("1_escr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500361953]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lrroe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=611189393]
+texture = ExtResource("1_dq4t7")
+
+[node name="MaroCamera" type="Camera2D" parent="." unique_id=319745639 node_paths=PackedStringArray("target")]
+top_level = true
+zoom = Vector2(7.74, 7.74)
+script = ExtResource("3_n2osa")
+target = NodePath("..")
+
+[node name="MaroLightDirectional" type="Node2D" parent="." unique_id=50866853]
+script = ExtResource("2_6yihr")
+
+[node name="PointLight2D" type="PointLight2D" parent="MaroLightDirectional" unique_id=1502110705]
+rotation = 1.5707964
+scale = Vector2(2, 1)
+shadow_enabled = true
+texture = ExtResource("2_1tmmx")
+offset = Vector2(0, -51)
+texture_scale = 0.2
+
+[node name="MaroLightAmbient" type="PointLight2D" parent="." unique_id=1157734461]
+scale = Vector2(0.20982142, 0.20982142)
+texture = ExtResource("6_yxfud")
+texture_scale = 0.35
