@@ -12,7 +12,8 @@
 
 [node name="TetrisGrid" type="Node2D" unique_id=1266041450]
 script = ExtResource("1_as6nv")
-exits = Array[Vector2]([Vector2(0, 2), Vector2(2, 0), Vector2(4, 2), Vector2(2, 4)])
+grid_matrix_size = 7
+exits = Array[Vector2]([Vector2(0, 2), Vector2(3, 0), Vector2(6, 3), Vector2(2, 6)])
 
 [node name="Container" type="Node2D" parent="." unique_id=1668081454]
 
