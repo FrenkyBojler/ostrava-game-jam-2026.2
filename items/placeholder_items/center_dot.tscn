@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://brlp0fok0sl6j"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_4p65h"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_rqqqk"]
+[ext_resource type="Texture2D" uid="uid://2d3b7y2bmlrl" path="res://assets/textures/placeholder/items/center_dot.png" id="3_mohgk"]
+
+[sub_resource type="Resource" id="Resource_lrroe"]
+script = ExtResource("2_rqqqk")
+colliders = 16
+input = 1
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="center_dot" type="StaticBody2D" unique_id=1762631102]
+script = ExtResource("1_4p65h")
+item_resource = SubResource("Resource_lrroe")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1173703962]
+texture = ExtResource("3_mohgk")

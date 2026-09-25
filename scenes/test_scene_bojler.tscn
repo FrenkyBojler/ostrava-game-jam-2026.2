@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://bkdntnuyyvul" path="res://resources/placeholder_tileset.tres" id="1_3yj1c"]
 [ext_resource type="PackedScene" uid="uid://da7yse1k7rgad" path="res://player/maro_3d.tscn" id="2_3yj1c"]
+[ext_resource type="PackedScene" uid="uid://d3i0oocp0t8gn" path="res://items/placeholder_items/bottom_line.tscn" id="3_ifxdp"]
 
 [sub_resource type="Environment" id="Environment_lrroe"]
 
@@ -17,9 +18,13 @@ tile_map_data = PackedByteArray("AADe//P/AAAEAAMAAADe//T/AAAEAAMAAADe//X/AAAEAAM
 tile_set = ExtResource("1_3yj1c")
 
 [node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("2_3yj1c")]
+position = Vector2(-214, -42)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1878075181]
 environment = SubResource("Environment_lrroe")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
 color = Color(0.058420584, 0.0584206, 0.058420606, 1)
+
+[node name="bottom_line" parent="." unique_id=1321071022 instance=ExtResource("3_ifxdp")]
+position = Vector2(-376, -46)

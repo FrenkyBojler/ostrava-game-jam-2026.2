@@ -3,15 +3,29 @@
 [ext_resource type="Texture2D" uid="uid://wwb6c3b5nl7n" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0121.png" id="1_dq4t7"]
 [ext_resource type="Script" uid="uid://d4abjp5ixuimh" path="res://player/maro_3d.gd" id="1_escr7"]
 [ext_resource type="Texture2D" uid="uid://d210dgh2guasw" path="res://assets/textures/placeholder/lights/cone_composed_c.png" id="2_1tmmx"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_02rfc"]
 [ext_resource type="Script" uid="uid://ditehidc2oy3h" path="res://player/maro_light.gd" id="2_6yihr"]
 [ext_resource type="Script" uid="uid://prlmkqvnte0e" path="res://player/maro_camera.gd" id="3_n2osa"]
 [ext_resource type="Texture2D" uid="uid://ev742xv04sp2" path="res://assets/textures/placeholder/lights/circle_c.png" id="6_yxfud"]
 
+[sub_resource type="Resource" id="Resource_yxfud"]
+script = ExtResource("2_02rfc")
+colliders = 19
+has_input = true
+input = 1
+has_output = true
+output = 4
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
 size = Vector2(8, 7)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lrroe"]
+radius = 17.029387
+
 [node name="Maro3D" type="CharacterBody2D" unique_id=197759219]
 script = ExtResource("1_escr7")
+item = SubResource("Resource_yxfud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500361953]
 position = Vector2(0, 0.5)
@@ -21,7 +35,6 @@ shape = SubResource("RectangleShape2D_lrroe")
 texture = ExtResource("1_dq4t7")
 
 [node name="MaroCamera" type="Camera2D" parent="." unique_id=319745639 node_paths=PackedStringArray("target")]
-top_level = true
 zoom = Vector2(7.74, 7.74)
 script = ExtResource("3_n2osa")
 target = NodePath("..")
@@ -41,3 +54,9 @@ texture_scale = 0.2
 scale = Vector2(0.20982142, 0.20982142)
 texture = ExtResource("6_yxfud")
 texture_scale = 0.35
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=1869545915]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1595143311]
+shape = SubResource("CircleShape2D_lrroe")
