@@ -9,6 +9,8 @@ var oxygen_level: float
 var oxygen_consumption_rate: float
 var current_run_peniazky: float = 0.0
 
+var used_spawn_points : Array[Node2D] = []
+
 func _ready() -> void:
 	assert(item_spawner_parent != null, "Missing item spawner parent")
 	
@@ -17,6 +19,10 @@ func _ready() -> void:
 	oxygen_consumption_rate = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CONSUMPTION_RATE)
 	current_scrap = 0
 	
+	_spawn_items()
+	_spawn_items()
+	_spawn_items()
+	_spawn_items()
 	_spawn_items()
 
 func _process(delta: float) -> void:
@@ -44,6 +50,15 @@ func _spawn_items() -> void:
 	for item in items_to_spawn:
 		var item_instance := item.instantiate() as Item
 		randomize()
-		var target_spawn := item_spawner_parent.get_children().pick_random() as Node2D
+		
+		var available_spawners = item_spawner_parent.get_children().filter(func(spawner):
+			return used_spawn_points.find(spawner) == -1
+		)
+		
+		if available_spawners.size() == 0:
+			return
+		
+		var target_spawn := available_spawners.pick_random() as Node2D
+		used_spawn_points.push_back(target_spawn)
 		add_child(item_instance)
 		item_instance.global_position = target_spawn.global_position
