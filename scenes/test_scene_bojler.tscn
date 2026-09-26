@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ouuewfc6ucc1" path="res://items/communicator_2.tscn" id="19_2ubon"]
 [ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="20_mc7l3"]
 [ext_resource type="PackedScene" uid="uid://dyoryvjq8dqmv" path="res://space/scraps_indicator.tscn" id="21_mc7l3"]
+[ext_resource type="PackedScene" uid="uid://dlsfw2pxfkywo" path="res://tetris/evakuacni_tlatko.tscn" id="22_oaqi0"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -189,3 +190,7 @@ tetris = NodePath("../TetrisGrid")
 
 [node name="ScrapsIndicator" parent="." unique_id=1017566690 node_paths=PackedStringArray("maro") instance=ExtResource("21_mc7l3")]
 maro = NodePath("../Maro3D")
+
+[node name="EvakuacniTlatko" parent="." unique_id=2133668735 node_paths=PackedStringArray("state") instance=ExtResource("22_oaqi0")]
+position = Vector2(877, -241)
+state = NodePath("../GameState")

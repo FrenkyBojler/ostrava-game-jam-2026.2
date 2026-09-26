@@ -24,7 +24,7 @@ enum UpgradeProperty {
 	EXTRACTION_RECALL,
 	SCRAP_INDICATORS,
 	MOVE_SPEED,
-	STRENGHT,
+	STRENGTH,
 	OXYGEN_CAPACITY,
 	FLASHLIGHT_SIZE,
 	FLASHLIGHT_BRIGHTNESS,
@@ -99,7 +99,7 @@ class UpgradesContainer:
 				return 0
 			UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS:
 				return 0.75
-			UpgradeProperty.STRENGHT:
+			UpgradeProperty.STRENGTH:
 				return 1
 			_:
 				return 0
