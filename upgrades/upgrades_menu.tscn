@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://qtygmmiyad0v"]
+
+[ext_resource type="Script" uid="uid://cuxcivfy844ai" path="res://upgrades/upgrades_menu.gd" id="1_uo6sb"]
+
+[node name="UpgradesMenu" type="Control" unique_id=2142360949]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_uo6sb")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=159598963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

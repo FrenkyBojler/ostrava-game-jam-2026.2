@@ -1,0 +1,173 @@
+{
+    "$schema": "./upgrades.schema.json",
+    "title": "Scrap Collector",
+    "description": "Allows you to collect more scrap",
+    "icon": "res://upgrades/icons/upgrade_icon.png",
+    "active_level": 2,
+    "upgrades": [
+        {
+            "price": 100,
+            "effects": [{"property": "grid_size", "operation": "add", "value": 1}]
+        },
+        {
+            "price": 500,
+            "effects": [{"property": "grid_size", "operation": "add", "value": 1}]
+        },
+        {
+            "price": 5000,
+            "effects": [{"property": "grid_size", "operation": "add", "value": 1}]
+        }
+    ],
+    "top": {
+        "title": "Move Speed",
+        "description": "Increases the speed at which you can move around the map",
+        "icon": "res://upgrades/icons/upgrade_icon.png",
+        "active_level": 1,
+        "upgrades": [
+            {
+                "price": 100,
+                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+            },
+            {
+                "price": 200,
+                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+            },
+            {
+                "price": 500,
+                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+            }
+        ]       
+    },
+    "bottom": {
+        "title": "Oxygen Level",
+        "description": "Increases the amount of oxygen you can carry",
+        "icon": "res://upgrades/icons/upgrade_icon.png",
+        "active_level": 0,
+        "upgrades": [
+            {
+                "price": 100,
+                "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+            },
+            {
+                "price": 500,
+                "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+            },
+            {
+                "price": 2500,
+                "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+            }
+        ]
+    },
+    "left": {
+        "title": "Scrap Value",
+        "description": "Increases the value of scrap you collect",
+        "icon": "res://upgrades/icons/upgrade_icon.png",
+        "active_level": 0,
+        "upgrades": [
+            {
+                "price": 100,
+                "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.1}]
+            },
+            {
+                "price": 500,
+                "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.2}]
+            },
+            {
+                "price": 2000,
+                "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.5}]
+            }
+        ]
+    },
+    "right": {
+        "title": "Flashlight Size",
+        "description": "Increases the size of your flashlight",
+        "icon": "res://upgrades/icons/upgrade_icon.png",
+        "active_level": 1,
+        "upgrades": [
+            {
+                "price": 100,
+                "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
+            },
+            {
+                "price": 500,
+                "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
+            },
+            {
+                "price": 1000,
+                "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
+            }
+        ],
+        "right": {
+            "title": "Flashlight Brightness",
+            "description": "Increases the brightness of your flashlight",
+            "icon": "res://upgrades/icons/upgrade_icon.png",
+            "active_level": 2,
+            "upgrades": [
+                {
+                    "price": 100,
+                    "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
+                },
+                {
+                    "price": 500,
+                    "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
+                },
+                {
+                    "price": 1000,
+                    "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
+                }
+            ],
+            "right": {
+                "title": "Flashlight Range",
+                "description": "Increases the range of your flashlight",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 3,
+                "upgrades": [
+                    {
+                        "price": 100,
+                        "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
+                    },
+                    {
+                        "price": 500,
+                        "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
+                    },
+                    {
+                        "price": 1000,
+                        "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
+                    }
+                ]
+            },
+            "top": {
+                "title": "Burning Flashlight",
+                "description": "Will slowly burn enemies that are in the flashlight's light",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 1,
+                "upgrades": [
+                    {
+                        "price": 10000,
+                        "effects": [{"property": "flashlight_burn_damage", "operation": "add", "value": 1}]
+                    }
+                ],
+                "right": {
+                    "title": "Increase Flashlight Damage",
+                    "description": "Increases the damage of your flashlight",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 1,
+                    "upgrades": [
+                        {
+                            "price": 100,
+                            "effects": [{"property": "flashlight_burn_damage", "operation": "mul", "value": 1.1}]
+                        },
+                        {
+                            "price": 500,
+                            "effects": [{"property": "flashlight_burn_damage", "operation": "mul", "value": 1.2}]
+                        },
+                        {
+                            "price": 1000,
+                            "effects": [{"property": "flashlight_burn_damage", "operation": "mul", "value": 1.3}]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

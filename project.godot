@@ -15,6 +15,10 @@ run/main_scene="uid://ctooxq8o3paoy"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*uid://c8mbwolgtrdrt"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1

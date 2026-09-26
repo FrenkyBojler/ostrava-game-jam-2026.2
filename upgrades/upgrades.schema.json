@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/upgrades-tree.schema.json",
+  "title": "Upgrade Tree",
+  "description": "Recursive upgrade tree with nested top/left/right/bottom branches.",
+  "type": "object",
+  "$defs": {
+    "effect": {
+      "type": "object",
+      "properties": {
+        "property": {
+          "type": "string",
+          "enum": [
+            "grid_size",
+            "move_over_grid_obstacles",
+            "scrap_processing_speed",
+            "scrap_value",
+            "multi_parts_scraps",
+            "scrap_rotation",
+            "scrap_indicators",
+            "unlocking_doors_speed",
+            "move_speed",
+            "oxygen_capacity",
+            "flashlight_size",
+            "flashlight_brightness",
+            "flashlight_range",
+            "flashlight_burn_damage"
+          ]
+        },
+        "operation": {
+          "type": "string",
+          "enum": ["add", "mul"]
+        },
+        "value": {
+          "type": ["number", "integer"]
+        }
+      },
+      "required": ["property", "operation", "value"],
+      "additionalProperties": false
+    },
+    "upgrade": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effect"
+          },
+          "minItems": 1
+        }
+      },
+      "required": ["price", "effects"],
+      "additionalProperties": false
+    },
+    "branch": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "active_level": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "upgrades": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/upgrade"
+          },
+          "minItems": 1
+        },
+        "top": {
+          "$ref": "#/$defs/branch"
+        },
+        "left": {
+          "$ref": "#/$defs/branch"
+        },
+        "right": {
+          "$ref": "#/$defs/branch"
+        },
+        "bottom": {
+          "$ref": "#/$defs/branch"
+        }
+      },
+      "required": ["title", "description", "icon", "upgrades", "active_level"],
+      "additionalProperties": false
+    }
+  },
+  "$ref": "#/$defs/branch"
+}
