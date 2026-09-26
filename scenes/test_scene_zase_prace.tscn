@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://dupu66c8n1m2r"]
+
+[ext_resource type="Texture2D" uid="uid://clrapckwnheoe" path="res://assets/textures/placeholder/map_ai_background.png" id="1_pe3py"]
+[ext_resource type="Texture2D" uid="uid://dxdgqqmuh6egl" path="res://assets/textures/placeholder/map_ai_walls.png" id="2_s2pta"]
+[ext_resource type="Script" uid="uid://b6jxchruxw32b" path="res://scenes/walls.gd" id="3_7i4b5"]
+[ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="4_lchb2"]
+[ext_resource type="PackedScene" uid="uid://da7yse1k7rgad" path="res://player/maro_3d.tscn" id="5_q3rao"]
+[ext_resource type="Script" uid="uid://d2qxg2shcfebk" path="res://scenes/darken_level.gd" id="6_y0kqq"]
+[ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="7_m8j6g"]
+[ext_resource type="PackedScene" uid="uid://d3i0oocp0t8gn" path="res://items/placeholder_items/bottom_line.tscn" id="8_fymtd"]
+[ext_resource type="PackedScene" uid="uid://bopauxvt65mev" path="res://items/placeholder_items/bottom_right_l.tscn" id="9_2xdu4"]
+[ext_resource type="PackedScene" uid="uid://brlp0fok0sl6j" path="res://items/placeholder_items/center_dot.tscn" id="10_0fe1l"]
+[ext_resource type="PackedScene" uid="uid://dkl7842wtdjw0" path="res://items/placeholder_items/top_right_l.tscn" id="11_3h0cv"]
+[ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_esb78"]
+
+[node name="TestScene" type="Node2D" unique_id=1292865584]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1908072537]
+position = Vector2(74.00006, 181.00003)
+scale = Vector2(0.45005313, 0.45005313)
+texture = ExtResource("1_pe3py")
+
+[node name="Background2" type="Sprite2D" parent="." unique_id=617577188]
+position = Vector2(76.00001, -236)
+scale = Vector2(0.45005313, 0.45005313)
+texture = ExtResource("1_pe3py")
+
+[node name="Background3" type="Sprite2D" parent="." unique_id=1481750743]
+position = Vector2(-672.99994, 172.99997)
+scale = Vector2(0.45005313, 0.45005313)
+texture = ExtResource("1_pe3py")
+
+[node name="Background4" type="Sprite2D" parent="." unique_id=1413735568]
+position = Vector2(-682.99994, -232.00002)
+scale = Vector2(0.45005313, 0.45005313)
+texture = ExtResource("1_pe3py")
+
+[node name="Background5" type="Sprite2D" parent="." unique_id=855818720]
+position = Vector2(806.99994, -235)
+scale = Vector2(0.45005313, 0.45005313)
+texture = ExtResource("1_pe3py")
+
+[node name="Background6" type="Sprite2D" parent="." unique_id=1942374240]
+position = Vector2(795.00006, 174.99997)
+scale = Vector2(0.45005313, 0.45005313)
+texture = ExtResource("1_pe3py")
+
+[node name="Walls" type="Sprite2D" parent="." unique_id=1503886876]
+position = Vector2(-225, -26)
+texture = ExtResource("2_s2pta")
+script = ExtResource("3_7i4b5")
+
+[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state") instance=ExtResource("4_lchb2")]
+position = Vector2(589, -139)
+game_state = NodePath("../GameState")
+
+[node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("5_q3rao")]
+position = Vector2(504, -173)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
+visible = false
+color = Color(0.015971808, 0.015971798, 0.015971813, 1)
+script = ExtResource("6_y0kqq")
+
+[node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent") instance=ExtResource("7_m8j6g")]
+item_spawner_parent = NodePath("../ItemSpawners")
+items_to_spawn = Array[PackedScene]([ExtResource("8_fymtd"), ExtResource("9_2xdu4"), ExtResource("10_0fe1l"), ExtResource("11_3h0cv")])
+
+[node name="ItemSpawners" type="Node2D" parent="." unique_id=397388277]
+
+[node name="ItemSpawner1" type="Marker2D" parent="ItemSpawners" unique_id=337055802]
+position = Vector2(303, 249)
+
+[node name="ItemSpawner2" type="Marker2D" parent="ItemSpawners" unique_id=828164043]
+position = Vector2(127, 314)
+
+[node name="ItemSpawner3" type="Marker2D" parent="ItemSpawners" unique_id=1860033497]
+position = Vector2(-55, 274)
+
+[node name="ItemSpawner4" type="Marker2D" parent="ItemSpawners" unique_id=230239425]
+position = Vector2(-221, 249)
+
+[node name="ItemSpawner5" type="Marker2D" parent="ItemSpawners" unique_id=524606295]
+position = Vector2(-235, 94)
+
+[node name="ItemSpawner6" type="Marker2D" parent="ItemSpawners" unique_id=1824264085]
+position = Vector2(-55, -131)
+
+[node name="ItemSpawner7" type="Marker2D" parent="ItemSpawners" unique_id=751184965]
+position = Vector2(329, -307)
+
+[node name="ItemSpawner8" type="Marker2D" parent="ItemSpawners" unique_id=1368426492]
+position = Vector2(201, -398)
+
+[node name="ItemSpawner9" type="Marker2D" parent="ItemSpawners" unique_id=613360105]
+position = Vector2(-75, -398)
+
+[node name="ItemSpawner10" type="Marker2D" parent="ItemSpawners" unique_id=1210569085]
+position = Vector2(-235, -398)
+
+[node name="ItemSpawner11" type="Marker2D" parent="ItemSpawners" unique_id=592998735]
+position = Vector2(-235, -307)
+
+[node name="ItemSpawner12" type="Marker2D" parent="ItemSpawners" unique_id=1363012194]
+position = Vector2(-67, -307)
+
+[node name="ItemSpawner13" type="Marker2D" parent="ItemSpawners" unique_id=1867172561]
+position = Vector2(-246, -192)
+
+[node name="ItemSpawner14" type="Marker2D" parent="ItemSpawners" unique_id=80845674]
+position = Vector2(-403, -193)
+
+[node name="ItemSpawner15" type="Marker2D" parent="ItemSpawners" unique_id=1804291839]
+position = Vector2(-403, -307)
+
+[node name="ItemSpawner16" type="Marker2D" parent="ItemSpawners" unique_id=182631668]
+position = Vector2(-403, -398)
+
+[node name="ItemSpawner17" type="Marker2D" parent="ItemSpawners" unique_id=751897945]
+position = Vector2(-743, -307)
+
+[node name="ItemSpawner18" type="Marker2D" parent="ItemSpawners" unique_id=2099518545]
+position = Vector2(-723, -406)
+
+[node name="ItemSpawner19" type="Marker2D" parent="ItemSpawners" unique_id=774101689]
+position = Vector2(-858, -307)
+
+[node name="ItemSpawner20" type="Marker2D" parent="ItemSpawners" unique_id=915237695]
+position = Vector2(-867, -165)
+
+[node name="ItemSpawner21" type="Marker2D" parent="ItemSpawners" unique_id=1694281231]
+position = Vector2(-723, -181)
+
+[node name="ItemSpawner22" type="Marker2D" parent="ItemSpawners" unique_id=833685250]
+position = Vector2(-582, -131)
+
+[node name="ItemSpawner23" type="Marker2D" parent="ItemSpawners" unique_id=309156362]
+position = Vector2(-858, -24)
+
+[node name="ItemSpawner24" type="Marker2D" parent="ItemSpawners" unique_id=1063280561]
+position = Vector2(-706, -31)
+
+[node name="ItemSpawner25" type="Marker2D" parent="ItemSpawners" unique_id=956095927]
+position = Vector2(-521, -24)
+
+[node name="ItemSpawner26" type="Marker2D" parent="ItemSpawners" unique_id=527690291]
+position = Vector2(-582, 68)
+
+[node name="ItemSpawner27" type="Marker2D" parent="ItemSpawners" unique_id=299616258]
+position = Vector2(-743, 94)
+
+[node name="ItemSpawner28" type="Marker2D" parent="ItemSpawners" unique_id=2083324068]
+position = Vector2(-892, 94)
+
+[node name="ItemSpawner29" type="Marker2D" parent="ItemSpawners" unique_id=2072514179]
+position = Vector2(-877, 228)
+
+[node name="ItemSpawner30" type="Marker2D" parent="ItemSpawners" unique_id=65318485]
+position = Vector2(-723, 314)
+
+[node name="ItemSpawner31" type="Marker2D" parent="ItemSpawners" unique_id=720956878]
+position = Vector2(-568, 274)
+
+[node name="ItemSpawner32" type="Marker2D" parent="ItemSpawners" unique_id=1800146648]
+position = Vector2(-403, 314)
+
+[node name="ItemSpawner33" type="Marker2D" parent="ItemSpawners" unique_id=1261850456]
+position = Vector2(-411, 94)
+
+[node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_esb78")]
+state = NodePath("../GameState")
