@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://0qafwkpfsh4o"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_k8aqc"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_164m2"]
+[ext_resource type="Texture2D" uid="uid://4h7b4md07020" path="res://assets/collectibles/popolnok.PNG" id="2_k8aqc"]
+
+[sub_resource type="Resource" id="Resource_164m2"]
+script = ExtResource("2_164m2")
+value = 5.0
+id = "popolnok"
+colliders = 16
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Popolnok" type="StaticBody2D" unique_id=1590847529]
+script = ExtResource("1_k8aqc")
+item_resource = SubResource("Resource_164m2")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=338694418]
+texture = ExtResource("2_k8aqc")
