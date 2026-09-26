@@ -1,14 +1,73 @@
 class_name GlobalsGlobal
 extends Node
 
+const main_menu = preload("res://main_menu/main_menu.tscn")
+
 signal upgrade_bought(upgrade: Upgrades.UpgradeItemDTO)
 
 var upgrades: Upgrades.UpgradesContainer = Upgrades.UpgradesContainer.new()
 var peniazky: int = 0
 
+var current_game_state := GameState.Exited
+
+signal on_game_state_changed(state: GameState)
+
+var main_menu_instance: MainMenu
+
+enum GameState {
+	Running,
+	Exited,
+	Paused,
+}
+
 func _ready() -> void:
 	load_upgrades()
 	reset()
+	add_menu()
+
+func add_menu() -> void:
+	main_menu_instance = main_menu.instantiate()
+	get_tree().root.add_child.call_deferred(main_menu_instance)
+
+func remove_menu() -> void:
+	main_menu_instance.queue_free()
+	main_menu_instance = null
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		if current_game_state == GameState.Running:
+			pause_game()
+		else:
+			resume_game()
+
+func start_game() -> void:
+	current_game_state = GameState.Running
+	on_game_state_changed.emit(current_game_state)
+	
+	remove_menu()
+
+func pause_game() -> void:
+	current_game_state = GameState.Paused
+	on_game_state_changed.emit(current_game_state)
+	
+	add_menu()
+
+func resume_game() -> void:
+	current_game_state = GameState.Running
+	on_game_state_changed.emit(current_game_state)
+
+	remove_menu()
+
+func restart_game() -> void:
+	remove_menu()
+	current_game_state = GameState.Exited
+	on_game_state_changed.emit(current_game_state)
+
+	get_tree().reload_current_scene()
+	add_menu()
+
+func is_paused() -> bool:
+	return current_game_state == GameState.Paused
 
 func reset() -> void:
 	peniazky = 100000

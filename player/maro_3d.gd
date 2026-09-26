@@ -33,7 +33,7 @@ func _ready() -> void:
 	interact_area.body_exited.connect(_on_interact_area_exit)
 
 func _process(delta: float) -> void:
-	if is_in_tetris:
+	if is_in_tetris or Globals.current_game_state != Globals.GameState.Running:
 		return
 
 	var movement_input: Vector2 = controller.get_movement_input(delta)

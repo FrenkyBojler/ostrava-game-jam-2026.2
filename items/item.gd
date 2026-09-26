@@ -35,6 +35,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if Globals.current_game_state != Globals.GameState.Running:
+		return
+	
 	if is_being_placed:
 		var target_pos: Vector2
 		var target_grid_pos: Vector2 = Vector2(-1000, -1000)

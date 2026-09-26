@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c0r7nf8pu2wui"]
+
+[ext_resource type="Script" uid="uid://cmdn8tttt6ms4" path="res://main_menu/main_menu.gd" id="1_oa53l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lrroe"]
+font_size = 120
+
+[node name="MainMenuViewport" type="CanvasLayer" unique_id=1225069207]
+script = ExtResource("1_oa53l")
+
+[node name="MainMenu" type="Panel" parent="." unique_id=1102108730]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu" unique_id=968302193]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = -116.0
+offset_right = 311.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="GameTitle" type="Label" parent="MainMenu/VBoxContainer" unique_id=599182786]
+layout_mode = 2
+text = "Game Title"
+label_settings = SubResource("LabelSettings_lrroe")
+
+[node name="PlayGameButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=382197260]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="ResumeGameButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=1919308781]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="RestartGameButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=1342363640]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=1524812626]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit
+"
