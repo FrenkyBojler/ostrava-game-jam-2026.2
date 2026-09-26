@@ -36,7 +36,7 @@ func set_items_on_map(items: Array[Item]) -> void:
 
 func _process(_delta: float) -> void:
 	# get items in radius and sort them by distance to maro
-	tracked_items = items_on_map.filter(func(item: Item) -> bool:
+	tracked_items = items_on_map.filter(func(item) -> bool:
 		return item != null and not item.has_been_placed and maro.global_transform.origin.distance_to(item.global_transform.origin) <= radius
 	)
 
