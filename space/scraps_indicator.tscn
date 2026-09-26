@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dyoryvjq8dqmv"]
+
+[ext_resource type="Texture2D" uid="uid://8bxst15iadpw" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0131.png" id="1_67mti"]
+[ext_resource type="Script" uid="uid://dklc3x82fsthq" path="res://space/scraps_indicator.gd" id="1_fiwwi"]
+
+[node name="ScrapsIndicator" type="CanvasLayer" unique_id=1017566690]
+script = ExtResource("1_fiwwi")
+
+[node name="ArrowBase" type="TextureRect" parent="." unique_id=1181772856]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(21, 0)
+texture = ExtResource("1_67mti")

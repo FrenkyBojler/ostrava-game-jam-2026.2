@@ -1,6 +1,7 @@
 class_name SpaceGameState extends Node2D
 
 @export var item_spawner_parent: Node2D
+@export var scraps_indicator: ScrapsIndicator
 @export var items_to_spawn: Array[PackedScene]
 
 var max_oxygen: float
@@ -13,17 +14,22 @@ var used_spawn_points : Array[Node2D] = []
 
 func _ready() -> void:
 	assert(item_spawner_parent != null, "Missing item spawner parent")
+	assert(scraps_indicator != null, "Missing scraps indicator")
 	
 	max_oxygen = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CAPACITY)
 	oxygen_level = max_oxygen
 	oxygen_consumption_rate = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CONSUMPTION_RATE)
 	current_run_peniazky = 0
 	
-	_spawn_items()
-	_spawn_items()
-	_spawn_items()
-	_spawn_items()
-	_spawn_items()
+
+	var spawned_items: Array[Item] = []
+	spawned_items += _spawn_items()
+	spawned_items += _spawn_items()
+	spawned_items += _spawn_items()
+	spawned_items += _spawn_items()
+	spawned_items += _spawn_items()
+
+	scraps_indicator.set_items_on_map(spawned_items)
 
 func _process(delta: float) -> void:
 	if not Globals.is_running():
@@ -61,7 +67,9 @@ func add_oxygen(value: float) -> void:
 	if oxygen_level > max_oxygen:
 		oxygen_level = max_oxygen
 	
-func _spawn_items() -> void:
+func _spawn_items() -> Array[Item]:
+	var spawned_items: Array[Item] = []
+
 	for item in items_to_spawn:
 		var item_instance := item.instantiate() as Item
 		randomize()
@@ -71,9 +79,12 @@ func _spawn_items() -> void:
 		)
 		
 		if available_spawners.size() == 0:
-			return
+			return spawned_items
 		
 		var target_spawn := available_spawners.pick_random() as Node2D
 		used_spawn_points.push_back(target_spawn)
 		add_child(item_instance)
 		item_instance.global_position = target_spawn.global_position
+		spawned_items.append(item_instance)
+
+	return spawned_items
