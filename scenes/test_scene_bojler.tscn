@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="20_mc7l3"]
 [ext_resource type="PackedScene" uid="uid://dyoryvjq8dqmv" path="res://space/scraps_indicator.tscn" id="21_mc7l3"]
 [ext_resource type="PackedScene" uid="uid://dlsfw2pxfkywo" path="res://tetris/evakuacni_tlatko.tscn" id="22_oaqi0"]
+[ext_resource type="Texture2D" uid="uid://bm3omtesckvlh" path="res://assets/map/pocytac2.PNG" id="24_oi8fl"]
+[ext_resource type="Script" uid="uid://bn20sw1pked3v" path="res://tetris/pocytac_2.gd" id="25_tdfer"]
 [ext_resource type="Texture2D" uid="uid://dtvmpeo6bew88" path="res://assets/map/Shaft.PNG" id="28_tdfer"]
 [ext_resource type="Texture2D" uid="uid://hx18kuqroxlt" path="res://assets/map/Smushr_bottom.PNG" id="28_tgu2n"]
 [ext_resource type="Texture2D" uid="uid://cbyab446w6aav" path="res://assets/map/Smushr_top.PNG" id="29_bdsn8"]
@@ -231,12 +233,13 @@ tetris = NodePath("../TetrisGrid")
 [node name="ScrapsIndicator" parent="." unique_id=1017566690 node_paths=PackedStringArray("maro") instance=ExtResource("21_mc7l3")]
 maro = NodePath("../YSorting/Maro3D")
 
-[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state", "smasher_anim_player", "tlatko", "smasher_collision_shape") instance=ExtResource("9_e2ip7")]
+[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state", "smasher_anim_player", "tlatko", "smasher_collision_shape", "pocytac2") instance=ExtResource("9_e2ip7")]
 position = Vector2(0, -8)
 game_state = NodePath("../GameState")
 smasher_anim_player = NodePath("../YSorting/ShaftParent/Shaft/AnimationPlayer")
 tlatko = NodePath("../Tlatko")
 smasher_collision_shape = NodePath("../YSorting/ShaftParent/CollisionShape2D")
+pocytac2 = NodePath("../YSorting/Pocytac2")
 
 [node name="YSorting" type="Node2D" parent="." unique_id=2021691054]
 y_sort_enabled = true
@@ -244,6 +247,36 @@ y_sort_enabled = true
 [node name="EvakuacniTlatko" parent="YSorting" unique_id=2133668735 node_paths=PackedStringArray("state") instance=ExtResource("22_oaqi0")]
 position = Vector2(988, 243)
 state = NodePath("../../GameState")
+
+[node name="Pocytac2" type="Sprite2D" parent="YSorting" unique_id=2015728460]
+position = Vector2(227, -243)
+texture = ExtResource("24_oi8fl")
+script = ExtResource("25_tdfer")
+
+[node name="Control" type="Control" parent="YSorting/Pocytac2" unique_id=593255722]
+z_index = 20
+layout_mode = 3
+anchor_left = 0.492
+anchor_top = 0.563
+anchor_right = 0.492
+anchor_bottom = 0.563
+offset_left = -159.084
+offset_top = -99.005005
+offset_right = -18.084
+offset_bottom = -36.005005
+
+[node name="Number" type="Label" parent="YSorting/Pocytac2/Control" unique_id=1800500394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.23137255, 0.44313726)
+theme_override_font_sizes/font_size = 35
+text = "$0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Maro3D" parent="YSorting" unique_id=808645865 instance=ExtResource("2_3yj1c")]
 position = Vector2(920, 322)
