@@ -10,7 +10,7 @@ var items_on_map: Array[Item] = []
 var radius: float = 0
 
 var tracked_items: Array = []
-const SCREEN_EDGE_MARGIN := 16
+const SCREEN_EDGE_MARGIN := 256
 
 
 func _ready() -> void:
@@ -43,7 +43,9 @@ func _process(_delta: float) -> void:
 	tracked_items.sort_custom(_sort_items_by_distance)
 
 	var viewport_rect := get_viewport().get_visible_rect()
-	var edge_rect := viewport_rect.grow(-SCREEN_EDGE_MARGIN)
+	var edge_rect := viewport_rect.grow(-SCREEN_EDGE_MARGIN / 2)
+	var edge_rect_2 := viewport_rect.grow(-SCREEN_EDGE_MARGIN)
+	
 
 	var i: int = 0
 	for item: Item in tracked_items:
@@ -53,7 +55,7 @@ func _process(_delta: float) -> void:
 		# Update arrow position and rotation based on the item's position relative to maro
 		var maro_screen_position: Vector2 = maro.get_global_transform_with_canvas().origin
 		var item_screen_position: Vector2 = item.get_global_transform_with_canvas().origin
-		if viewport_rect.has_point(item_screen_position):
+		if edge_rect_2.has_point(item_screen_position):
 			continue
 
 		arrow_instances[i].visible = true
