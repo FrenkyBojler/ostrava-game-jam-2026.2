@@ -51,7 +51,7 @@ class UpgradesContainer:
 		for effect: EffectDTO in effects:
 			if effect.operation == "add":
 				value += effect.value
-			elif effect.operation == "multiply":
+			elif effect.operation == "mul":
 				value = value * effect.value if value != 0 else effect.value
 
 		return value
