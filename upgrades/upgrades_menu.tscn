@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://qtygmmiyad0v"]
 
-[ext_resource type="Script" uid="uid://cuxcivfy844ai" path="res://upgrades/upgrades_menu.gd" id="1_uo6sb"]
+[ext_resource type="Script" uid="uid://0rsqf7p82450" path="res://upgrades/upgrades_menu.gd" id="1_uo6sb"]
+[ext_resource type="Script" uid="uid://cuxcivfy844ai" path="res://upgrades/upgrades_menu_scroll.gd" id="2_esf6p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo6sb"]
 bg_color = Color(0.16370696, 0.16370699, 0.16370687, 1)
 
 [node name="UpgradesMenu" type="CanvasLayer" unique_id=950813890]
+script = ExtResource("1_uo6sb")
 
 [node name="Panel" type="Panel" parent="." unique_id=1746675122]
 anchors_preset = 15
@@ -21,9 +23,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uo6sb")
+script = ExtResource("2_esf6p")
 
 [node name="FlowContainer" type="Control" parent="ScrollContainer" unique_id=45605288]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=504623915]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_bottom = 55.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=247870183]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=223724489]
+layout_mode = 2
+text = "Peniazky:    "
+
+[node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1253527886]
+layout_mode = 2
+text = "1000"

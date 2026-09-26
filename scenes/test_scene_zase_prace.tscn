@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://brlp0fok0sl6j" path="res://items/placeholder_items/center_dot.tscn" id="10_0fe1l"]
 [ext_resource type="PackedScene" uid="uid://dkl7842wtdjw0" path="res://items/placeholder_items/top_right_l.tscn" id="11_3h0cv"]
 [ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_esb78"]
+[ext_resource type="PackedScene" uid="uid://588re1fjfhpj" path="res://tetris/tlatko.tscn" id="13_7i4b5"]
+[ext_resource type="PackedScene" uid="uid://dlsfw2pxfkywo" path="res://tetris/evakuacni_tlatko.tscn" id="13_s2pta"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -65,6 +67,14 @@ script = ExtResource("6_y0kqq")
 [node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent") instance=ExtResource("7_m8j6g")]
 item_spawner_parent = NodePath("../ItemSpawners")
 items_to_spawn = Array[PackedScene]([ExtResource("8_fymtd"), ExtResource("9_2xdu4"), ExtResource("10_0fe1l"), ExtResource("11_3h0cv")])
+
+[node name="EvakuacniTlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("state") instance=ExtResource("13_s2pta")]
+position = Vector2(646, -213)
+state = NodePath("../GameState")
+
+[node name="Tlatko" parent="." unique_id=1979493145 node_paths=PackedStringArray("tetris") instance=ExtResource("13_7i4b5")]
+position = Vector2(523, -123)
+tetris = NodePath("../TetrisGrid")
 
 [node name="ItemSpawners" type="Node2D" parent="." unique_id=397388277]
 
@@ -169,3 +179,6 @@ position = Vector2(-411, 94)
 
 [node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_esb78")]
 state = NodePath("../GameState")
+
+[node name="bottom_line" parent="." unique_id=1321071022 instance=ExtResource("8_fymtd")]
+position = Vector2(551, -230)

@@ -1,13 +1,12 @@
 extends StaticBody2D
 
-@export
-var tetris: TetrisGrid
+@export var state: SpaceGameState
 @onready var label = $Control/Label
 
 var can_interact := false
 
 func _ready() -> void:
-	assert(tetris != null, "Missing tetris")
+	assert(state != null, "Missing state")
 	label.visible = false
 	
 	$Area2D.body_entered.connect(func(body):
@@ -22,6 +21,6 @@ func _ready() -> void:
 			label.visible = false
 	)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_interact and Input.is_action_just_pressed("interact_p1"):
-		tetris.scrap_triggered()
+		state.evacuate()

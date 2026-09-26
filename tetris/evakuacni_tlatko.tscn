@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dlsfw2pxfkywo"]
+
+[ext_resource type="Script" uid="uid://027d2eqca4eh" path="res://tetris/evakuacni_tlatko.gd" id="1_6iqmt"]
+[ext_resource type="Texture2D" uid="uid://db08qeanhsvbg" path="res://assets/textures/placeholder/element_yellow_square_glossy.png" id="2_bf2kr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8040v"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ic6hy"]
+radius = 69.18092
+
+[node name="EvakuacniTlatko" type="StaticBody2D" unique_id=218626272]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_6iqmt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2070401716]
+texture = ExtResource("2_bf2kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=248082095]
+shape = SubResource("RectangleShape2D_8040v")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1542013681]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1430624124]
+shape = SubResource("CircleShape2D_ic6hy")
+
+[node name="Control" type="Control" parent="." unique_id=360036895]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control" unique_id=130077665]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -83.0
+offset_right = 71.0
+offset_bottom = -60.0
+text = "Press F to evacuate"

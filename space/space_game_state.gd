@@ -35,11 +35,14 @@ func _process(delta: float) -> void:
 		_die()
 
 func _die() -> void:
-
 	var penalty: float = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS)
 	var obtained_scrap: int = current_run_peniazky - round(current_run_peniazky * penalty)
 
 	Globals.add_peniazky(obtained_scrap)
+	Globals.to_upgrades()
+
+func evacuate() -> void:
+	Globals.add_peniazky(current_run_peniazky)
 	Globals.to_upgrades()
 
 func add_peniazky(value: float) -> void:
