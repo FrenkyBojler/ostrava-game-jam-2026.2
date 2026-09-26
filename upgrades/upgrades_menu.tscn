@@ -17,12 +17,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uo6sb")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1122728123]
+[node name="ScrollContainer" type="MarginContainer" parent="." unique_id=252665282]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
 script = ExtResource("2_esf6p")
 
 [node name="FlowContainer" type="Control" parent="ScrollContainer" unique_id=45605288]
@@ -47,8 +53,26 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=223724489]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Peniazky:    "
 
 [node name="MoneyLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1253527886]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "1000"
+
+[node name="BottomContainer" type="MarginContainer" parent="." unique_id=1036066924]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="StartGame" type="Button" parent="BottomContainer" unique_id=1329724343]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "      Start  Game     "

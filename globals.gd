@@ -39,8 +39,9 @@ func add_menu() -> void:
 	get_tree().root.add_child.call_deferred(main_menu_instance)
 
 func remove_menu() -> void:
-	main_menu_instance.queue_free()
-	main_menu_instance = null
+	if main_menu_instance != null:
+		main_menu_instance.queue_free()
+		main_menu_instance = null
 
 func add_upgrades_menu() -> void:
 	upgrades_menu_instance = upgrades_menu.instantiate()
