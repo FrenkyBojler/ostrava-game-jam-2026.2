@@ -7,6 +7,7 @@ var max_oxygen: float
 var oxygen_level: float
 var oxygen_consumption_rate: float
 var current_run_peniazky: float = 0.0
+var emergency_reserve_used: bool = false
 
 var used_spawn_points : Array[Node2D] = []
 
@@ -32,7 +33,11 @@ func _process(delta: float) -> void:
 	if oxygen_level < 0:
 		oxygen_level = 0
 	if oxygen_level == 0:
-		_die()
+		if Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_EMERGENCY_RESERVE) > 0 and not emergency_reserve_used:
+			oxygen_level = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_EMERGENCY_RESERVE)
+			emergency_reserve_used = true
+		else:
+			_die()
 
 func _die() -> void:
 	var penalty: float = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS)

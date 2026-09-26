@@ -1,9 +1,6 @@
 class_name TetrisGrid extends Node2D
 
 @export
-var scrap_wait_time = 20.0
-
-@export
 var game_state: SpaceGameState
 
 @onready var piece: Sprite2D = $Piece
