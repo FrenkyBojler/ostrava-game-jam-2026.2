@@ -27,6 +27,7 @@ var game_state: SpaceGameState
 @export var smasher_anim_player: AnimationPlayer
 @export var tlatko: Tlatko
 @export var smasher_collision_shape: CollisionShape2D
+@export var label: Label
 
 var entry_points: Array[Vector2] = []
 
@@ -42,6 +43,7 @@ func _ready() -> void:
 	assert(smasher_anim_player != null, "Missing Anim Player")
 	assert(tlatko != null, "Missing Tlatko")
 	assert(smasher_collision_shape != null, "Missing Smasher Collision Shape")
+	assert(label != null, "Missing label")
 	
 	grid_matrix_size = int(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.GRID_SIZE) + 2)
 
@@ -50,6 +52,8 @@ func _ready() -> void:
 	draw_grid()
 	
 	smasher_collision_shape.disabled = true
+	
+	label.text = "Bring items to squash and earn money!"
 
 func scrap_triggered() -> void:
 	tlatko.is_going_up = true
@@ -109,7 +113,8 @@ func draw_grid() -> void:
 	)
 	
 	global_position -= Vector2((grid_size * (grid_matrix_size - 1)) / 2, (grid_size * (grid_matrix_size - 1)) / 2)
-
+	label.global_position += Vector2.DOWN * (grid_size * (grid_matrix_size - 1)) / 2
+	
 func draw_border(x: int, y: int) -> void:
 	var is_exit: bool = exits.has(Vector2(x, y))
 	if is_exit:
@@ -149,8 +154,11 @@ func start_placing_item(item: Item) -> void:
 func _on_body_entered(body: Area2D) -> void:
 	if body.get_parent() is Maro3D:
 		maro = body.get_parent() as Maro3D
-
-		var nearest_piece = get_nearest_piece(maro.position)
+		
+		if maro.picked_item != null:
+			label.text = "Press F to drop items"
+		
+		var nearest_piece := get_nearest_piece(maro.position)
 		if nearest_piece != null:
 			maro.to_tetris(nearest_piece.global_position, self)
 			
@@ -175,6 +183,7 @@ func toggle_highlight_all_pieces(value: bool) -> void:
 func _on_body_exited(body: Node) -> void:
 	if body.get_parent() is Maro3D:
 		maro.to_space()
+		label.text = "Bring items to squash and earn money!"
 		
 func is_inside(coord: Vector2) -> bool:
 	return coord.x >= 0 and coord.x < grid_matrix_size - 2 and coord.y >= 0 and coord.y < grid_matrix_size -2

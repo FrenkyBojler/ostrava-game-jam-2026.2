@@ -4,6 +4,8 @@ class_name Tlatko extends StaticBody2D
 @export var cooldown_time := 1.0
 
 @onready var label = $Control/Label
+@onready var label_number = $Control/Number
+
 
 var can_interact := false
 var number_of_interactions := 0
@@ -31,6 +33,8 @@ func _ready() -> void:
 	)
 
 func _process(delta: float) -> void:
+	label_number.text = str(max_interactions -number_of_interactions)
+	
 	if cooldown > 0:
 		cooldown -= delta
 		return

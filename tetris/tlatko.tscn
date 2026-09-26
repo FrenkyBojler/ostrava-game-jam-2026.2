@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://588re1fjfhpj"]
 
-[ext_resource type="Texture2D" uid="uid://db08qeanhsvbg" path="res://assets/textures/placeholder/element_yellow_square_glossy.png" id="1_f86xg"]
 [ext_resource type="Script" uid="uid://bwh7n8ao1ju2o" path="res://tetris/tlatko.gd" id="1_ksswq"]
+[ext_resource type="Texture2D" uid="uid://cc8xtsf5un5ei" path="res://assets/map/pocytac.PNG" id="2_ksswq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8040v"]
-size = Vector2(64, 64)
+size = Vector2(153.33333, 23.333332)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic6hy"]
-radius = 69.18092
+radius = 106.718735
 
 [node name="Tlatko" type="StaticBody2D" unique_id=218626272]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("1_ksswq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2070401716]
-texture = ExtResource("1_f86xg")
+texture = ExtResource("2_ksswq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=248082095]
+position = Vector2(-3.3333364, 41.666664)
 shape = SubResource("RectangleShape2D_8040v")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1542013681]
@@ -30,10 +30,31 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Control" unique_id=130077665]
+[node name="Number" type="Label" parent="Control" unique_id=503318097]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.8
+anchor_top = 0.23700002
+anchor_right = -0.8
+anchor_bottom = 0.23700002
+offset_left = -34.0
+offset_top = -32.48
+offset_right = 34.0
+offset_bottom = 32.52
+theme_override_colors/font_color = Color(1, 1, 0.23137255, 0.44313726)
+theme_override_font_sizes/font_size = 45
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control" unique_id=526327518]
 layout_mode = 0
-offset_left = -60.0
-offset_top = -83.0
-offset_right = 71.0
-offset_bottom = -60.0
-text = "Press F to trigger"
+offset_left = -106.0
+offset_top = -128.0
+offset_right = 116.0
+offset_bottom = -94.0
+theme_override_colors/font_color = Color(1, 1, 0.23137255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Press F to squash!"

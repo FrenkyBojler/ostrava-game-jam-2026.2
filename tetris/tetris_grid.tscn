@@ -14,11 +14,36 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
 
-[node name="TetrisGrid" type="Node2D" unique_id=1266041450]
+[node name="TetrisGrid" type="Node2D" unique_id=1266041450 node_paths=PackedStringArray("label")]
 y_sort_enabled = true
 script = ExtResource("1_as6nv")
 grid_matrix_size = 9
 exits = Array[Vector2]([Vector2(0, 2), Vector2(3, 0), Vector2(6, 3), Vector2(2, 6)])
+label = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="." unique_id=596129502]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="Control" unique_id=270061757]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -17.0
+offset_right = 111.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.23137255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Press F to squash!"
 
 [node name="Container" type="Node2D" parent="." unique_id=1668081454]
 
