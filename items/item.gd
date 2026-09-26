@@ -196,6 +196,43 @@ func get_coords() -> Array[GlobalTypesGlobal.ItemCell]:
 
 	return result_arry
 
+func get_rotated_input()  -> GlobalTypesGlobal.ItemCell:
+	var result: = item_resource.input
+	var original_input := FlagsGridUtils.get_selected_coord(item_resource.input, 3)
+	
+	for i: int in abs(rotations_applied):
+		if rotations_applied > 0:
+			result = FlagsGridUtils.rotate_mask_cw(result, 3)
+		else:
+			result = FlagsGridUtils.rotate_mask_ccw(result, 3)
+			
+	var rotated_input := FlagsGridUtils.get_selected_coord(result, 3)
+	
+	var result_item_cell := GlobalTypesGlobal.ItemCell.new()
+	result_item_cell.original_coord = original_input
+	result_item_cell.rotated_coord = rotated_input
+	
+	return result_item_cell
+	
+func get_rotated_output() -> GlobalTypesGlobal.ItemCell:
+	var result: = item_resource.output
+	var original_output := FlagsGridUtils.get_selected_coord(item_resource.output, 3)
+	
+	for i: int in abs(rotations_applied):
+		if rotations_applied > 0:
+			result = FlagsGridUtils.rotate_mask_cw(result, 3)
+		else:
+			result = FlagsGridUtils.rotate_mask_ccw(result, 3)
+			
+	var rotated_output := FlagsGridUtils.get_selected_coord(result, 3)
+	
+	var result_item_cell := GlobalTypesGlobal.ItemCell.new()
+	result_item_cell.original_coord = original_output
+	result_item_cell.rotated_coord = rotated_output
+	
+	return result_item_cell
+	
+
 func get_coords_adjusted_by_first_cell() -> Array[GlobalTypesGlobal.ItemCell]:
 	return get_coords().map(get_coord_adjusted_by_first_cell)
 	

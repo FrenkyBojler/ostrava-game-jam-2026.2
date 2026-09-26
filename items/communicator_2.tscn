@@ -7,9 +7,10 @@
 [sub_resource type="Resource" id="Resource_dy426"]
 script = ExtResource("2_dy426")
 value = 40.0
+id = "comm2"
 colliders = 216
 has_input = true
-input = 1
+input = 8
 metadata/_custom_type_script = "uid://b301n057bh2be"
 
 [node name="Communicator2" type="StaticBody2D" unique_id=275515313]

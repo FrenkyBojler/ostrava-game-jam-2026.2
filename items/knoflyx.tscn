@@ -7,6 +7,7 @@
 [sub_resource type="Resource" id="Resource_n2jv5"]
 script = ExtResource("2_m168k")
 value = 5.0
+id = "knoflyx"
 colliders = 16
 metadata/_custom_type_script = "uid://b301n057bh2be"
 

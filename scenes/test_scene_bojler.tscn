@@ -180,3 +180,9 @@ state = NodePath("../GameState")
 [node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
 position = Vector2(758, -241.00002)
 tetris = NodePath("../TetrisGrid")
+
+[node name="Communicator1" parent="." unique_id=516705421 instance=ExtResource("20_mc7l3")]
+position = Vector2(779, 50)
+
+[node name="Communicator2" parent="." unique_id=275515313 instance=ExtResource("19_2ubon")]
+position = Vector2(779, 129)

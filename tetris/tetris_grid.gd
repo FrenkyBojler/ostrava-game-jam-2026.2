@@ -31,6 +31,8 @@ var items_placed: Array[Item] = []
 
 var maro: Maro3D
 
+var combined_items_value := 0.0
+
 func _ready() -> void:
 	assert(game_state != null, "Missing Game State")
 	grid_matrix_size = int(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.GRID_SIZE) + 2)
@@ -54,7 +56,8 @@ func scrap_triggered() -> void:
 	game_state.add_peniazky(value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
 	var bonus_oxygen: float = size_collected * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_BONUS_PER_SCRAP))
 	game_state.add_oxygen(bonus_oxygen)
-
+	game_state.add_peniazky(combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS)))
+	combined_items_value = 0.0
 
 func draw_grid() -> void:
 	container.get_children().map(func(child: Node2D) -> void:
@@ -186,3 +189,24 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	await get_tree().create_timer(0.1).timeout
 	maro.is_in_tetris = false
 	
+	check_combinations()
+	
+func check_combinations() -> void:
+	for item in items_placed:
+		if item.item_resource.has_output:
+			var rotated_output_coord := item.get_rotated_output()
+			var target_output_coord := item.get_coord_adjusted_by_first_cell(rotated_output_coord).rotated_coord + item.current_grid_position_of_first_cell
+			pieces[target_output_coord].toggle_highlight(true)
+			
+			var target_input_item_index := items_placed.find_custom(func(item_to_find: Item):
+					return item_to_find.item_resource.id == item.item_resource.linked_item_id
+			)
+			
+			if target_input_item_index != -1:
+				var target_input_item := items_placed[target_input_item_index]
+				var target_input_coord := target_input_item.get_coord_adjusted_by_first_cell(target_input_item.get_rotated_input()).rotated_coord + target_input_item.current_grid_position_of_first_cell
+				pieces[target_input_coord].toggle_highlight(true)
+				var success := target_input_coord == target_output_coord
+				combined_items_value += item.item_resource.value + target_input_item.item_resource.value
+			else:
+				print_debug("No compatible items placed")

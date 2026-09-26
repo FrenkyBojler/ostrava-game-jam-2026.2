@@ -6,6 +6,9 @@ class_name ItemResource
 @export
 var value: float
 
+@export
+var id: String
+
 @export_custom(PROPERTY_HINT_FLAGS, "grid:3:00,10,20,01,11,21,02,12,22")
 var colliders: int = 0
 
@@ -33,7 +36,7 @@ var output: int = 0:
 		notify_property_list_changed()
 
 @export
-var linked_item: PackedScene
+var linked_item_id: String
 
 func _validate_property(property: Dictionary) -> void:
 	if property.name == "linked_item" and output == 0:

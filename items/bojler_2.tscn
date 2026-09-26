@@ -7,6 +7,7 @@
 [sub_resource type="Resource" id="Resource_lrroe"]
 script = ExtResource("2_srdab")
 value = 25.0
+id = "bojler2"
 colliders = 216
 has_input = true
 input = 1
