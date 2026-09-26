@@ -216,12 +216,6 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	items_placed.push_back(item)
 	item.has_been_placed = true
 	
-	var total_penizky := 0.0
-	for item_placed in items_placed:
-		print_debug(str(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
-		total_penizky += item_placed.item_resource.value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE))
-		total_penizky += combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS))
-	pocytac2.add_penizky(total_penizky)
 
 	maro.picked_item = null
 	item.turn_off_highlight()
@@ -237,6 +231,13 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	maro.is_near_tetris = false
 	
 	check_combinations()
+	var total_penizky := 0.0
+	for item_placed in items_placed:
+		print_debug(str(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
+		total_penizky += item_placed.item_resource.value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE))
+		total_penizky += combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS))
+	pocytac2.add_penizky(total_penizky)
+
 	
 func check_combinations() -> void:
 	for item in items_placed:

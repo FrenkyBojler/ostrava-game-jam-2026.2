@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxex76o8gv40p"]
 
 [ext_resource type="Script" uid="uid://4iykdpw6tmmi" path="res://tetris/tetris_grid.gd" id="1_as6nv"]
-[ext_resource type="Texture2D" uid="uid://cna0rtew85k7y" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0060.png" id="2_tgouq"]
+[ext_resource type="Texture2D" uid="uid://uvdeikcnm88u" path="res://assets/UI/grid_tile.PNG" id="2_ojk5r"]
 [ext_resource type="Texture2D" uid="uid://bc2515bx1qgao" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0013.png" id="3_p2yjh"]
 [ext_resource type="Script" uid="uid://dvw2j20hl8ubb" path="res://tetris/piece.gd" id="3_waadn"]
 [ext_resource type="Texture2D" uid="uid://dxfymq28w27j1" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0016.png" id="4_lf5iq"]
@@ -49,9 +49,8 @@ text = "Press F to squash!"
 
 [node name="Piece" type="Sprite2D" parent="." unique_id=1425992638]
 visible = false
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(3.125, 3.125)
-texture = ExtResource("2_tgouq")
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_ojk5r")
 script = ExtResource("3_waadn")
 
 [node name="BorderR" type="Node2D" parent="." unique_id=58756288]
