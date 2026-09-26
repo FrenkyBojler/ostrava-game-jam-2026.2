@@ -227,10 +227,6 @@ position = Vector2(-411, 94)
 [node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_bj67q")]
 state = NodePath("../GameState")
 
-[node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
-position = Vector2(-530, 197)
-tetris = NodePath("../TetrisGrid")
-
 [node name="ScrapsIndicator" parent="." unique_id=1017566690 node_paths=PackedStringArray("maro") instance=ExtResource("21_mc7l3")]
 maro = NodePath("../YSorting/Maro3D")
 
@@ -238,19 +234,23 @@ maro = NodePath("../YSorting/Maro3D")
 position = Vector2(0, -8)
 game_state = NodePath("../GameState")
 smasher_anim_player = NodePath("../YSorting/ShaftParent/Shaft/AnimationPlayer")
-tlatko = NodePath("../Tlatko")
+tlatko = NodePath("../YSorting/Tlatko")
 smasher_collision_shape = NodePath("../YSorting/ShaftParent/CollisionShape2D")
 pocytac2 = NodePath("../YSorting/Pocytac2")
 
 [node name="YSorting" type="Node2D" parent="." unique_id=2021691054]
 y_sort_enabled = true
 
+[node name="Tlatko" parent="YSorting" unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
+position = Vector2(-530, 188)
+tetris = NodePath("../../TetrisGrid")
+
 [node name="EvakuacniTlatko" parent="YSorting" unique_id=2133668735 node_paths=PackedStringArray("state") instance=ExtResource("22_oaqi0")]
 position = Vector2(988, 243)
 state = NodePath("../../GameState")
 
 [node name="Pocytac2" type="Sprite2D" parent="YSorting" unique_id=2015728460]
-position = Vector2(227, -243)
+position = Vector2(229, -161)
 texture = ExtResource("24_oi8fl")
 script = ExtResource("25_tdfer")
 

@@ -70,7 +70,7 @@ class UpgradesContainer:
 			UpgradeProperty.GRID_SIZE:
 				return 3
 			UpgradeProperty.SCRAPPER_USES:
-				return 2
+				return 1
 			UpgradeProperty.SCRAP_VALUE:
 				return 1
 			UpgradeProperty.MULTI_PARTS_SCRAPS:
@@ -82,7 +82,7 @@ class UpgradesContainer:
 			UpgradeProperty.MOVE_SPEED:
 				return 325
 			UpgradeProperty.OXYGEN_CAPACITY:
-				return 2
+				return 60
 			UpgradeProperty.FLASHLIGHT_SIZE:
 				return 5
 			UpgradeProperty.FLASHLIGHT_RANGE:

@@ -32,19 +32,19 @@
 		"active_level": 0,
 		"upgrades": [
 			{
-				"price": 100,
+				"price": 50,
 				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 15}]
 			},
 			{
-				"price": 400,
+				"price": 300,
 				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 30}]
 			},
 			{
-				"price": 900,
+				"price": 600,
 				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 50}]
 			},
 			{
-				"price": 1800,
+				"price": 1500,
 				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 75}]
 			},
 			{
@@ -129,19 +129,19 @@
 		"active_level": 0,
 		"upgrades": [
 			{
-				"price": 100,
+				"price": 50,
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
 			},
 			{
-				"price": 400,
+				"price": 200,
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 2}]
 			},
 			{
-				"price": 900,
+				"price": 600,
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 3}]
 			},
 			{
-				"price": 1600,
+				"price": 1000,
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 4.5}]
 			}
 		],
@@ -179,7 +179,7 @@
 		"active_level": 0,
 		"upgrades": [
 			{
-				"price": 50,
+				"price": 100,
 				"effects": [{"property": "scrapper_uses", "operation": "add", "value": 1}]
 			},
 			{
@@ -268,7 +268,7 @@
 		"active_level": 0,
 		"upgrades": [
 			{
-				"price": 100,
+				"price": 50,
 				"effects": [{"property": "move_speed", "operation": "add", "value": 100}]
 			},
 			{
