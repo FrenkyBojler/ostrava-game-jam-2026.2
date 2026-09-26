@@ -4,6 +4,7 @@ var current_scrap: int
 var max_oxygen: float
 var oxygen_level: float
 var oxygen_consumption_rate: float
+var current_run_peniazky: float = 0.0
 
 func _ready() -> void:
 	max_oxygen = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CAPACITY)
@@ -25,3 +26,6 @@ func _die() -> void:
 
 	Globals.add_peniazky(obtained_scrap)
 	Globals.to_upgrades()
+
+func add_peniazky(value: float) -> void:
+	current_run_peniazky += value

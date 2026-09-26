@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://brlp0fok0sl6j" path="res://items/placeholder_items/center_dot.tscn" id="8_jj3xy"]
 [ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="9_e2ip7"]
 [ext_resource type="PackedScene" uid="uid://bopauxvt65mev" path="res://items/placeholder_items/bottom_right_l.tscn" id="10_8woto"]
+[ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="11_vwlvh"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -48,8 +49,9 @@ position = Vector2(-225, -26)
 texture = ExtResource("2_dq6g1")
 script = ExtResource("3_5tcau")
 
-[node name="TetrisGrid" parent="." unique_id=1266041450 instance=ExtResource("9_e2ip7")]
+[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state") instance=ExtResource("9_e2ip7")]
 position = Vector2(589, -139)
+game_state = NodePath("../GameState")
 
 [node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("2_3yj1c")]
 position = Vector2(504, -173)
@@ -70,3 +72,5 @@ position = Vector2(533, -59)
 
 [node name="bottom_right_l" parent="." unique_id=695792490 instance=ExtResource("10_8woto")]
 position = Vector2(547, -217)
+
+[node name="GameState" parent="." unique_id=651551148 instance=ExtResource("11_vwlvh")]

@@ -1,7 +1,10 @@
 class_name TetrisGrid extends Node2D
 
 @export
-var scrap_wait_time = 60.0
+var scrap_wait_time = 20.0
+
+@export
+var game_state: SpaceGameState
 
 @onready var piece: Sprite2D = $Piece
 @onready var container: Node2D = $Container
@@ -28,23 +31,33 @@ var scrap_wait_time = 60.0
 var entry_points: Array[Vector2] = []
 
 var pieces: Dictionary[Vector2, Piece] = {}
-var items_placed: Array[ItemResource] = []
+var items_placed: Array[Item] = []
 
 var maro: Maro3D
 
+var scrap_timer_max_wait_time := 0.0
+@onready
+var scrap_timer_current_wait_time := scrap_timer_max_wait_time
+
 func _ready() -> void:
+	assert(game_state != null, "Missing Game State")
 	grid_matrix_size = int(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.GRID_SIZE) + 2)
 	
-	scraper_timer.wait_time = scrap_wait_time / float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_PROCESSING_SPEED))
+	scrap_timer_max_wait_time = scrap_wait_time / float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_PROCESSING_SPEED))
+	scrap_timer_current_wait_time = scrap_timer_max_wait_time
+	scraper_timer.wait_time = 0.1
 	scraper_timer.one_shot = false
 	
 	scraper_timer.timeout.connect(func():
-		scrap_triggered()
+		scrap_timer_current_wait_time -= scraper_timer.wait_time
+		if scrap_timer_current_wait_time <= 0: 
+			scrap_triggered()
+			scrap_timer_current_wait_time = scrap_timer_max_wait_time
+		$Control/TimeToScrapLabel.text = "Time to scrap: " + str(scrap_timer_current_wait_time).pad_decimals(2)
 	)
 	
 	scraper_timer.start()
 
-	print_debug("Grid matrix size: %d" % grid_matrix_size)
 	entry_trigger.area_entered.connect(_on_body_entered)
 	entry_trigger.area_exited.connect(_on_body_exited)
 	draw_grid()
@@ -52,9 +65,15 @@ func _ready() -> void:
 func scrap_triggered() -> void:
 	var value := 0.0
 	for item in items_placed:
-		value += item.value
-
-	#Globals.add_peniazky(value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
+		value += item.item_resource.value
+		item.queue_free()
+	items_placed = []
+	for piece in pieces.values():
+		piece.occuppied = false
+		
+	game_state.add_peniazky(value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
+	
+	
 
 func draw_grid() -> void:
 	container.get_children().map(func(child: Node2D) -> void:
@@ -172,7 +191,7 @@ func check_place_item(item: Item, at_position: Vector2) -> bool:
 	return result
 	
 func place_item(item: Item, at_position: Vector2) -> void:
-	items_placed.push_back(item.item_resource)
+	items_placed.push_back(item)
 	
 	maro.picked_item = null
 	item.turn_off_highlight()
@@ -181,5 +200,7 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	for coord in item.get_coords_adjusted_by_first_cell():
 		var coord_adjusted := coord.rotated_coord + at_position
 		pieces[coord_adjusted].toggle_occupy(true)
+	toggle_highlight_all_pieces(false)
 	await get_tree().create_timer(0.1).timeout
 	maro.is_in_tetris = false
+	

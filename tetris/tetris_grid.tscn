@@ -14,6 +14,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_lrroe"]
+font_size = 60
+
 [node name="TetrisGrid" type="Node2D" unique_id=1266041450]
 script = ExtResource("1_as6nv")
 grid_matrix_size = 9
@@ -147,3 +150,32 @@ position = Vector2(62, 88)
 texture = ExtResource("8_pwy87")
 
 [node name="ScrapeTimer" type="Timer" parent="." unique_id=2031278333]
+
+[node name="Control" type="Control" parent="." unique_id=1901664632]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.999998
+offset_right = 20.999998
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+
+[node name="TimeToScrapLabel" type="Label" parent="Control" unique_id=298574692]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.5250001
+anchor_top = 0.287
+anchor_right = 1.5250001
+anchor_bottom = 0.287
+offset_left = -99.99999
+offset_top = -39.999996
+offset_right = 355.0
+offset_bottom = 43.000004
+grow_horizontal = 2
+grow_vertical = 2
+text = "Time To Scrape:"
+label_settings = SubResource("LabelSettings_lrroe")

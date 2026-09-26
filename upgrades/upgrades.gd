@@ -71,7 +71,7 @@ class UpgradesContainer:
 			UpgradeProperty.MOVE_OVER_GRID_OBSTACLES:
 				return 0
 			UpgradeProperty.SCRAP_PROCESSING_SPEED:
-				return 10
+				return 1
 			UpgradeProperty.SCRAP_VALUE:
 				return 1
 			UpgradeProperty.MULTI_PARTS_SCRAPS:
