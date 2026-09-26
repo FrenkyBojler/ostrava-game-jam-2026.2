@@ -24,6 +24,71 @@
 [ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="20_mc7l3"]
 [ext_resource type="PackedScene" uid="uid://dyoryvjq8dqmv" path="res://space/scraps_indicator.tscn" id="21_mc7l3"]
 [ext_resource type="PackedScene" uid="uid://dlsfw2pxfkywo" path="res://tetris/evakuacni_tlatko.tscn" id="22_oaqi0"]
+[ext_resource type="Texture2D" uid="uid://dampm4icni74j" path="res://assets/map/lod.PNG" id="25_tdfer"]
+[ext_resource type="Texture2D" uid="uid://cc8xtsf5un5ei" path="res://assets/map/pocytac.PNG" id="26_ah7kf"]
+[ext_resource type="Texture2D" uid="uid://dtvmpeo6bew88" path="res://assets/map/Shaft.PNG" id="28_tdfer"]
+[ext_resource type="Texture2D" uid="uid://hx18kuqroxlt" path="res://assets/map/Smushr_bottom.PNG" id="28_tgu2n"]
+[ext_resource type="Texture2D" uid="uid://cbyab446w6aav" path="res://assets/map/Smushr_top.PNG" id="29_bdsn8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdfer"]
+size = Vector2(381, 429)
+
+[sub_resource type="Animation" id="Animation_jo57l"]
+resource_name = "GoUp"
+length = 1.0000033854875714
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0000033),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 200), Vector2(0, -229)]
+}
+
+[sub_resource type="Animation" id="Animation_ah7kf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -229)]
+}
+
+[sub_resource type="Animation" id="Animation_tdfer"]
+resource_name = "SmashDown"
+length = 0.06667000347711147
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -229), Vector2(0, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ah7kf"]
+_data = {
+&"GoUp": SubResource("Animation_jo57l"),
+&"RESET": SubResource("Animation_ah7kf"),
+&"SmashDown": SubResource("Animation_tdfer")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah7kf"]
+size = Vector2(228, 22)
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -45,13 +110,6 @@ coll_only = true
 y_sort_enabled = true
 texture = ExtResource("5_6war0")
 script = ExtResource("3_5tcau")
-
-[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state") instance=ExtResource("9_e2ip7")]
-position = Vector2(1122, -48)
-game_state = NodePath("../GameState")
-
-[node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("2_3yj1c")]
-position = Vector2(758, -440)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
 visible = false
@@ -174,8 +232,70 @@ position = Vector2(758, -241.00002)
 tetris = NodePath("../TetrisGrid")
 
 [node name="ScrapsIndicator" parent="." unique_id=1017566690 node_paths=PackedStringArray("maro") instance=ExtResource("21_mc7l3")]
-maro = NodePath("../Maro3D")
+maro = NodePath("../YSorting/Maro3D")
 
 [node name="EvakuacniTlatko" parent="." unique_id=2133668735 node_paths=PackedStringArray("state") instance=ExtResource("22_oaqi0")]
 position = Vector2(877, -241)
 state = NodePath("../GameState")
+
+[node name="Lod" type="Sprite2D" parent="." unique_id=2055580067]
+position = Vector2(787, 114)
+texture = ExtResource("25_tdfer")
+
+[node name="Pocytac" type="Sprite2D" parent="." unique_id=857510700]
+position = Vector2(-508, 188)
+texture = ExtResource("26_ah7kf")
+
+[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state", "smasher_anim_player", "tlatko", "smasher_collision_shape") instance=ExtResource("9_e2ip7")]
+game_state = NodePath("../GameState")
+smasher_anim_player = NodePath("../YSorting/ShaftParent/Shaft/AnimationPlayer")
+tlatko = NodePath("../Tlatko")
+smasher_collision_shape = NodePath("../YSorting/ShaftParent/CollisionShape2D")
+
+[node name="YSorting" type="Node2D" parent="." unique_id=2021691054]
+y_sort_enabled = true
+
+[node name="Maro3D" parent="YSorting" unique_id=808645865 instance=ExtResource("2_3yj1c")]
+position = Vector2(198, 159)
+
+[node name="ShaftParent" type="StaticBody2D" parent="YSorting" unique_id=570644799]
+position = Vector2(0, -229)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorting/ShaftParent" unique_id=1660901051]
+position = Vector2(0, -219.5)
+shape = SubResource("RectangleShape2D_tdfer")
+
+[node name="Shaft" type="Sprite2D" parent="YSorting/ShaftParent" unique_id=1509823261]
+position = Vector2(0, -619)
+texture = ExtResource("28_tdfer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSorting/ShaftParent/Shaft" unique_id=342421374]
+libraries/ = SubResource("AnimationLibrary_ah7kf")
+
+[node name="SmushTopParent" type="Node2D" parent="YSorting" unique_id=1498713469]
+position = Vector2(0, 286)
+
+[node name="SmushTop" type="Sprite2D" parent="YSorting/SmushTopParent" unique_id=1121509194]
+position = Vector2(0, -739)
+texture = ExtResource("29_bdsn8")
+
+[node name="SmushBottomParent" type="Node2D" parent="YSorting" unique_id=1248382945]
+position = Vector2(0, 79)
+
+[node name="SmushrBottom" type="Sprite2D" parent="YSorting/SmushBottomParent" unique_id=1282102350]
+position = Vector2(0, -79)
+texture = ExtResource("28_tgu2n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSorting/SmushBottomParent/SmushrBottom" unique_id=1696115831]
+position = Vector2(-348, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorting/SmushBottomParent/SmushrBottom/StaticBody2D" unique_id=1189460863]
+position = Vector2(4, 35)
+shape = SubResource("RectangleShape2D_ah7kf")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="YSorting/SmushBottomParent/SmushrBottom" unique_id=1246215114]
+position = Vector2(343, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorting/SmushBottomParent/SmushrBottom/StaticBody2D2" unique_id=603088813]
+position = Vector2(4, 35)
+shape = SubResource("RectangleShape2D_ah7kf")

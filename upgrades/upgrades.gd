@@ -68,7 +68,7 @@ class UpgradesContainer:
 	func get_property_base_value(property: UpgradeProperty) -> float:
 		match property:
 			UpgradeProperty.GRID_SIZE:
-				return 3
+				return 5
 			UpgradeProperty.SCRAPPER_USES:
 				return 2
 			UpgradeProperty.SCRAP_VALUE:

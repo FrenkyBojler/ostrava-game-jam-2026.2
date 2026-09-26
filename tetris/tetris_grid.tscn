@@ -15,8 +15,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
 
 [node name="TetrisGrid" type="Node2D" unique_id=1266041450]
+y_sort_enabled = true
 script = ExtResource("1_as6nv")
-grid_size = 50
 grid_matrix_size = 9
 exits = Array[Vector2]([Vector2(0, 2), Vector2(3, 0), Vector2(6, 3), Vector2(2, 6)])
 
@@ -24,6 +24,7 @@ exits = Array[Vector2]([Vector2(0, 2), Vector2(3, 0), Vector2(6, 3), Vector2(2, 
 
 [node name="Piece" type="Sprite2D" parent="." unique_id=1425992638]
 visible = false
+modulate = Color(0, 0, 0, 1)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("2_tgouq")
 script = ExtResource("3_waadn")
@@ -145,5 +146,6 @@ shape = SubResource("RectangleShape2D_lrroe")
 debug_color = Color(0.9493025, 0.011668049, 0.5709296, 0.41960785)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=325639648]
-position = Vector2(62, 88)
+top_level = true
+scale = Vector2(2.07, 2.07)
 texture = ExtResource("8_pwy87")

@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 		move_and_collide(movement_input)
 
 	if Input.is_action_just_pressed("interact_p1"):
-		if is_near_tetris and picked_item != null:
+		if is_near_tetris and picked_item != null and tetris != null and tetris.tlatko.number_of_interactions < tetris.tlatko.max_interactions:
 			is_in_tetris = true
 			tetris.start_placing_item(picked_item)
 		elif (item_to_pick == null and picked_item != null) or picked_item != null and is_in_tetris:

@@ -24,6 +24,10 @@ var game_state: SpaceGameState
 @export var grid_matrix_size: int = 5
 @export var exits: Array[Vector2] = [] 
 
+@export var smasher_anim_player: AnimationPlayer
+@export var tlatko: Tlatko
+@export var smasher_collision_shape: CollisionShape2D
+
 var entry_points: Array[Vector2] = []
 
 var pieces: Dictionary[Vector2, Piece] = {}
@@ -35,13 +39,23 @@ var combined_items_value := 0.0
 
 func _ready() -> void:
 	assert(game_state != null, "Missing Game State")
+	assert(smasher_anim_player != null, "Missing Anim Player")
+	assert(tlatko != null, "Missing Tlatko")
+	assert(smasher_collision_shape != null, "Missing Smasher Collision Shape")
+	
 	grid_matrix_size = int(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.GRID_SIZE) + 2)
 
 	entry_trigger.area_entered.connect(_on_body_entered)
 	entry_trigger.area_exited.connect(_on_body_exited)
 	draw_grid()
 	
+	smasher_collision_shape.disabled = true
+
 func scrap_triggered() -> void:
+	tlatko.is_going_up = true
+	smasher_collision_shape.disabled = false
+	smasher_anim_player.play("SmashDown")
+	await get_tree().create_timer(smasher_anim_player.get_animation("SmashDown").length).timeout
 	var value := 0.0
 	var size_collected := 0
 
@@ -58,6 +72,13 @@ func scrap_triggered() -> void:
 	game_state.add_oxygen(bonus_oxygen)
 	game_state.add_peniazky(combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS)))
 	combined_items_value = 0.0
+	
+	if tlatko.number_of_interactions < tlatko.max_interactions:
+		await get_tree().create_timer(3).timeout
+		smasher_anim_player.play("GoUp")
+		await get_tree().create_timer(smasher_anim_player.get_animation("GoUp").length).timeout
+		tlatko.is_going_up = false
+		smasher_collision_shape.disabled = true
 
 func draw_grid() -> void:
 	container.get_children().map(func(child: Node2D) -> void:
@@ -77,6 +98,7 @@ func draw_grid() -> void:
 			container.add_child(piece_instance)
 
 	var half_grid_size: int = grid_size / 2.0
+	
 	entry_trigger.resize_self(
 		(grid_size * (grid_matrix_size - 2)) - exit_border_padding,
 		grid_size + exit_border_padding
@@ -85,6 +107,8 @@ func draw_grid() -> void:
 		(grid_size * (grid_matrix_size - 2)) - exit_border_padding,
 		grid_size + exit_border_padding
 	)
+	
+	global_position -= Vector2((grid_size * (grid_matrix_size - 1)) / 2, (grid_size * (grid_matrix_size - 1)) / 2)
 
 func draw_border(x: int, y: int) -> void:
 	var is_exit: bool = exits.has(Vector2(x, y))

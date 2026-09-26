@@ -1,4 +1,4 @@
-extends StaticBody2D
+class_name Tlatko extends StaticBody2D
 
 @export var tetris: TetrisGrid
 @export var cooldown_time := 1.0
@@ -9,6 +9,8 @@ var can_interact := false
 var number_of_interactions := 0
 var max_interactions := 0
 var cooldown := 0
+
+var is_going_up := false
 
 func _ready() -> void:
 	assert(tetris != null, "Missing tetris")
@@ -36,7 +38,7 @@ func _process(delta: float) -> void:
 	if number_of_interactions >= max_interactions:
 		return
 
-	if can_interact and Input.is_action_just_pressed("interact_p1"):
+	if can_interact and Input.is_action_just_pressed("interact_p1") and not is_going_up:
 		tetris.scrap_triggered()
 		cooldown = cooldown_time
 	
