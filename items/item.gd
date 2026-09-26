@@ -25,6 +25,7 @@ var is_being_placed := false
 
 var tetris: TetrisGrid
 var current_grid_position_of_first_cell: Vector2
+var can_rotate: bool = false
 
 func _ready() -> void:
 	image = _find_image()
@@ -33,6 +34,7 @@ func _ready() -> void:
 	_add_outline_shader()
 	_add_collision_shapes()
 	
+	can_rotate = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_ROTATION) > 0
 	original_coords = FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
 
 func _process(delta: float) -> void:
@@ -54,7 +56,7 @@ func _process(delta: float) -> void:
 		elif Input.is_action_just_pressed("move_down_p1"):
 			target_pos = Vector2.DOWN * CELL_SIZE
 			target_grid_pos = current_grid_position_of_first_cell + Vector2.DOWN
-		elif Input.is_action_just_pressed("rotate_item_p1"):
+		elif Input.is_action_just_pressed("rotate_item_p1") and can_rotate:
 			rotate_right()
 			position = tetris.pieces[current_grid_position_of_first_cell].position + get_item_first_cell_position_offset(false)
 		

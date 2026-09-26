@@ -72,10 +72,6 @@ func _process(delta: float) -> void:
 			_pick_item()
 		elif item_to_pick != null and picked_item == null:
 			_pick_item()
-			
-	if Input.is_action_just_pressed("rotate_item_p1") and picked_item != null:
-		picked_item.rotate_right()
-	
 	
 	if picked_item != null and is_in_tetris:
 		var current_piece := tetris.get_nearest_piece(position)

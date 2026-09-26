@@ -53,11 +53,11 @@ texture = ExtResource("2_s2pta")
 script = ExtResource("3_7i4b5")
 
 [node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state") instance=ExtResource("4_lchb2")]
-position = Vector2(589, -139)
+position = Vector2(634, -64)
 game_state = NodePath("../GameState")
 
 [node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("5_q3rao")]
-position = Vector2(504, -173)
+position = Vector2(503, -146)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
 visible = false

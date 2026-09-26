@@ -360,23 +360,6 @@
                     }
                 }
             }
-        },
-        "bottom": {
-            "id": "reposition",
-            "title": "Reposition",
-            "description": "Move already placed scrap around your grid",
-            "icon": "res://upgrades/icons/upgrade_icon.png",
-            "active_level": 0,
-            "upgrades": [
-                {
-                    "price": 700,
-                    "effects": [{"property": "scrap_reposition", "operation": "add", "value": 1}]
-                },
-                {
-                    "price": 1500,
-                    "effects": [{"property": "scrap_reposition", "operation": "add", "value": 1}]
-                }
-            ]
         }
     },
     "right": {
