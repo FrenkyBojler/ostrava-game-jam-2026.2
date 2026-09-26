@@ -11,6 +11,7 @@ var current_run_peniazky: float = 0.0
 var emergency_reserve_used: bool = false
 
 var used_spawn_points : Array[Node2D] = []
+var spawned_items: Array[Item] = []
 
 func _ready() -> void:
 	assert(item_spawner_parent != null, "Missing item spawner parent")
@@ -21,19 +22,18 @@ func _ready() -> void:
 	oxygen_consumption_rate = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CONSUMPTION_RATE)
 	current_run_peniazky = 0
 	
-
-	var spawned_items: Array[Item] = []
 	spawned_items += _spawn_items()
 	spawned_items += _spawn_items()
 	spawned_items += _spawn_items()
 	spawned_items += _spawn_items()
 	spawned_items += _spawn_items()
 
-	scraps_indicator.set_items_on_map(spawned_items)
 
 func _process(delta: float) -> void:
 	if not Globals.is_running():
 		return
+
+	scraps_indicator.set_items_on_map(spawned_items.filter(func(item: Item): return item != null and not item.has_been_placed))
 
 	oxygen_level -= oxygen_consumption_rate * delta
 	if oxygen_level < 0:

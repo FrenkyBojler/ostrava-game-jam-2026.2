@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b65qcoapwq5dx"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_ccfva"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_fuw6u"]
+[ext_resource type="Texture2D" uid="uid://cwvb8gxcrr324" path="res://assets/collectibles/Bateryje.PNG" id="3_5mpjn"]
+
+[sub_resource type="Resource" id="Resource_6omvf"]
+script = ExtResource("2_fuw6u")
+value = 5.0
+id = "baterka"
+colliders = 16
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Bateryje" type="StaticBody2D" unique_id=1990208209]
+script = ExtResource("1_ccfva")
+item_resource = SubResource("Resource_6omvf")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1853196768]
+texture = ExtResource("3_5mpjn")

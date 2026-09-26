@@ -176,6 +176,7 @@ func check_place_item(item: Item, at_position: Vector2) -> bool:
 	
 func place_item(item: Item, at_position: Vector2) -> void:
 	items_placed.push_back(item)
+	item.has_been_placed = true
 
 	maro.picked_item = null
 	item.turn_off_highlight()

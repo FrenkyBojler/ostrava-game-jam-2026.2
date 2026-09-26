@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dnhpiox1rqpna"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_f6rqt"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_jhxc2"]
+[ext_resource type="Texture2D" uid="uid://bba23qyl7awd0" path="res://assets/collectibles/Skru.PNG" id="3_3nqtb"]
+
+[sub_resource type="Resource" id="Resource_lrroe"]
+script = ExtResource("2_jhxc2")
+value = 5.0
+id = "srub"
+colliders = 16
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Sroubek" type="StaticBody2D" unique_id=1041240694]
+script = ExtResource("1_f6rqt")
+item_resource = SubResource("Resource_lrroe")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1168639515]
+texture = ExtResource("3_3nqtb")

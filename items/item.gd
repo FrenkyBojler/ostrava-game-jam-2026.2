@@ -27,6 +27,8 @@ var tetris: TetrisGrid
 var current_grid_position_of_first_cell: Vector2
 var can_rotate: bool = false
 
+var has_been_placed := false
+
 func _ready() -> void:
 	image = _find_image()
 	assert(image != null, "Missing image")

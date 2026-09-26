@@ -80,7 +80,7 @@ class UpgradesContainer:
 			UpgradeProperty.SCRAP_INDICATORS:
 				return 0
 			UpgradeProperty.SCRAP_REVEAL_RADIUS:
-				return 1500
+				return 0
 			UpgradeProperty.UNLOCKING_DOORS_SPEED:
 				return 0
 			UpgradeProperty.MOVE_SPEED:

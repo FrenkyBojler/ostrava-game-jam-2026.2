@@ -15,9 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://be6lbrk5kgac1" path="res://items/pivcos.tscn" id="16_smbq5"]
 [ext_resource type="PackedScene" uid="uid://beo51dpwhi1wv" path="res://items/knoflyx.tscn" id="16_vklom"]
 [ext_resource type="PackedScene" uid="uid://c3sjccmgtysew" path="res://items/unicorn_2.tscn" id="17_aymvb"]
+[ext_resource type="PackedScene" uid="uid://dnhpiox1rqpna" path="res://items/sroubek.tscn" id="17_smbq5"]
+[ext_resource type="PackedScene" uid="uid://b65qcoapwq5dx" path="res://items/bateryje.tscn" id="18_2ubon"]
 [ext_resource type="PackedScene" uid="uid://ctgx7fdvuh7re" path="res://items/unicorn_1.tscn" id="18_smbq5"]
 [ext_resource type="PackedScene" uid="uid://ouuewfc6ucc1" path="res://items/communicator_2.tscn" id="19_2ubon"]
 [ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="20_mc7l3"]
+[ext_resource type="PackedScene" uid="uid://dyoryvjq8dqmv" path="res://space/scraps_indicator.tscn" id="21_mc7l3"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -69,9 +72,10 @@ visible = false
 color = Color(0.015971808, 0.015971798, 0.015971813, 1)
 script = ExtResource("5_5tcau")
 
-[node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent") instance=ExtResource("11_vwlvh")]
+[node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent", "scraps_indicator") instance=ExtResource("11_vwlvh")]
 item_spawner_parent = NodePath("../ItemSpawners")
-items_to_spawn = Array[PackedScene]([ExtResource("20_mc7l3"), ExtResource("19_2ubon"), ExtResource("15_1xosx"), ExtResource("14_wkxga"), ExtResource("16_vklom"), ExtResource("18_smbq5"), ExtResource("17_aymvb"), ExtResource("15_aymvb"), ExtResource("16_smbq5")])
+scraps_indicator = NodePath("../ScrapsIndicator")
+items_to_spawn = Array[PackedScene]([ExtResource("20_mc7l3"), ExtResource("19_2ubon"), ExtResource("15_1xosx"), ExtResource("14_wkxga"), ExtResource("16_vklom"), ExtResource("18_smbq5"), ExtResource("17_aymvb"), ExtResource("15_aymvb"), ExtResource("16_smbq5"), ExtResource("17_smbq5"), ExtResource("18_2ubon")])
 
 [node name="ItemSpawners" type="Node2D" parent="." unique_id=397388277]
 position = Vector2(-300, 0)
@@ -182,3 +186,6 @@ state = NodePath("../GameState")
 [node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
 position = Vector2(758, -241.00002)
 tetris = NodePath("../TetrisGrid")
+
+[node name="ScrapsIndicator" parent="." unique_id=1017566690 node_paths=PackedStringArray("maro") instance=ExtResource("21_mc7l3")]
+maro = NodePath("../Maro3D")

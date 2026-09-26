@@ -4,7 +4,7 @@ class_name ScrapsIndicator extends CanvasLayer
 
 @onready var arrow_base: TextureRect = $ArrowBase
 
-var max_tracked_items: int = 5
+var max_tracked_items: int = 50
 var arrow_instances: Array[TextureRect] = []
 var items_on_map: Array[Item] = []
 var radius: float = 0
