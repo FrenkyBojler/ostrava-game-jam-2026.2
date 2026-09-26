@@ -271,5 +271,3 @@ class EffectDTO:
 			effect.value = 0.0
 
 		return effect
-
-
