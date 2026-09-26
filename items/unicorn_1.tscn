@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_lrroe"]
 script = ExtResource("2_hab7h")
-value = 30.0
+value = 50.0
 id = "uni1"
 colliders = 19
 has_output = true

@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_foqkl"]
 script = ExtResource("2_foqkl")
-value = 30.0
+value = 50.0
 id = "uni2"
 colliders = 38
 has_input = true
