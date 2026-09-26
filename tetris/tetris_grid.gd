@@ -197,7 +197,7 @@ func check_combinations() -> void:
 		if item.item_resource.has_output:
 			var rotated_output_coord := item.get_rotated_output()
 			var target_output_coord := item.get_coord_adjusted_by_first_cell(rotated_output_coord).rotated_coord + item.current_grid_position_of_first_cell
-			pieces[target_output_coord].toggle_highlight(true)
+			#pieces[target_output_coord].toggle_highlight(true)
 			
 			var target_input_item_index := items_placed.find_custom(func(item_to_find: Item):
 					return item_to_find.item_resource.id == item.item_resource.linked_item_id
@@ -206,7 +206,7 @@ func check_combinations() -> void:
 			if target_input_item_index != -1:
 				var target_input_item := items_placed[target_input_item_index]
 				var target_input_coord := target_input_item.get_coord_adjusted_by_first_cell(target_input_item.get_rotated_input()).rotated_coord + target_input_item.current_grid_position_of_first_cell
-				pieces[target_input_coord].toggle_highlight(true)
+				#pieces[target_input_coord].toggle_highlight(true)
 				var success := target_input_coord == target_output_coord
 				combined_items_value += item.item_resource.value + target_input_item.item_resource.value
 			else:

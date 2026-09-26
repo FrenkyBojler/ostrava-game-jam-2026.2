@@ -5,117 +5,117 @@
   "description": "Recursive upgrade tree with nested top/left/right/bottom branches.",
   "type": "object",
   "$defs": {
-    "effect": {
-      "type": "object",
-      "properties": {
-        "property": {
-          "type": "string",
-          "enum": [
-            "grid_size",
-            "scrapper_uses",
-            "scrap_value",
-            "multi_parts_scraps",
-            "scrap_rotation",
-            "scrap_reveal_radius",
-            "scrap_combo_bonus",
-            "bonus_scrap_per_level",
-            "carry_capacity",
-            "unlocking_doors_speed",
-            "move_speed",
-            "dash_cooldown",
-            "dash_distance",
-            "dash_oxygen_consumption",
-            "oxygen_capacity",
-            "oxygen_consumption_rate",
-            "oxygen_bonus_per_scrap",
-            "oxygen_emergency_reserve",
-            "flashlight_size",
-            "flashlight_brightness",
-            "flashlight_range",
-            "death_penalty_scrap_loss",
-            "extraction_recall",
-            "strength",
+	"effect": {
+	  "type": "object",
+	  "properties": {
+		"property": {
+		  "type": "string",
+		  "enum": [
+			"grid_size",
+			"scrapper_uses",
+			"scrap_value",
+			"multi_parts_scraps",
+			"scrap_rotation",
+			"scrap_reveal_radius",
+			"scrap_combo_bonus",
+			"bonus_scrap_per_level",
+			"carry_capacity",
+			"unlocking_doors_speed",
+			"move_speed",
+			"dash_cooldown",
+			"dash_distance",
+			"dash_oxygen_consumption",
+			"oxygen_capacity",
+			"oxygen_consumption_rate",
+			"oxygen_bonus_per_scrap",
+			"oxygen_emergency_reserve",
+			"flashlight_size",
+			"flashlight_brightness",
+			"flashlight_range",
+			"death_penalty_scrap_loss",
+			"extraction_recall",
+			"strength",
             "dash_ability"
-          ]
-        },
-        "operation": {
-          "type": "string",
-          "enum": ["add", "mul"]
-        },
-        "value": {
-          "type": ["number", "integer"]
-        }
-      },
-      "required": ["property", "operation", "value"],
-      "additionalProperties": false
-    },
-    "upgrade": {
-      "type": "object",
-      "properties": {
-        "price": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "effects": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/effect"
-          },
-          "minItems": 1
-        }
-      },
-      "required": ["price", "effects"],
-      "additionalProperties": false
-    },
-    "branch": {
-      "type": "object",
-      "properties": {
-        "$schema": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string",
-          "minLength": 1
-        },
-        "offset": {
-          "type": "integer"
-        },
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "icon": {
-          "type": "string"
-        },
-        "active_level": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "upgrades": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/upgrade"
-          },
-          "minItems": 1
-        },
-        "top": {
-          "$ref": "#/$defs/branch"
-        },
-        "left": {
-          "$ref": "#/$defs/branch"
-        },
-        "right": {
-          "$ref": "#/$defs/branch"
-        },
-        "bottom": {
-          "$ref": "#/$defs/branch"
-        }
-      },
-      "required": ["id", "title", "description", "icon", "upgrades", "active_level"],
-      "additionalProperties": false
-    }
+		  ]
+		},
+		"operation": {
+		  "type": "string",
+		  "enum": ["add", "mul"]
+		},
+		"value": {
+		  "type": ["number", "integer"]
+		}
+	  },
+	  "required": ["property", "operation", "value"],
+	  "additionalProperties": false
+	},
+	"upgrade": {
+	  "type": "object",
+	  "properties": {
+		"price": {
+		  "type": "integer",
+		  "minimum": 0
+		},
+		"effects": {
+		  "type": "array",
+		  "items": {
+			"$ref": "#/$defs/effect"
+		  },
+		  "minItems": 1
+		}
+	  },
+	  "required": ["price", "effects"],
+	  "additionalProperties": false
+	},
+	"branch": {
+	  "type": "object",
+	  "properties": {
+		"$schema": {
+		  "type": "string"
+		},
+		"id": {
+		  "type": "string",
+		  "minLength": 1
+		},
+		"offset": {
+		  "type": "integer"
+		},
+		"title": {
+		  "type": "string"
+		},
+		"description": {
+		  "type": "string"
+		},
+		"icon": {
+		  "type": "string"
+		},
+		"active_level": {
+		  "type": "integer",
+		  "minimum": 0
+		},
+		"upgrades": {
+		  "type": "array",
+		  "items": {
+			"$ref": "#/$defs/upgrade"
+		  },
+		  "minItems": 1
+		},
+		"top": {
+		  "$ref": "#/$defs/branch"
+		},
+		"left": {
+		  "$ref": "#/$defs/branch"
+		},
+		"right": {
+		  "$ref": "#/$defs/branch"
+		},
+		"bottom": {
+		  "$ref": "#/$defs/branch"
+		}
+	  },
+	  "required": ["id", "title", "description", "icon", "upgrades", "active_level"],
+	  "additionalProperties": false
+	}
   },
   "$ref": "#/$defs/branch"
 }

@@ -26,7 +26,7 @@ enum GameState {
 
 enum GameLevel {
 	Level1,
-	Upgrades,	
+	Upgrades,
 }
 
 func _ready() -> void:
@@ -96,7 +96,7 @@ func is_running() -> bool:
 	return current_game_state == GameState.Running
 
 func reset() -> void:
-	peniazky = 100000
+	peniazky = 0
 	upgrades.reset()
 
 func add_peniazky(amount: int) -> void:

@@ -1,336 +1,336 @@
 {
-    "$schema": "./upgrades.schema.json",
-    "id": "scrap_value",
-    "title": "Scrap Value",
-    "description": "Increases the value of scrap you collect",
-    "icon": "res://upgrades/icons/upgrade_icon.png",
-    "active_level": 0,
-    "upgrades": [
-        {
-            "price": 10,
-            "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.5}]
-        },
-        {
-            "price": 100,
-            "effects": [{"property": "scrap_value", "operation": "mul", "value": 2}]
-        },
-        {
-            "price": 500,
-            "effects": [{"property": "scrap_value", "operation": "mul", "value": 3}]
-        },
-        {
-            "price": 5000,
-            "effects": [{"property": "scrap_value", "operation": "mul", "value": 5}]
-        }
-    ],
-    "bottom": {
-        "id": "scrapper_uses",
-        "title": "Scrapper Uses",
-        "description": "Increases how many times the scrapper can be used",
-        "icon": "res://upgrades/icons/upgrade_icon.png",
-        "active_level": 0,
-        "upgrades": [
-            {
-                "price": 50,
-                "effects": [{"property": "scrapper_uses", "operation": "add", "value": 1}]
-            },
-            {
-                "price": 200,
-                "effects": [{"property": "scrapper_uses", "operation": "add", "value": 2}]
-            },
-            {
-                "price": 500,
-                "effects": [{"property": "scrapper_uses", "operation": "add", "value": 3}]
-            }
-        ],
-        "bottom": {
-            "id": "grid_size",
-            "title": "Grid Size",
-            "description": "Expands the cargo grid",
-            "icon": "res://upgrades/icons/upgrade_icon.png",
-            "active_level": 0,
-            "upgrades": [
-                {
-                    "price": 100,
-                    "effects": [{"property": "grid_size", "operation": "add", "value": 1}]
-                },
-                {
-                    "price": 500,
-                    "effects": [{"property": "grid_size", "operation": "add", "value": 2}]
-                },
-                {
-                    "price": 5000,
-                    "effects": [{"property": "grid_size", "operation": "add", "value": 3}]
-                }
-            ],
-            "right": {
-                "id": "scrap_rotation",
-                "title": "Scrap Rotation",
-                "description": "Rotate scrap pieces on the grid",
-                "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 0,
-                "upgrades": [
-                    {
-                        "price": 500,
-                        "effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
-                    }
-                ]
-            },
-            "bottom": {
-                "id": "multi_parts_scraps",
-                "title": "Multipliers Scraps",
-                "description": "Unlocks larger multi-part scrap pieces",
-                "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 0,
-                "upgrades": [
-                    {
-                        "price": 1000,
-                        "effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 1}]
-                    },
-                    {
-                        "price": 2000,
-                        "effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 3}]
-                    }
-                ],
-                "right": {
-                    "id": "scrap_indicators",
-                    "title": "Scrap Indicators",
-                    "description": "Shows indicators for scrap",
-                    "icon": "res://upgrades/icons/upgrade_icon.png",
-                    "active_level": 0,
-                    "upgrades": [
-                        {
-                            "price": 2500,
-                            "effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1000}]
-                        },
-                        {
-                            "price": 5000,
-                            "effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 3000}]
-                        }
-                    ]
-                }
-            }
-        }
-    },
-    "right": {
-        "id": "move_speed",
-        "title": "Move Speed",
-        "offset": 1,
-        "description": "Increases the speed at which you can move around the map",
-        "icon": "res://upgrades/icons/upgrade_icon.png",
-        "active_level": 0,
-        "upgrades": [
-            {
-                "price": 100,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 100}]
-            },
-            {
-                "price": 250,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 200}]
-            },
-            {
-                "price": 600,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 300}]
-            },
-            {
-                "price": 1200,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 400}]
-            },
-            {
-                "price": 3000,
-                "effects": [{"property": "move_speed", "operation": "mul", "value": 500}]
-            }
-        ],
-        "bottom": {
-            "id": "dash",
-            "title": "Dash",
-            "description": "Unlocks a short burst dash",
-            "icon": "res://upgrades/icons/upgrade_icon.png",
-            "active_level": 0,
-            "upgrades": [
-                {
-                    "price": 500,
-                    "effects": [{"property": "dash_ability", "operation": "add", "value": 1}]
-                }
-            ],
-            "right": {
-                "id": "dash_cooldown",
-                "title": "Dash Cooldown",
-                "description": "Reduces the time between dashes",
-                "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 0,
-                "upgrades": [
-                    {
-                        "price": 1200,
-                        "effects": [{"property": "dash_cooldown", "operation": "add", "value": 2}]
-                    },
-                    {
-                        "price": 2500,
-                        "effects": [{"property": "dash_cooldown", "operation": "add", "value": 3}]
-                    }
-                ],
-                "right": {
-                    "id": "dash_distance",
-                    "title": "Dash Distance",
-                    "description": "Increases how far your dash carries you",
-                    "icon": "res://upgrades/icons/upgrade_icon.png",
-                    "active_level": 0,
-                    "upgrades": [
-                        {
-                            "price": 1000,
-                            "effects": [{"property": "dash_distance", "operation": "add", "value": 1}]
-                        },
-                        {
-                            "price": 2000,
-                            "effects": [{"property": "dash_distance", "operation": "add", "value": 2}]
-                        }
-                    ]
-                }
-            },
-            "bottom": {
-                "id": "strength",
-                "title": "Strength",
-                "description": "Increases your strength",
-                "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 0,
-                "upgrades": [
-                    {
-                        "price": 500,
-                        "effects": [{"property": "strength", "operation": "add", "value": 0.25}]
-                    },
-                    {
-                        "price": 1000,
-                        "effects": [{"property": "strength", "operation": "add", "value": 1.5}]
-                    },
-                    {
-                        "price": 2000,
-                        "effects": [{"property": "strength", "operation": "add", "value": 2}]
-                    },
-                    {
-                        "price": 2500,
-                        "effects": [{"property": "strength", "operation": "add", "value": 4}]
-                    }
-                ]
-            }
-        },
-        "right": {
-            "id": "flashlight_size",
-            "offset": 2,
-            "title": "Flash Light Size",
-            "description": "Increases the size of your flashlight",
-            "icon": "res://upgrades/icons/upgrade_icon.png",
-            "active_level": 0,
-            "upgrades": [
-                {
-                    "price": 100,
-                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
-                },
-                {
-                    "price": 400,
-                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 2}]
-                },
-                {
-                    "price": 900,
-                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 3}]
-                }
-            ],
-            "right": {
-                "id": "oxygen_capacity",
-                "title": "Oxygen Capacity",
-                "description": "Increases the amount of oxygen you can carry",
-                "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 0,
-                "upgrades": [
-                    {
-                        "price": 100,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 15}]
-                    },
-                    {
-                        "price": 400,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 30}]
-                    },
-                    {
-                        "price": 900,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 50}]
-                    },
-                    {
-                        "price": 1800,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 75}]
-                    },
-                    {
-                        "price": 4000,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 100}]
-                    }
-                ],
-                "bottom": {
-                    "id": "oxygen_consumption_rate",
-                    "title": "Oxygen Consumption Rate",
-                    "description": "Consume oxygen more slowly",
-                    "icon": "res://upgrades/icons/upgrade_icon.png",
-                    "active_level": 0,
-                    "upgrades": [
-                        {
-                            "price": 500,
-                            "effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.1}]
-                        },
-                        {
-                            "price": 1000,
-                            "effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.2}]
-                        },
-                        {
-                            "price": 2500,
-                            "effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.3}]
-                        }
-                    ],
-                    "bottom": {
-                        "id": "oxygen_emergency_reserve",
-                        "title": "Oxygen Emergency Reserve",
-                        "description": "Grants a hidden reserve tank triggered when oxygen hits critical",
-                        "icon": "res://upgrades/icons/upgrade_icon.png",
-                        "active_level": 0,
-                        "upgrades": [
-                            {
-                                "price": 3000,
-                                "effects": [{"property": "oxygen_emergency_reserve", "operation": "add", "value": 1}]
-                            }
-                        ]
-                    }
-                },
-                "right": {
-                    "id": "oxygen_bonus_per_scrap",
-                    "title": "Oxygen Bonus Per Scrap",
-                    "description": "Depositing scrap refills a bit of your oxygen",
-                    "icon": "res://upgrades/icons/upgrade_icon.png",
-                    "active_level": 0,
-                    "upgrades": [
-                        {
-                            "price": 800,
-                            "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 2}]
-                        },
-                        {
-                            "price": 1600,
-                            "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 4}]
-                        }
-                    ],
-                    "bottom": {
-                        "id": "death_penalty_scrap_loss",
-                        "title": "Death Penalty Scrap Loss",
-                        "description": "Keep more of your scrap even if you run out of oxygen",
-                        "icon": "res://upgrades/icons/upgrade_icon.png",
-                        "active_level": 0,
-                        "upgrades": [
-                            {
-                                "price": 3000,
-                                "effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.25}]
-                            },
-                            {
-                                "price": 5000,
-                                "effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.5}]
-                            }
-                        ]
-                    }
-                }
-            }
-        }
-    }
+	"$schema": "./upgrades.schema.json",
+	"id": "scrap_value",
+	"title": "Scrap Value",
+	"description": "Increases the value of scrap you collect",
+	"icon": "res://upgrades/icons/upgrade_icon.png",
+	"active_level": 0,
+	"upgrades": [
+		{
+			"price": 10,
+			"effects": [{"property": "scrap_value", "operation": "mul", "value": 1.5}]
+		},
+		{
+			"price": 100,
+			"effects": [{"property": "scrap_value", "operation": "mul", "value": 2}]
+		},
+		{
+			"price": 500,
+			"effects": [{"property": "scrap_value", "operation": "mul", "value": 3}]
+		},
+		{
+			"price": 5000,
+			"effects": [{"property": "scrap_value", "operation": "mul", "value": 5}]
+		}
+	],
+	"bottom": {
+		"id": "scrapper_uses",
+		"title": "Scrapper Uses",
+		"description": "Increases how many times the scrapper can be used",
+		"icon": "res://upgrades/icons/upgrade_icon.png",
+		"active_level": 0,
+		"upgrades": [
+			{
+				"price": 50,
+				"effects": [{"property": "scrapper_uses", "operation": "add", "value": 1}]
+			},
+			{
+				"price": 200,
+				"effects": [{"property": "scrapper_uses", "operation": "add", "value": 2}]
+			},
+			{
+				"price": 500,
+				"effects": [{"property": "scrapper_uses", "operation": "add", "value": 3}]
+			}
+		],
+		"bottom": {
+			"id": "grid_size",
+			"title": "Grid Size",
+			"description": "Expands the cargo grid",
+			"icon": "res://upgrades/icons/upgrade_icon.png",
+			"active_level": 0,
+			"upgrades": [
+				{
+					"price": 100,
+					"effects": [{"property": "grid_size", "operation": "add", "value": 1}]
+				},
+				{
+					"price": 500,
+					"effects": [{"property": "grid_size", "operation": "add", "value": 2}]
+				},
+				{
+					"price": 5000,
+					"effects": [{"property": "grid_size", "operation": "add", "value": 3}]
+				}
+			],
+			"right": {
+				"id": "scrap_rotation",
+				"title": "Scrap Rotation",
+				"description": "Rotate scrap pieces on the grid",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 500,
+						"effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
+					}
+				]
+			},
+			"bottom": {
+				"id": "multi_parts_scraps",
+				"title": "Multipliers Scraps",
+				"description": "Unlocks larger multi-part scrap pieces",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 1000,
+						"effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 1}]
+					},
+					{
+						"price": 2000,
+						"effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 3}]
+					}
+				],
+				"right": {
+					"id": "scrap_indicators",
+					"title": "Scrap Indicators",
+					"description": "Shows indicators for scrap",
+					"icon": "res://upgrades/icons/upgrade_icon.png",
+					"active_level": 0,
+					"upgrades": [
+						{
+							"price": 2500,
+							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1000}]
+						},
+						{
+							"price": 5000,
+							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 3000}]
+						}
+					]
+				}
+			}
+		}
+	},
+	"right": {
+		"id": "move_speed",
+		"title": "Move Speed",
+		"offset": 1,
+		"description": "Increases the speed at which you can move around the map",
+		"icon": "res://upgrades/icons/upgrade_icon.png",
+		"active_level": 0,
+		"upgrades": [
+			{
+				"price": 100,
+				"effects": [{"property": "move_speed", "operation": "add", "value": 100}]
+			},
+			{
+				"price": 250,
+				"effects": [{"property": "move_speed", "operation": "add", "value": 200}]
+			},
+			{
+				"price": 600,
+				"effects": [{"property": "move_speed", "operation": "add", "value": 300}]
+			},
+			{
+				"price": 1200,
+				"effects": [{"property": "move_speed", "operation": "add", "value": 400}]
+			},
+			{
+				"price": 3000,
+				"effects": [{"property": "move_speed", "operation": "mul", "value": 500}]
+			}
+		],
+		"bottom": {
+			"id": "dash",
+			"title": "Dash",
+			"description": "Unlocks a short burst dash",
+			"icon": "res://upgrades/icons/upgrade_icon.png",
+			"active_level": 0,
+			"upgrades": [
+				{
+					"price": 500,
+					"effects": [{"property": "dash_ability", "operation": "add", "value": 1}]
+				}
+			],
+			"right": {
+				"id": "dash_cooldown",
+				"title": "Dash Cooldown",
+				"description": "Reduces the time between dashes",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 1200,
+						"effects": [{"property": "dash_cooldown", "operation": "add", "value": 2}]
+					},
+					{
+						"price": 2500,
+						"effects": [{"property": "dash_cooldown", "operation": "add", "value": 3}]
+					}
+				],
+				"right": {
+					"id": "dash_distance",
+					"title": "Dash Distance",
+					"description": "Increases how far your dash carries you",
+					"icon": "res://upgrades/icons/upgrade_icon.png",
+					"active_level": 0,
+					"upgrades": [
+						{
+							"price": 1000,
+							"effects": [{"property": "dash_distance", "operation": "add", "value": 1}]
+						},
+						{
+							"price": 2000,
+							"effects": [{"property": "dash_distance", "operation": "add", "value": 2}]
+						}
+					]
+				}
+			},
+			"bottom": {
+				"id": "strength",
+				"title": "Strength",
+				"description": "Increases your strength",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 500,
+						"effects": [{"property": "strength", "operation": "add", "value": 0.25}]
+					},
+					{
+						"price": 1000,
+						"effects": [{"property": "strength", "operation": "add", "value": 1.5}]
+					},
+					{
+						"price": 2000,
+						"effects": [{"property": "strength", "operation": "add", "value": 2}]
+					},
+					{
+						"price": 2500,
+						"effects": [{"property": "strength", "operation": "add", "value": 4}]
+					}
+				]
+			}
+		},
+		"right": {
+			"id": "flashlight_size",
+			"offset": 2,
+			"title": "Flash Light Size",
+			"description": "Increases the size of your flashlight",
+			"icon": "res://upgrades/icons/upgrade_icon.png",
+			"active_level": 0,
+			"upgrades": [
+				{
+					"price": 100,
+					"effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
+				},
+				{
+					"price": 400,
+					"effects": [{"property": "flashlight_size", "operation": "add", "value": 2}]
+				},
+				{
+					"price": 900,
+					"effects": [{"property": "flashlight_size", "operation": "add", "value": 3}]
+				}
+			],
+			"right": {
+				"id": "oxygen_capacity",
+				"title": "Oxygen Capacity",
+				"description": "Increases the amount of oxygen you can carry",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 100,
+						"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 15}]
+					},
+					{
+						"price": 400,
+						"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 30}]
+					},
+					{
+						"price": 900,
+						"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 50}]
+					},
+					{
+						"price": 1800,
+						"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 75}]
+					},
+					{
+						"price": 4000,
+						"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 100}]
+					}
+				],
+				"bottom": {
+					"id": "oxygen_consumption_rate",
+					"title": "Oxygen Consumption Rate",
+					"description": "Consume oxygen more slowly",
+					"icon": "res://upgrades/icons/upgrade_icon.png",
+					"active_level": 0,
+					"upgrades": [
+						{
+							"price": 500,
+							"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.1}]
+						},
+						{
+							"price": 1000,
+							"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.2}]
+						},
+						{
+							"price": 2500,
+							"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.3}]
+						}
+					],
+					"bottom": {
+						"id": "oxygen_emergency_reserve",
+						"title": "Oxygen Emergency Reserve",
+						"description": "Grants a hidden reserve tank triggered when oxygen hits critical",
+						"icon": "res://upgrades/icons/upgrade_icon.png",
+						"active_level": 0,
+						"upgrades": [
+							{
+								"price": 3000,
+								"effects": [{"property": "oxygen_emergency_reserve", "operation": "add", "value": 1}]
+							}
+						]
+					}
+				},
+				"right": {
+					"id": "oxygen_bonus_per_scrap",
+					"title": "Oxygen Bonus Per Scrap",
+					"description": "Depositing scrap refills a bit of your oxygen",
+					"icon": "res://upgrades/icons/upgrade_icon.png",
+					"active_level": 0,
+					"upgrades": [
+						{
+							"price": 800,
+							"effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 2}]
+						},
+						{
+							"price": 1600,
+							"effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 4}]
+						}
+					],
+					"bottom": {
+						"id": "death_penalty_scrap_loss",
+						"title": "Death Penalty Scrap Loss",
+						"description": "Keep more of your scrap even if you run out of oxygen",
+						"icon": "res://upgrades/icons/upgrade_icon.png",
+						"active_level": 0,
+						"upgrades": [
+							{
+								"price": 3000,
+								"effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.25}]
+							},
+							{
+								"price": 5000,
+								"effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.5}]
+							}
+						]
+					}
+				}
+			}
+		}
+	}
 }
