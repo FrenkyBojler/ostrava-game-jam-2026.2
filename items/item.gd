@@ -79,6 +79,9 @@ func _process(delta: float) -> void:
 func get_weight() -> float:
 	return original_coords.size() * BASE_CELL_WEIGHT
 
+func get_size() -> int:
+	return original_coords.size()
+
 func start_placing(tetris: TetrisGrid, start_position: Vector2) -> void:
 	self.tetris = tetris
 	current_grid_position_of_first_cell = start_position

@@ -52,6 +52,14 @@ func evacuate() -> void:
 
 func add_peniazky(value: float) -> void:
 	current_run_peniazky += value
+
+func add_oxygen(value: float) -> void:
+	if value <= 0:
+		return
+
+	oxygen_level += value
+	if oxygen_level > max_oxygen:
+		oxygen_level = max_oxygen
 	
 func _spawn_items() -> void:
 	for item in items_to_spawn:

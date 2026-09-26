@@ -41,14 +41,20 @@ func _ready() -> void:
 	
 func scrap_triggered() -> void:
 	var value := 0.0
-	for item in items_placed:
+	var size_collected := 0
+
+	for item: Item in items_placed:
 		value += item.item_resource.value
+		size_collected += item.get_size()
 		item.queue_free()
 	items_placed = []
 	for piece in pieces.values():
 		piece.occuppied = false
 		
 	game_state.add_peniazky(value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
+	var bonus_oxygen: float = size_collected * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_BONUS_PER_SCRAP))
+	game_state.add_oxygen(bonus_oxygen)
+
 
 func draw_grid() -> void:
 	container.get_children().map(func(child: Node2D) -> void:
