@@ -188,7 +188,7 @@ func toggle_highlight_all_pieces(value: bool) -> void:
 func _on_body_exited(body: Node) -> void:
 	if body.get_parent() is Maro3D:
 		maro.to_space()
-		label.text = "Bring items to squash and earn money!"
+		label.text = "Bring scraps to squash and earn money!"
 		
 func is_inside(coord: Vector2) -> bool:
 	return coord.x >= 0 and coord.x < grid_matrix_size - 2 and coord.y >= 0 and coord.y < grid_matrix_size -2
