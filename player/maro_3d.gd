@@ -70,10 +70,21 @@ func _process(delta: float) -> void:
 		return
 		
 	var move_speed := Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MOVE_SPEED) as float
+	var adjusted_move_speed := move_speed
 	
-	var adjusted_move_speed := move_speed if picked_item == null else move_speed - (picked_item.get_weight() / Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.STRENGTH) as float)
-	if adjusted_move_speed < 0:
-		adjusted_move_speed = move_speed / 10
+	var strength := Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.STRENGTH) as float
+	
+	if picked_item != null:
+		var ratio : int = ceil(picked_item.get_weight() / strength)
+		
+		if ratio == 1:
+			adjusted_move_speed = move_speed / 1.5
+		elif ratio == 2:
+			adjusted_move_speed = 100
+		elif ratio == 3:
+			adjusted_move_speed = 50
+		elif ratio == 4:
+			adjusted_move_speed = 25
 
 	var horizontal_input := Input.get_axis("move_left_p1", "move_right_p1")
 	var vertical_input := Input.get_axis("move_up_p1", "move_down_p1")
@@ -86,7 +97,7 @@ func _process(delta: float) -> void:
 		dash_timer.start()
 		dash_cooldown = true
 
-	var movement_input := Vector2(horizontal_input, vertical_input) * adjusted_move_speed * delta * dash
+	var movement_input := Vector2(horizontal_input, vertical_input).normalized() * adjusted_move_speed * delta * dash
 	
 	if movement_input.x < 0:
 		last_dir = Direction.Left

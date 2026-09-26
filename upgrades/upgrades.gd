@@ -102,7 +102,7 @@ class UpgradesContainer:
 			UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS:
 				return 0.75
 			UpgradeProperty.STRENGTH:
-				return 1
+				return 100
 			_:
 				return 0
 

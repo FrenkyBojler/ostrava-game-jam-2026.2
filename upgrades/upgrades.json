@@ -211,19 +211,6 @@
 					"effects": [{"property": "grid_size", "operation": "add", "value": 3}]
 				}
 			],
-			"right": {
-				"id": "scrap_rotation",
-				"title": "Scrap Rotation",
-				"description": "Rotate scrap pieces on the grid",
-				"icon": "res://upgrades/icons/upgrade_icon.png",
-				"active_level": 0,
-				"upgrades": [
-					{
-						"price": 500,
-						"effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
-					}
-				]
-			},
 			"left": {
 				"id": "multi_parts_scraps",
 				"title": "Multipliers Scraps",
@@ -269,23 +256,23 @@
 		"upgrades": [
 			{
 				"price": 50,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 100}]
+				"effects": [{"property": "move_speed", "operation": "add", "value": 50}]
 			},
 			{
 				"price": 250,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 200}]
+				"effects": [{"property": "move_speed", "operation": "add", "value": 100}]
 			},
 			{
 				"price": 600,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 300}]
+				"effects": [{"property": "move_speed", "operation": "add", "value": 200}]
 			},
 			{
 				"price": 1200,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 400}]
+				"effects": [{"property": "move_speed", "operation": "add", "value": 300}]
 			},
 			{
 				"price": 3000,
-				"effects": [{"property": "move_speed", "operation": "mul", "value": 500}]
+				"effects": [{"property": "move_speed", "operation": "mul", "value": 400}]
 			}
 		],
 		"right": {
@@ -296,22 +283,31 @@
 			"active_level": 0,
 			"upgrades": [
 				{
+					"price": 250,
+					"effects": [{"property": "strength", "operation": "add", "value": 100}]
+				},
+				{
 					"price": 500,
-					"effects": [{"property": "strength", "operation": "add", "value": 0.25}]
+					"effects": [{"property": "strength", "operation": "add", "value": 200}]
 				},
 				{
-					"price": 1000,
-					"effects": [{"property": "strength", "operation": "add", "value": 1.5}]
+					"price": 1500,
+					"effects": [{"property": "strength", "operation": "add", "value": 300}]
 				},
-				{
-					"price": 2000,
-					"effects": [{"property": "strength", "operation": "add", "value": 2}]
-				},
-				{
-					"price": 2500,
-					"effects": [{"property": "strength", "operation": "add", "value": 4}]
-				}
-			]
+			],
+			"right": {
+				"id": "scrap_rotation",
+				"title": "Scrap Rotation",
+				"description": "Rotate scrap pieces on the grid",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 500,
+						"effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
+					}
+				]
+			}
 		},
 		"bottom": {
 			"id": "dash",
@@ -354,7 +350,7 @@
 						},
 						{
 							"price": 2000,
-							"effects": [{"property": "dash_distance", "operation": "add", "value": 2}]
+							"effects": [{"property": "dash_distance", "operation": "add", "value": 1.5}]
 						}
 					]
 				}
