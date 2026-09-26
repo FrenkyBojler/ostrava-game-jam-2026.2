@@ -123,6 +123,7 @@ class UpgradeItemDTO:
 	var description: String
 	var id: String
 	var icon: String
+	var offset: int
 	var upgrades: Array[UpgradeDTO]
 	var active_level: int
 	var left: UpgradeItemDTO
@@ -201,6 +202,7 @@ class UpgradeItemDTO:
 					var upgrade_data: Dictionary = upgrade_data_variant
 					item.upgrades.append(UpgradeDTO.from_dict(upgrade_data))
 
+		item.offset = _int_value(data.get("offset", 0))
 		item.left = _from_child_dict(data.get("left"))
 		item.right = _from_child_dict(data.get("right"))
 		item.top = _from_child_dict(data.get("top"))

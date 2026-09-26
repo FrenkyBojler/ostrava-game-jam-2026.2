@@ -76,6 +76,9 @@
           "type": "string",
           "minLength": 1
         },
+        "offset": {
+          "type": "integer"
+        },
         "title": {
           "type": "string"
         },

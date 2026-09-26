@@ -58,25 +58,28 @@ func spawn_children() -> void:
 	if children_container.get_child_count() > 0:
 		return
 
-	var margin: float = size.x + item_spacing
-
 	if upgrade_data.left:
-		spawn_child(Vector2.LEFT * margin, upgrade_data.left)
+		spawn_child(Vector2.LEFT, upgrade_data.left)
 		left_connector.visible = true
 	if upgrade_data.right:
-		spawn_child(Vector2.RIGHT * margin, upgrade_data.right)
-		right_connector.visible = true
+		spawn_child(Vector2.RIGHT, upgrade_data.right)
+		if upgrade_data.right.offset == 0:
+			right_connector.visible = true
 	if upgrade_data.top:
-		spawn_child(Vector2.UP * margin, upgrade_data.top)
+		spawn_child(Vector2.UP, upgrade_data.top)
 		top_connector.visible = true
 	if upgrade_data.bottom:
-		spawn_child(Vector2.DOWN * margin, upgrade_data.bottom)
+		spawn_child(Vector2.DOWN, upgrade_data.bottom)
 		bottom_connector.visible = true
 
-func spawn_child(spawn_pos: Vector2, child_data: Upgrades.UpgradeItemDTO) -> void:
+func spawn_child(direction: Vector2, child_data: Upgrades.UpgradeItemDTO) -> void:
+	var position: Vector2 = direction * (size.x + item_spacing)
+	if child_data.offset:
+		position += direction * (child_data.offset * (size.x + item_spacing))
+
 	var upgrade_child: UpgradeItem = upgrade_item.instantiate() as UpgradeItem
 	children_container.add_child(upgrade_child)
-	upgrade_child.initialize(spawn_pos, child_data)
+	upgrade_child.initialize(position, child_data)
 
 	if upgrade_data.active_level > 0:
 		upgrade_child.enable()
