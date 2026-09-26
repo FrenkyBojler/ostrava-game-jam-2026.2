@@ -1,6 +1,7 @@
 class_name UpgradeItem extends Control
 
-@export var item_spacing: float = 32
+@export var item_spacing: float = 38
+@export var item_spacing_h: float = 19
 
 @onready var title: Label = $MarginContainer/VBoxContainer/Title
 @onready var price: Label = $MarginContainer/VBoxContainer/HBoxContainer/Price
@@ -79,12 +80,14 @@ func spawn_children() -> void:
 
 func spawn_child(direction: Vector2, child_data: Upgrades.UpgradeItemDTO) -> void:
 	var used_size: float = size.x
+	var spacing: float = item_spacing
 	if direction == Vector2.UP or direction == Vector2.DOWN:
 		used_size = size.y
+		spacing = item_spacing_h
 
-	var position: Vector2 = direction * (used_size + item_spacing)
+	var position: Vector2 = direction * (used_size + spacing)
 	if child_data.offset:
-		position += direction * (child_data.offset * (used_size + item_spacing))
+		position += direction * (child_data.offset * (used_size + spacing))
 
 	var upgrade_child: UpgradeItem = upgrade_item.instantiate() as UpgradeItem
 	children_container.add_child(upgrade_child)
