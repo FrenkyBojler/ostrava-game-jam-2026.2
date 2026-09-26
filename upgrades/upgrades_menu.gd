@@ -1,4 +1,4 @@
-extends ScrollContainer
+class_name UpgradesMenu extends ScrollContainer
 
 @onready var content: Control = $FlowContainer
 

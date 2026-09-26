@@ -476,7 +476,7 @@
                     },
                     {
                         "price": 1000,
-                        "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.1}]
+                        "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.25}]
                     }
                 ],
                 "bottom": {
@@ -488,7 +488,7 @@
                     "upgrades": [
                         {
                             "price": 2500,
-                            "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.15}]
+                            "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.25}]
                         }
                     ]
                 }

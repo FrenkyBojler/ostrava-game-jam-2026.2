@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ccr1v5yf5jbpr"]
+
+[ext_resource type="Script" uid="uid://cv7gp6vx8l02l" path="res://space/space_ui.gd" id="1_qanxb"]
+
+[node name="SpaceUI" type="CanvasLayer" unique_id=2144076685]
+visible = false
+script = ExtResource("1_qanxb")
+
+[node name="Topbar" type="MarginContainer" parent="." unique_id=39796726]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 114.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Topbar" unique_id=1648366624]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Topbar/VBoxContainer" unique_id=1775476866]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Topbar/VBoxContainer/HBoxContainer" unique_id=249320766]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Oxygen Remaining:   "
+
+[node name="OxygenLabel" type="Label" parent="Topbar/VBoxContainer/HBoxContainer" unique_id=437576237]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "300"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Topbar/VBoxContainer" unique_id=1544960647]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Topbar/VBoxContainer/HBoxContainer2" unique_id=868483703]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Peniažky:   "
+
+[node name="MoneyLabel" type="Label" parent="Topbar/VBoxContainer/HBoxContainer2" unique_id=1808070116]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "300"

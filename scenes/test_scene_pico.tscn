@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cv1qqbi8s6ujc"]
 
 [ext_resource type="Texture2D" uid="uid://clrapckwnheoe" path="res://assets/textures/placeholder/map_ai_background.png" id="1_chnb3"]
-[ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://state/game_state.tscn" id="1_pcfci"]
+[ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="1_pcfci"]
 [ext_resource type="Texture2D" uid="uid://dxdgqqmuh6egl" path="res://assets/textures/placeholder/map_ai_walls.png" id="2_pcfci"]
 [ext_resource type="Script" uid="uid://b6jxchruxw32b" path="res://scenes/walls.gd" id="3_sii7d"]
 [ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="4_gqsab"]
@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://d3i0oocp0t8gn" path="res://items/placeholder_items/bottom_line.tscn" id="8_23wqt"]
 [ext_resource type="PackedScene" uid="uid://brlp0fok0sl6j" path="res://items/placeholder_items/center_dot.tscn" id="9_8nen1"]
 [ext_resource type="PackedScene" uid="uid://bopauxvt65mev" path="res://items/placeholder_items/bottom_right_l.tscn" id="10_0bner"]
+[ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_sii7d"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
-[node name="GameState" parent="." unique_id=651551148 instance=ExtResource("1_pcfci")]
+[node name="SpaceGameState" parent="." unique_id=651551148 instance=ExtResource("1_pcfci")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1908072537]
 position = Vector2(74.00006, 181.00003)
@@ -73,3 +74,6 @@ position = Vector2(533, -59)
 
 [node name="bottom_right_l" parent="." unique_id=695792490 instance=ExtResource("10_0bner")]
 position = Vector2(547, -217)
+
+[node name="SpaceUI" parent="." unique_id=1746800623 node_paths=PackedStringArray("state") instance=ExtResource("12_sii7d")]
+state = NodePath("../SpaceGameState")
