@@ -32,12 +32,12 @@ func _ready() -> void:
 	_add_collision_shapes()
 	
 	original_coords = FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
-	
+
+
 func _process(delta: float) -> void:
 	if is_being_placed:
-		var target_pos: Vector2 = Vector2.ZERO
-		var target_grid_pos: Vector2 = Vector2.ZERO
-		
+		var target_pos: Vector2
+		var target_grid_pos: Vector2 = Vector2(-1000, -1000)
 		if Input.is_action_just_pressed("move_left_p1"):
 			target_pos = Vector2.LEFT * CELL_SIZE
 			target_grid_pos = current_grid_position_of_first_cell + Vector2.LEFT
@@ -51,25 +51,23 @@ func _process(delta: float) -> void:
 			target_pos = Vector2.DOWN * CELL_SIZE
 			target_grid_pos = current_grid_position_of_first_cell + Vector2.DOWN
 		elif Input.is_action_just_pressed("rotate_item_p1"):
-			pass
-			#rotate_right()
-			#current_grid_position_of_first_cell = tetris.get_nearest_piece(position + get_item_first_cell_position_offset(false)).grid_position
-			#position = current_grid_position_of_first_cell + get_item_first_cell_position_offset(false)
-			
-		var result := true
-		for coord in get_coords():
-			var coord_adjusted := get_coord_adjusted_by_first_cell(coord).rotated_coord + target_grid_pos
-			if not tetris.is_inside(coord_adjusted):
-				result = false
+			rotate_right()
+			position = tetris.pieces[current_grid_position_of_first_cell].position + get_item_first_cell_position_offset(false)
+		
+		if target_grid_pos != Vector2(-1000, -1000):
+			var result := true
+			for coord in get_coords():
+				var coord_adjusted := get_coord_adjusted_by_first_cell(coord).rotated_coord + target_grid_pos
+				if not tetris.is_inside(coord_adjusted):
+					result = false
 
-		if result:
-			position += target_pos
-			current_grid_position_of_first_cell = target_grid_pos
+			if result:
+				position += target_pos
+				current_grid_position_of_first_cell = target_grid_pos
 
 		var can_place := tetris.check_place_item(self, current_grid_position_of_first_cell)
 		
 		if can_place and Input.is_action_just_pressed("interact_p1"):
-			print_debug("TADY")
 			tetris.place_item(self, current_grid_position_of_first_cell)
 			
 func start_placing(tetris: TetrisGrid, start_position: Vector2) -> void:

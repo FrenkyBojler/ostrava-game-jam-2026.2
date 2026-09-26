@@ -96,7 +96,6 @@ func draw_border(x: int, y: int) -> void:
 	container.add_child(border_instance)
 	
 func start_placing_item(item: Item) -> void:
-	print("TADY 2")
 	item.reparent(self)
 	item.position = pieces[Vector2((grid_matrix_size - 2) / 2, (grid_matrix_size - 2) / 2)].position + item.get_item_first_cell_position_offset(false)
 	item.start_placing(self, pieces[Vector2((grid_matrix_size - 2) / 2, (grid_matrix_size - 2) / 2)].grid_position)
