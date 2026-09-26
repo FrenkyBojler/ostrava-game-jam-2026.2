@@ -10,6 +10,7 @@ func initialize(grid_pos: Vector2, grid_size: int) -> void:
 
 func toggle_highlight(value: bool) -> void:
 	self_modulate = Color.AQUA if value else Color.WHITE
+	z_index = 120 if value else 0
 	
 func toggle_occupy(value: bool) -> void:
 	toggle_highlight(value)

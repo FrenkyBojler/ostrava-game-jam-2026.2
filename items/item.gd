@@ -37,7 +37,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Globals.current_game_state != Globals.GameState.Running:
 		return
-	
+	#image.visible = not is_being_placed
 	if is_being_placed:
 		var target_pos: Vector2
 		var target_grid_pos: Vector2 = Vector2(-1000, -1000)
@@ -78,8 +78,17 @@ func start_placing(tetris: TetrisGrid, start_position: Vector2) -> void:
 	current_grid_position_of_first_cell = start_position
 	is_being_placed = true
 
-func toggle_highlight(coord: GlobalTypesGlobal.ItemCell, value: bool) -> void:
-	cell_highlights[coord.original_coord].toggle_highlight(value)
+func toggle_highlight(highlight_state: Dictionary[Vector2, bool]) -> void:
+	for highlight: Node2D in cell_highlights.values():
+		highlight.queue_free()
+	cell_highlights = {}
+	
+	for item_coord in get_coords():
+		var cell_highlight_instance = item_cell_highlight.instantiate() as ItemCellHighlight
+		add_child(cell_highlight_instance)
+		cell_highlight_instance.position = Vector2(item_coord.rotated_coord.x * CELL_SIZE - CELL_SIZE,item_coord.rotated_coord.y * CELL_SIZE - CELL_SIZE)
+		cell_highlights[item_coord.rotated_coord] = cell_highlight_instance
+		cell_highlight_instance.toggle_highlight(highlight_state[item_coord.rotated_coord])
 
 func _add_collision_shapes() -> void:
 	var coords := FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
@@ -189,7 +198,7 @@ func get_coord_adjusted_by_first_cell(coord: GlobalTypesGlobal.ItemCell) -> Glob
 	return result_item_cell
 
 func _handle_image_rotation() -> void:
-	rotation_degrees = 90 * rotations_applied
+	image.rotation_degrees = 90 * rotations_applied
 	
 func rotate_right() -> void:
 	rotations_applied += 1

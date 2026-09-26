@@ -135,16 +135,18 @@ func check_place_item(item: Item, at_position: Vector2) -> bool:
 		toggle_highlight_all_pieces(false)
 		pieces[at_position].toggle_highlight(true)
 	var result = true
+	var highlight_state: Dictionary[Vector2, bool] = {}
 	for coord in item.get_coords():
 		var coord_adjusted = item.get_coord_adjusted_by_first_cell(coord).rotated_coord + at_position
 		if not is_inside(coord_adjusted):
-			item.toggle_highlight(coord, false)
+			highlight_state[coord.rotated_coord] = false
 			result = false
 			continue
-		item.toggle_highlight(coord, not pieces[coord_adjusted].occuppied)
+		highlight_state[coord.rotated_coord] = not pieces[coord_adjusted].occuppied
 		if pieces[coord_adjusted].occuppied:
 			result = false
 			continue
+	item.toggle_highlight(highlight_state)
 	return result
 	
 func place_item(item: Item, at_position: Vector2) -> void:
