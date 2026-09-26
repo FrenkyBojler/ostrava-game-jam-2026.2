@@ -50,9 +50,9 @@ position = Vector2(5, 19)
 texture = ExtResource("6_nx0dt")
 
 [node name="PointLight2D" type="PointLight2D" parent="MaroLightDirectional" unique_id=1502110705]
-position = Vector2(18.144976, 21.999998)
+position = Vector2(18.202065, 21.999998)
 rotation = 1.5707964
-scale = Vector2(3.125, 2.7611792)
+scale = Vector2(3.125, 3.125)
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("2_1tmmx")
@@ -60,7 +60,7 @@ offset = Vector2(0, -51)
 texture_scale = 0.2
 
 [node name="MaroLightAmbient" type="PointLight2D" parent="." unique_id=1157734461]
-scale = Vector2(0.20982142, 0.20982142)
+scale = Vector2(0.45, 0.45)
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("6_yxfud")

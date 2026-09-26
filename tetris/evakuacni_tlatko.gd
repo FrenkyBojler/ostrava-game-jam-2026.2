@@ -37,6 +37,7 @@ func _process(_delta: float) -> void:
 		space_ship_embark()
 
 func space_ship_embark() -> void:
+	state.starting_to_embark = true
 	label.visible = false
 	light.visible = true
 	can_interact = false

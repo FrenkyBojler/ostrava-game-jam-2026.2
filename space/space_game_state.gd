@@ -9,6 +9,7 @@ var oxygen_level: float
 var oxygen_consumption_rate: float
 var current_run_peniazky: float = 0.0
 var emergency_reserve_used: bool = false
+var starting_to_embark: bool = false
 
 var used_spawn_points : Array[Node2D] = []
 var spawned_items: Array[Item] = []
@@ -34,7 +35,9 @@ func _process(delta: float) -> void:
 	if not Globals.is_running():
 		return
 
-
+	if starting_to_embark:
+		return
+		
 	oxygen_level -= oxygen_consumption_rate * delta
 	if oxygen_level < 0:
 		oxygen_level = 0

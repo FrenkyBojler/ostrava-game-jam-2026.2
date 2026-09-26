@@ -232,8 +232,37 @@
 				{
 					"price": 900,
 					"effects": [{"property": "flashlight_size", "operation": "add", "value": 3}]
+				},
+				{
+					"price": 1600,
+					"effects": [{"property": "flashlight_size", "operation": "add", "value": 4.5}]
 				}
 			],
+			"bottom": {
+				"id": "flashlight_range",
+				"title": "Flashlight Range",
+				"description": "Increases the range of your flashlight",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 100,
+						"effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
+					},
+					{
+						"price": 400,
+						"effects": [{"property": "flashlight_range", "operation": "add", "value": 2}]
+					},
+					{
+						"price": 900,
+						"effects": [{"property": "flashlight_range", "operation": "add", "value": 3}]
+					},
+					{
+						"price": 1600,
+						"effects": [{"property": "flashlight_range", "operation": "add", "value": 4.5}]
+					}
+				]
+			},
 			"right": {
 				"id": "oxygen_capacity",
 				"title": "Oxygen Capacity",
