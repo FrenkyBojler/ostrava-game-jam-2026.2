@@ -45,6 +45,7 @@ script = ExtResource("3_n2osa")
 target = NodePath("..")
 
 [node name="MaroLightDirectional" type="Node2D" parent="." unique_id=50866853]
+visible = false
 script = ExtResource("2_6yihr")
 
 [node name="PointLight2D" type="PointLight2D" parent="MaroLightDirectional" unique_id=1502110705]
@@ -58,8 +59,8 @@ texture_scale = 0.2
 
 [node name="MaroLightAmbient" type="PointLight2D" parent="." unique_id=1157734461]
 scale = Vector2(0.20982142, 0.20982142)
+shadow_enabled = true
 texture = ExtResource("6_yxfud")
-texture_scale = 0.35
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=1869545915]
 unique_name_in_owner = true
