@@ -61,16 +61,107 @@ visible = false
 color = Color(0.015971808, 0.015971798, 0.015971813, 1)
 script = ExtResource("5_5tcau")
 
-[node name="TopRightL" parent="." unique_id=973099346 instance=ExtResource("6_dq6g1")]
-position = Vector2(520, -85)
+[node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent") instance=ExtResource("11_vwlvh")]
+item_spawner_parent = NodePath("../ItemSpawners")
+items_to_spawn = Array[PackedScene]([ExtResource("7_sfj0f"), ExtResource("10_8woto"), ExtResource("8_jj3xy"), ExtResource("6_dq6g1")])
 
-[node name="bottom_line" parent="." unique_id=1321071022 instance=ExtResource("7_sfj0f")]
-position = Vector2(625, -209)
+[node name="ItemSpawners" type="Node2D" parent="." unique_id=397388277]
 
-[node name="center_dot" parent="." unique_id=1762631102 instance=ExtResource("8_jj3xy")]
-position = Vector2(533, -59)
+[node name="ItemSpawner1" type="Marker2D" parent="ItemSpawners" unique_id=337055802]
+position = Vector2(303, 249)
 
-[node name="bottom_right_l" parent="." unique_id=695792490 instance=ExtResource("10_8woto")]
-position = Vector2(547, -217)
+[node name="ItemSpawner2" type="Marker2D" parent="ItemSpawners" unique_id=828164043]
+position = Vector2(127, 314)
 
-[node name="GameState" parent="." unique_id=651551148 instance=ExtResource("11_vwlvh")]
+[node name="ItemSpawner3" type="Marker2D" parent="ItemSpawners" unique_id=1860033497]
+position = Vector2(-55, 274)
+
+[node name="ItemSpawner4" type="Marker2D" parent="ItemSpawners" unique_id=230239425]
+position = Vector2(-221, 249)
+
+[node name="ItemSpawner5" type="Marker2D" parent="ItemSpawners" unique_id=524606295]
+position = Vector2(-235, 94)
+
+[node name="ItemSpawner6" type="Marker2D" parent="ItemSpawners" unique_id=1824264085]
+position = Vector2(-55, -131)
+
+[node name="ItemSpawner7" type="Marker2D" parent="ItemSpawners" unique_id=751184965]
+position = Vector2(329, -307)
+
+[node name="ItemSpawner8" type="Marker2D" parent="ItemSpawners" unique_id=1368426492]
+position = Vector2(201, -398)
+
+[node name="ItemSpawner9" type="Marker2D" parent="ItemSpawners" unique_id=613360105]
+position = Vector2(-75, -398)
+
+[node name="ItemSpawner10" type="Marker2D" parent="ItemSpawners" unique_id=1210569085]
+position = Vector2(-235, -398)
+
+[node name="ItemSpawner11" type="Marker2D" parent="ItemSpawners" unique_id=592998735]
+position = Vector2(-235, -307)
+
+[node name="ItemSpawner12" type="Marker2D" parent="ItemSpawners" unique_id=1363012194]
+position = Vector2(-67, -307)
+
+[node name="ItemSpawner13" type="Marker2D" parent="ItemSpawners" unique_id=1867172561]
+position = Vector2(-246, -192)
+
+[node name="ItemSpawner14" type="Marker2D" parent="ItemSpawners" unique_id=80845674]
+position = Vector2(-403, -193)
+
+[node name="ItemSpawner15" type="Marker2D" parent="ItemSpawners" unique_id=1804291839]
+position = Vector2(-403, -307)
+
+[node name="ItemSpawner16" type="Marker2D" parent="ItemSpawners" unique_id=182631668]
+position = Vector2(-403, -398)
+
+[node name="ItemSpawner17" type="Marker2D" parent="ItemSpawners" unique_id=751897945]
+position = Vector2(-743, -307)
+
+[node name="ItemSpawner18" type="Marker2D" parent="ItemSpawners" unique_id=2099518545]
+position = Vector2(-723, -406)
+
+[node name="ItemSpawner19" type="Marker2D" parent="ItemSpawners" unique_id=774101689]
+position = Vector2(-858, -307)
+
+[node name="ItemSpawner20" type="Marker2D" parent="ItemSpawners" unique_id=915237695]
+position = Vector2(-867, -165)
+
+[node name="ItemSpawner21" type="Marker2D" parent="ItemSpawners" unique_id=1694281231]
+position = Vector2(-723, -181)
+
+[node name="ItemSpawner22" type="Marker2D" parent="ItemSpawners" unique_id=833685250]
+position = Vector2(-582, -131)
+
+[node name="ItemSpawner23" type="Marker2D" parent="ItemSpawners" unique_id=309156362]
+position = Vector2(-858, -24)
+
+[node name="ItemSpawner24" type="Marker2D" parent="ItemSpawners" unique_id=1063280561]
+position = Vector2(-706, -31)
+
+[node name="ItemSpawner25" type="Marker2D" parent="ItemSpawners" unique_id=956095927]
+position = Vector2(-521, -24)
+
+[node name="ItemSpawner26" type="Marker2D" parent="ItemSpawners" unique_id=527690291]
+position = Vector2(-582, 68)
+
+[node name="ItemSpawner27" type="Marker2D" parent="ItemSpawners" unique_id=299616258]
+position = Vector2(-743, 94)
+
+[node name="ItemSpawner28" type="Marker2D" parent="ItemSpawners" unique_id=2083324068]
+position = Vector2(-892, 94)
+
+[node name="ItemSpawner29" type="Marker2D" parent="ItemSpawners" unique_id=2072514179]
+position = Vector2(-877, 228)
+
+[node name="ItemSpawner30" type="Marker2D" parent="ItemSpawners" unique_id=65318485]
+position = Vector2(-723, 314)
+
+[node name="ItemSpawner31" type="Marker2D" parent="ItemSpawners" unique_id=720956878]
+position = Vector2(-568, 274)
+
+[node name="ItemSpawner32" type="Marker2D" parent="ItemSpawners" unique_id=1800146648]
+position = Vector2(-403, 314)
+
+[node name="ItemSpawner33" type="Marker2D" parent="ItemSpawners" unique_id=1261850456]
+position = Vector2(-411, 94)
