@@ -40,13 +40,10 @@ func _process(_delta: float) -> void:
 		return item != null and not item.has_been_placed and maro.global_transform.origin.distance_to(item.global_transform.origin) <= radius
 	)
 
-	tracked_items.sort_custom(_sort_items_by_distance)
-
 	var viewport_rect := get_viewport().get_visible_rect()
 	var edge_rect := viewport_rect.grow(-SCREEN_EDGE_MARGIN / 2)
 	var edge_rect_2 := viewport_rect.grow(-SCREEN_EDGE_MARGIN)
 	
-
 	var i: int = 0
 	for item: Item in tracked_items:
 		if i >= arrow_instances.size():
