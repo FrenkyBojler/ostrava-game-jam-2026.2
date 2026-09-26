@@ -13,6 +13,7 @@ enum UpgradeProperty {
 	BONUS_SCRAP_PER_LEVEL,
 	UNLOCKING_DOORS_SPEED,
 	CARRY_CAPACITY,
+	DASH_ABILITY,
 	DASH_COOLDOWN,
 	DASH_DISTANCE,
 	DASH_OXYGEN_CONSUMPTION,
@@ -92,10 +93,12 @@ class UpgradesContainer:
 				return 1
 			UpgradeProperty.FLASHLIGHT_BURN_DAMAGE:
 				return 0
+			UpgradeProperty.DASH_ABILITY:
+				return 0
 			UpgradeProperty.DASH_COOLDOWN:
-				return 0
+				return 1.0
 			UpgradeProperty.DASH_DISTANCE:
-				return 0
+				return 1
 			UpgradeProperty.DASH_OXYGEN_CONSUMPTION:
 				return 0
 			UpgradeProperty.OXYGEN_CONSUMPTION_RATE:

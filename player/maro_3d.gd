@@ -7,6 +7,7 @@ class_name Maro3D extends CharacterBody2D
 @onready var item_position_right: Node2D = %ItemPositionRight
 @onready var item_position_left: Node2D = %ItemPositionLeft
 @onready var light: PointLight2D = $MaroLightAmbient
+@onready var dash_timer: Timer = $DashTimer
 
 var space_controller: MaroSpaceController = MaroSpaceController.new()
 var tetris_controller: TetrisController = TetrisController.new()
@@ -24,6 +25,11 @@ var is_in_tetris: bool = false
 
 var can_place_item_into_tetris := false
 
+const DASH_BASE_FORCE = 10.0
+const DASH_BASE_COOLDOWN_TIME = 5.0
+
+var dash_cooldown := false
+
 enum Direction {
 	Left, Right
 }
@@ -32,6 +38,10 @@ func _ready() -> void:
 	controller = space_controller
 	interact_area.body_entered.connect(_on_interact_area_enter)
 	interact_area.body_exited.connect(_on_interact_area_exit)
+	
+	dash_timer.timeout.connect(func():
+		dash_cooldown = false
+	)
 
 func _process(delta: float) -> void:
 	if Globals.current_game_state != Globals.GameState.Running:
@@ -51,8 +61,16 @@ func _process(delta: float) -> void:
 
 	var horizontal_input := Input.get_axis("move_left_p1", "move_right_p1")
 	var vertical_input := Input.get_axis("move_up_p1", "move_down_p1")
+	var dash := 1.0
+	
+	if Input.is_action_just_pressed("dash") and Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DASH_ABILITY) != 0.0 and not dash_cooldown:
+		dash = DASH_BASE_FORCE * Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DASH_DISTANCE)
+		velocity = Vector2.ZERO
+		dash_timer.wait_time = DASH_BASE_COOLDOWN_TIME - Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DASH_COOLDOWN)
+		dash_timer.start()
+		dash_cooldown = true
 
-	var movement_input := Vector2(horizontal_input, vertical_input) * adjusted_move_speed * delta
+	var movement_input := Vector2(horizontal_input, vertical_input) * adjusted_move_speed * delta * dash
 	
 	if movement_input.x < 0:
 		last_dir = Direction.Left

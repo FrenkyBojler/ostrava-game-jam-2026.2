@@ -76,3 +76,5 @@ position = Vector2(8, 0.64)
 [node name="ItemPositionLeft" type="Marker2D" parent="." unique_id=1851385574]
 unique_name_in_owner = true
 position = Vector2(-16, 0)
+
+[node name="DashTimer" type="Timer" parent="." unique_id=2086602450]
