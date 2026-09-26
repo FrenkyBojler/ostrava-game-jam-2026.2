@@ -8,8 +8,21 @@ enum UpgradeProperty {
 	SCRAP_VALUE,
 	MULTI_PARTS_SCRAPS,
 	SCRAP_ROTATION,
-	SCRAP_INDICATORS,
+	SCRAP_REPOSITION,
+	SCRAP_REVEAL_RADIUS,
+	SCRAP_COMBO_BONUS,
+	BONUS_SCRAP_PER_LEVEL,
 	UNLOCKING_DOORS_SPEED,
+	CARRY_CAPACITY,
+	DASH_COOLDOWN,
+	DASH_DISTANCE,
+	DASH_OXYGEN_CONSUMPTION,
+	OXYGEN_CONSUMPTION_RATE,
+	OXYGEN_BONUS_PER_SCRAP,
+	OXYGEN_EMERGENCY_RESERVE,
+	DEATH_PENALTY_SCRAP_LOSS,
+	EXTRACTION_RECALL,
+	SCRAP_INDICATORS,
 	MOVE_SPEED,
 	OXYGEN_CAPACITY,
 	FLASHLIGHT_SIZE,
@@ -29,9 +42,9 @@ class UpgradesContainer:
 
 	func get_property_value(property: UpgradeProperty) -> float:
 		if item.active_level == 0:
-			return 0
+			return get_property_base_value(property)
 
-		var value: float = 0
+		var value: float = get_property_base_value(property)
 		var effects: Array[EffectDTO] = get_upgrade_effects(property)
 
 		for effect: EffectDTO in effects:
@@ -50,6 +63,55 @@ class UpgradesContainer:
 				effects.append(effect)
 
 		return effects
+
+	func get_property_base_value(property: UpgradeProperty) -> float:
+		match property:
+			UpgradeProperty.GRID_SIZE:
+				return 3
+			UpgradeProperty.MOVE_OVER_GRID_OBSTACLES:
+				return 0
+			UpgradeProperty.SCRAP_PROCESSING_SPEED:
+				return 10
+			UpgradeProperty.SCRAP_VALUE:
+				return 1
+			UpgradeProperty.MULTI_PARTS_SCRAPS:
+				return 0
+			UpgradeProperty.SCRAP_ROTATION:
+				return 0
+			UpgradeProperty.SCRAP_INDICATORS:
+				return 0
+			UpgradeProperty.UNLOCKING_DOORS_SPEED:
+				return 0
+			UpgradeProperty.MOVE_SPEED:
+				return 300
+			UpgradeProperty.OXYGEN_CAPACITY:
+				return 100
+			UpgradeProperty.FLASHLIGHT_SIZE:
+				return 1
+			UpgradeProperty.FLASHLIGHT_BRIGHTNESS:
+				return 1
+			UpgradeProperty.FLASHLIGHT_RANGE:
+				return 1
+			UpgradeProperty.FLASHLIGHT_BURN_DAMAGE:
+				return 0
+			UpgradeProperty.DASH_COOLDOWN:
+				return 0
+			UpgradeProperty.DASH_DISTANCE:
+				return 0
+			UpgradeProperty.DASH_OXYGEN_CONSUMPTION:
+				return 0
+			UpgradeProperty.OXYGEN_CONSUMPTION_RATE:
+				return 1
+			UpgradeProperty.OXYGEN_BONUS_PER_SCRAP:
+				return 0
+			UpgradeProperty.OXYGEN_EMERGENCY_RESERVE:
+				return 0
+			UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS:
+				return 1
+			UpgradeProperty.EXTRACTION_RECALL:
+				return 0
+			_:
+				return 0
 
 class UpgradeItemDTO:
 	var title: String
@@ -209,3 +271,5 @@ class EffectDTO:
 			effect.value = 0.0
 
 		return effect
+
+

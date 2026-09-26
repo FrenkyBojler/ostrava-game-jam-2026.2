@@ -26,13 +26,10 @@ var pieces: Dictionary[Vector2, Piece] = {}
 
 var maro: Maro3D
 
-func initialize(size: int, matrix_size: int, exits_arr: Array[Vector2]) -> void:
-	grid_size = size
-	grid_matrix_size = matrix_size
-	exits = exits_arr
-	draw_grid()
-
 func _ready() -> void:
+	grid_matrix_size = int(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.GRID_SIZE) + 2)
+
+	print_debug("Grid matrix size: %d" % grid_matrix_size)
 	entry_trigger.area_entered.connect(_on_body_entered)
 	entry_trigger.area_exited.connect(_on_body_exited)
 	draw_grid()
