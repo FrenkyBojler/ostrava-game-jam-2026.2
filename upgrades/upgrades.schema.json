@@ -17,14 +17,25 @@
             "scrap_value",
             "multi_parts_scraps",
             "scrap_rotation",
-            "scrap_indicators",
+            "scrap_reposition",
+            "scrap_reveal_radius",
+            "scrap_combo_bonus",
+            "bonus_scrap_per_level",
+            "carry_capacity",
             "unlocking_doors_speed",
             "move_speed",
+            "dash_cooldown",
+            "dash_distance",
+            "dash_oxygen_consumption",
             "oxygen_capacity",
+            "oxygen_consumption_rate",
+            "oxygen_bonus_per_scrap",
+            "oxygen_emergency_reserve",
             "flashlight_size",
             "flashlight_brightness",
             "flashlight_range",
-            "flashlight_burn_damage"
+            "death_penalty_scrap_loss",
+            "extraction_recall"
           ]
         },
         "operation": {
@@ -62,6 +73,10 @@
         "$schema": {
           "type": "string"
         },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
         "title": {
           "type": "string"
         },
@@ -95,7 +110,7 @@
           "$ref": "#/$defs/branch"
         }
       },
-      "required": ["title", "description", "icon", "upgrades", "active_level"],
+      "required": ["id", "title", "description", "icon", "upgrades", "active_level"],
       "additionalProperties": false
     }
   },

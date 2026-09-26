@@ -1,10 +1,33 @@
 class_name GlobalsGlobal
 extends Node
 
+signal upgrade_bought(upgrade: Upgrades.UpgradeItemDTO)
+
 var upgrades: Upgrades.UpgradesContainer = Upgrades.UpgradesContainer.new()
+var peniazky: int = 0
 
 func _ready() -> void:
 	load_upgrades()
+	reset()
+
+func reset() -> void:
+	peniazky = 100000
+	upgrades.reset()
+
+func buy_upgrade(upgrade_id: String) -> void:
+	var upgrade: Upgrades.UpgradeItemDTO = upgrades.find_upgrade_by_id(upgrade_id)
+
+	if upgrade == null:
+		push_error("Upgrade with ID '%s' not found." % upgrade_id)
+		return
+
+	if upgrade.is_max_level() || peniazky < upgrade.get_next_level_price():
+		return
+
+	peniazky -= upgrade.get_next_level_price()
+	upgrade.buy_upgrade()
+	emit_signal("upgrade_bought", upgrade)
+
 
 func load_upgrades() -> void:
 	var file := FileAccess.open("res://upgrades/upgrades.json", FileAccess.READ)

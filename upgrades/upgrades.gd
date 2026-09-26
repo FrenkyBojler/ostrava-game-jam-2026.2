@@ -24,7 +24,10 @@ class UpgradesContainer:
 	func reset() -> void:
 		item.reset()
 
-	func get_upgrade_value(property: UpgradeProperty) -> float:
+	func find_upgrade_by_id(id: String) -> UpgradeItemDTO:
+		return item.find_upgrade_by_id(id)
+
+	func get_property_value(property: UpgradeProperty) -> float:
 		if item.active_level == 0:
 			return 0
 
@@ -51,6 +54,7 @@ class UpgradesContainer:
 class UpgradeItemDTO:
 	var title: String
 	var description: String
+	var id: String
 	var icon: String
 	var upgrades: Array[UpgradeDTO]
 	var active_level: int
@@ -59,11 +63,36 @@ class UpgradeItemDTO:
 	var top: UpgradeItemDTO
 	var bottom: UpgradeItemDTO
 
+	func find_upgrade_by_id(id: String) -> UpgradeItemDTO:
+		if self.id == id:
+			return self
+
+		for child: UpgradeItemDTO in get_children():
+			var result: UpgradeItemDTO = child.find_upgrade_by_id(id)
+			if result:
+				return result
+
+		return null
 
 	func reset() -> void:
 		active_level = 0
 		for child: UpgradeItemDTO in get_children():
 			child.active_level = 0
+
+	func is_max_level() -> bool:
+		return active_level >= upgrades.size()
+
+	func get_next_level_price() -> int:
+		if is_max_level():
+			return 0
+
+		return upgrades[active_level].price
+
+	func buy_upgrade() -> void:
+		if is_max_level():
+			return
+
+		active_level += 1
 
 	func get_active_effects() -> Array[EffectDTO]:
 		if active_level == 0:
@@ -92,6 +121,7 @@ class UpgradeItemDTO:
 		var item := UpgradeItemDTO.new()
 		item.title = _string_value(data.get("title", ""))
 		item.description = _string_value(data.get("description", ""))
+		item.id = _string_value(data.get("id", ""))
 		item.icon = _string_value(data.get("icon", ""))
 		item.active_level = _int_value(data.get("active_level", 0))
 		item.upgrades = []

@@ -2,21 +2,20 @@
 
 [ext_resource type="Script" uid="uid://cuxcivfy844ai" path="res://upgrades/upgrades_menu.gd" id="1_uo6sb"]
 
-[node name="UpgradesMenu" type="Control" unique_id=2142360949]
-layout_mode = 3
+[node name="UpgradesMenu" type="ScrollContainer" unique_id=1221625835]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 6
+size_flags_vertical = 6
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
+scroll_hint_mode = 1
 script = ExtResource("1_uo6sb")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=159598963]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="FlowContainer" type="Control" parent="." unique_id=45605288]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0

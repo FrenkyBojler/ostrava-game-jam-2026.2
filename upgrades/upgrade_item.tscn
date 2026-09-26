@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://jrawrpe2j6el" path="res://upgrades/icons/bar_square_large.png" id="2_x37dt"]
 
 [node name="UpgradeItem" type="Control" unique_id=1323262610]
-custom_minimum_size = Vector2(175, 175)
-custom_maximum_size = Vector2(175, 175)
+custom_minimum_size = Vector2(125, 125)
+custom_maximum_size = Vector2(125, 125)
 layout_mode = 3
 anchor_right = 0.091000006
 anchor_bottom = 0.162
@@ -53,8 +53,14 @@ expand_mode = 1
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1299730960]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Scrap Collector"
+horizontal_alignment = 1
+
+[node name="Price" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1635172134]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "$200"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=619596614]
@@ -63,11 +69,11 @@ theme_override_constants/margin_top = 10
 
 [node name="Effects" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2074652532]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 10
-theme_override_font_sizes/bold_font_size = 10
-theme_override_font_sizes/bold_italics_font_size = 10
-theme_override_font_sizes/italics_font_size = 10
-theme_override_font_sizes/mono_font_size = 10
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
 bbcode_enabled = true
 text = "Scrap collector size +1"
 fit_content = true
@@ -79,28 +85,133 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 
 [node name="Level1" type="TextureRect" parent="MarginContainer/VBoxContainer/ActiveLevels" unique_id=1892800421]
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(16, 16)
+custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("2_euu1s")
 
 [node name="Level2" type="TextureRect" parent="MarginContainer/VBoxContainer/ActiveLevels" unique_id=588183108]
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(16, 16)
+custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("2_euu1s")
 
 [node name="Level3" type="TextureRect" parent="MarginContainer/VBoxContainer/ActiveLevels" unique_id=1939901441]
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(16, 16)
+custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("2_euu1s")
 
 [node name="Level4" type="TextureRect" parent="MarginContainer/VBoxContainer/ActiveLevels" unique_id=338612935]
-custom_minimum_size = Vector2(32, 32)
-custom_maximum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(16, 16)
+custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("2_euu1s")
+
+[node name="Connectors" type="Control" parent="." unique_id=1713855438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Top" type="MarginContainer" parent="Connectors" unique_id=800860421]
+visible = false
+custom_minimum_size = Vector2(5, 32)
+custom_maximum_size = Vector2(5, 32)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = -33
+
+[node name="TextureRect" type="TextureRect" parent="Connectors/Top" unique_id=1173814037]
+custom_minimum_size = Vector2(5, 32)
+custom_maximum_size = Vector2(5, 32)
+layout_mode = 2
+texture = ExtResource("2_x37dt")
+expand_mode = 1
+
+[node name="Bot" type="MarginContainer" parent="Connectors" unique_id=2020416953]
+visible = false
+custom_minimum_size = Vector2(5, 32)
+custom_maximum_size = Vector2(5, 32)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 33
+
+[node name="TextureRect" type="TextureRect" parent="Connectors/Bot" unique_id=800659434]
+custom_minimum_size = Vector2(5, 32)
+custom_maximum_size = Vector2(5, 32)
+layout_mode = 2
+texture = ExtResource("2_x37dt")
+expand_mode = 1
+
+[node name="Left" type="MarginContainer" parent="Connectors" unique_id=151789595]
+visible = false
+custom_minimum_size = Vector2(32, 5)
+custom_maximum_size = Vector2(32, 5)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -2.5
+offset_right = 32.0
+offset_bottom = 2.5
+grow_vertical = 2
+theme_override_constants/margin_left = -33
+
+[node name="TextureRect" type="TextureRect" parent="Connectors/Left" unique_id=2120107304]
+custom_minimum_size = Vector2(32, 5)
+custom_maximum_size = Vector2(32, 5)
+layout_mode = 2
+texture = ExtResource("2_x37dt")
+expand_mode = 1
+
+[node name="Right" type="MarginContainer" parent="Connectors" unique_id=815351104]
+visible = false
+custom_minimum_size = Vector2(32, 5)
+custom_maximum_size = Vector2(32, 5)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -2.5
+offset_bottom = 2.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 33
+
+[node name="TextureRect" type="TextureRect" parent="Connectors/Right" unique_id=272211039]
+custom_minimum_size = Vector2(32, 5)
+custom_maximum_size = Vector2(32, 5)
+layout_mode = 2
+texture = ExtResource("2_x37dt")
+expand_mode = 1
+
+[node name="ChildrenContainer" type="Control" parent="." unique_id=672276726]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
 
 [node name="DisabledPanel" type="Panel" parent="." unique_id=1480211775]
 layout_mode = 1

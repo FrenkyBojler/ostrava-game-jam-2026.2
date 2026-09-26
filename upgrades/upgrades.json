@@ -1,9 +1,10 @@
 {
     "$schema": "./upgrades.schema.json",
+    "id": "scrap_collector",
     "title": "Scrap Collector",
-    "description": "Allows you to collect more scrap",
+    "description": "The core cargo grid you place salvaged scrap pieces onto",
     "icon": "res://upgrades/icons/upgrade_icon.png",
-    "active_level": 2,
+    "active_level": 0,
     "upgrades": [
         {
             "price": 100,
@@ -19,27 +20,141 @@
         }
     ],
     "top": {
-        "title": "Move Speed",
+        "id": "move_speed_1",
+        "title": "Move Speed I",
         "description": "Increases the speed at which you can move around the map",
         "icon": "res://upgrades/icons/upgrade_icon.png",
-        "active_level": 1,
+        "active_level": 0,
         "upgrades": [
             {
                 "price": 100,
                 "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
             },
             {
-                "price": 200,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
-            },
-            {
-                "price": 500,
+                "price": 250,
                 "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
             }
-        ]       
+        ],
+        "top": {
+            "id": "move_speed_2",
+            "title": "Move Speed II",
+            "description": "Further increases your movement speed",
+            "icon": "res://upgrades/icons/upgrade_icon.png",
+            "active_level": 0,
+            "upgrades": [
+                {
+                    "price": 600,
+                    "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+                },
+                {
+                    "price": 1200,
+                    "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+                }
+            ],
+            "top": {
+                "id": "move_speed_3",
+                "title": "Move Speed III",
+                "description": "A final training regimen for peak sprint speed",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 0,
+                "upgrades": [
+                    {
+                        "price": 3000,
+                        "effects": [{"property": "move_speed", "operation": "mul", "value": 1.1}]
+                    }
+                ],
+                "left": {
+                    "id": "dash_unlock",
+                    "title": "Dash Unlock",
+                    "description": "Unlocks a short burst dash",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 500,
+                            "effects": [{"property": "dash_distance", "operation": "add", "value": 3}]
+                        }
+                    ],
+                    "top": {
+                        "id": "dash_distance",
+                        "title": "Dash Distance",
+                        "description": "Increases how far your dash carries you",
+                        "icon": "res://upgrades/icons/upgrade_icon.png",
+                        "active_level": 0,
+                        "upgrades": [
+                            {
+                                "price": 1000,
+                                "effects": [{"property": "dash_distance", "operation": "add", "value": 2}]
+                            },
+                            {
+                                "price": 2000,
+                                "effects": [{"property": "dash_distance", "operation": "add", "value": 2}]
+                            }
+                        ]
+                    },
+                    "bottom": {
+                        "id": "dash_cooldown",
+                        "title": "Dash Cooldown",
+                        "description": "Reduces the time between dashes",
+                        "icon": "res://upgrades/icons/upgrade_icon.png",
+                        "active_level": 0,
+                        "upgrades": [
+                            {
+                                "price": 1200,
+                                "effects": [{"property": "dash_cooldown", "operation": "mul", "value": 0.8}]
+                            },
+                            {
+                                "price": 2500,
+                                "effects": [{"property": "dash_cooldown", "operation": "mul", "value": 0.8}]
+                            }
+                        ],
+                        "bottom": {
+                            "id": "dash_efficiency",
+                            "title": "Dash Efficiency",
+                            "description": "Dashing costs less oxygen",
+                            "icon": "res://upgrades/icons/upgrade_icon.png",
+                            "active_level": 0,
+                            "upgrades": [
+                                {
+                                    "price": 3500,
+                                    "effects": [{"property": "dash_oxygen_consumption", "operation": "mul", "value": 0.7}]
+                                }
+                            ]
+                        }
+                    }
+                },
+                "right": {
+                    "id": "emergency_recall",
+                    "title": "Emergency Recall",
+                    "description": "Grants a one-time teleport back to the entry point per run",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 6000,
+                            "effects": [{"property": "extraction_recall", "operation": "add", "value": 1}]
+                        }
+                    ]
+                }
+            },
+            "right": {
+                "id": "obstacle_crossing",
+                "title": "Obstacle Crossing",
+                "description": "Lets you move over small grid obstacles",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 0,
+                "upgrades": [
+                    {
+                        "price": 2000,
+                        "effects": [{"property": "move_over_grid_obstacles", "operation": "add", "value": 1}]
+                    }
+                ]
+            }
+        }
     },
     "bottom": {
-        "title": "Oxygen Level",
+        "id": "oxygen_tank_1",
+        "title": "Oxygen Tank I",
         "description": "Increases the amount of oxygen you can carry",
         "icon": "res://upgrades/icons/upgrade_icon.png",
         "active_level": 0,
@@ -49,123 +164,397 @@
                 "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
             },
             {
-                "price": 500,
-                "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
-            },
-            {
-                "price": 2500,
+                "price": 400,
                 "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
             }
-        ]
+        ],
+        "bottom": {
+            "id": "oxygen_tank_2",
+            "title": "Oxygen Tank II",
+            "description": "A bigger tank for longer excursions",
+            "icon": "res://upgrades/icons/upgrade_icon.png",
+            "active_level": 0,
+            "upgrades": [
+                {
+                    "price": 900,
+                    "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+                },
+                {
+                    "price": 1800,
+                    "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+                }
+            ],
+            "bottom": {
+                "id": "oxygen_tank_3",
+                "title": "Oxygen Tank III",
+                "description": "State of the art tank liner for maximum capacity",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 0,
+                "upgrades": [
+                    {
+                        "price": 4000,
+                        "effects": [{"property": "oxygen_capacity", "operation": "mul", "value": 1.2}]
+                    }
+                ],
+                "left": {
+                    "id": "efficient_breathing_1",
+                    "title": "Efficient Breathing I",
+                    "description": "Consume oxygen more slowly",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 500,
+                            "effects": [{"property": "oxygen_consumption_rate", "operation": "mul", "value": 0.9}]
+                        },
+                        {
+                            "price": 1000,
+                            "effects": [{"property": "oxygen_consumption_rate", "operation": "mul", "value": 0.9}]
+                        }
+                    ],
+                    "bottom": {
+                        "id": "efficient_breathing_2",
+                        "title": "Efficient Breathing II",
+                        "description": "Advanced rebreather technology",
+                        "icon": "res://upgrades/icons/upgrade_icon.png",
+                        "active_level": 0,
+                        "upgrades": [
+                            {
+                                "price": 2500,
+                                "effects": [{"property": "oxygen_consumption_rate", "operation": "mul", "value": 0.85}]
+                            }
+                        ]
+                    }
+                },
+                "right": {
+                    "id": "emergency_reserve",
+                    "title": "Emergency Reserve",
+                    "description": "Grants a hidden reserve tank triggered when oxygen hits critical",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 3000,
+                            "effects": [{"property": "oxygen_emergency_reserve", "operation": "add", "value": 1}]
+                        }
+                    ],
+                    "right": {
+                        "id": "insurance",
+                        "title": "Insurance",
+                        "description": "Keep more of your scrap even if you run out of oxygen",
+                        "icon": "res://upgrades/icons/upgrade_icon.png",
+                        "active_level": 0,
+                        "upgrades": [
+                            {
+                                "price": 5000,
+                                "effects": [{"property": "death_penalty_scrap_loss", "operation": "mul", "value": 0.5}]
+                            }
+                        ]
+                    }
+                }
+            },
+            "right": {
+                "id": "scrap_refill",
+                "title": "Scrap Refill",
+                "description": "Depositing scrap refills a bit of your oxygen",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 0,
+                "upgrades": [
+                    {
+                        "price": 800,
+                        "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 1}]
+                    },
+                    {
+                        "price": 1600,
+                        "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 1}]
+                    }
+                ]
+            }
+        }
     },
     "left": {
-        "title": "Scrap Value",
-        "description": "Increases the value of scrap you collect",
+        "id": "backpack_1",
+        "title": "Backpack I",
+        "description": "Carry more scrap at once",
         "icon": "res://upgrades/icons/upgrade_icon.png",
         "active_level": 0,
         "upgrades": [
             {
                 "price": 100,
-                "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.1}]
+                "effects": [{"property": "carry_capacity", "operation": "add", "value": 1}]
             },
             {
-                "price": 500,
-                "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.2}]
-            },
-            {
-                "price": 2000,
-                "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.5}]
+                "price": 400,
+                "effects": [{"property": "carry_capacity", "operation": "add", "value": 1}]
             }
-        ]
+        ],
+        "left": {
+            "id": "backpack_2",
+            "title": "Backpack II",
+            "description": "A sturdier frame for even more scrap",
+            "icon": "res://upgrades/icons/upgrade_icon.png",
+            "active_level": 0,
+            "upgrades": [
+                {
+                    "price": 900,
+                    "effects": [{"property": "carry_capacity", "operation": "add", "value": 1}]
+                },
+                {
+                    "price": 1800,
+                    "effects": [{"property": "carry_capacity", "operation": "add", "value": 1}]
+                }
+            ],
+            "left": {
+                "id": "backpack_3",
+                "title": "Backpack III",
+                "description": "Magnetic clamps squeeze extra capacity out of your rig",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 0,
+                "upgrades": [
+                    {
+                        "price": 4000,
+                        "effects": [{"property": "carry_capacity", "operation": "mul", "value": 1.2}]
+                    }
+                ],
+                "top": {
+                    "id": "quick_rotate",
+                    "title": "Quick Rotate",
+                    "description": "Rotate scrap pieces on the grid",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 500,
+                            "effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
+                        }
+                    ],
+                    "top": {
+                        "id": "free_rotate",
+                        "title": "Free Rotate",
+                        "description": "Rotate scrap pieces instantly at no cost",
+                        "icon": "res://upgrades/icons/upgrade_icon.png",
+                        "active_level": 0,
+                        "upgrades": [
+                            {
+                                "price": 1200,
+                                "effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
+                            }
+                        ]
+                    }
+                },
+                "bottom": {
+                    "id": "big_hauls",
+                    "title": "Big Hauls",
+                    "description": "Unlocks larger multi-part scrap pieces",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 2000,
+                            "effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 1}]
+                        }
+                    ],
+                    "bottom": {
+                        "id": "combo_bonus",
+                        "title": "Combo Bonus",
+                        "description": "Earn a bonus for cleanly filling the grid",
+                        "icon": "res://upgrades/icons/upgrade_icon.png",
+                        "active_level": 0,
+                        "upgrades": [
+                            {
+                                "price": 2500,
+                                "effects": [{"property": "scrap_combo_bonus", "operation": "mul", "value": 1.1}]
+                            },
+                            {
+                                "price": 5000,
+                                "effects": [{"property": "scrap_combo_bonus", "operation": "mul", "value": 1.1}]
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "bottom": {
+            "id": "reposition",
+            "title": "Reposition",
+            "description": "Move already placed scrap around your grid",
+            "icon": "res://upgrades/icons/upgrade_icon.png",
+            "active_level": 0,
+            "upgrades": [
+                {
+                    "price": 700,
+                    "effects": [{"property": "scrap_reposition", "operation": "add", "value": 1}]
+                },
+                {
+                    "price": 1500,
+                    "effects": [{"property": "scrap_reposition", "operation": "add", "value": 1}]
+                }
+            ]
+        }
     },
     "right": {
-        "title": "Flashlight Size",
+        "id": "flashlight_1",
+        "title": "Flashlight I",
         "description": "Increases the size of your flashlight",
         "icon": "res://upgrades/icons/upgrade_icon.png",
-        "active_level": 1,
+        "active_level": 0,
         "upgrades": [
             {
                 "price": 100,
                 "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
             },
             {
-                "price": 500,
-                "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
-            },
-            {
-                "price": 1000,
+                "price": 400,
                 "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
             }
         ],
-        "right": {
-            "title": "Flashlight Brightness",
-            "description": "Increases the brightness of your flashlight",
+        "top": {
+            "id": "level_bonus",
+            "title": "Level Bonus",
+            "description": "Earn passive bonus scrap for each level cleared",
             "icon": "res://upgrades/icons/upgrade_icon.png",
-            "active_level": 2,
+            "active_level": 0,
             "upgrades": [
                 {
-                    "price": 100,
-                    "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
-                },
-                {
-                    "price": 500,
-                    "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
-                },
-                {
-                    "price": 1000,
-                    "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
+                    "price": 2000,
+                    "effects": [{"property": "bonus_scrap_per_level", "operation": "add", "value": 1}]
                 }
             ],
             "right": {
-                "title": "Flashlight Range",
-                "description": "Increases the range of your flashlight",
+                "id": "door_hacking_1",
+                "title": "Door Hacking I",
+                "description": "Unlock doors faster",
                 "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 3,
+                "active_level": 0,
                 "upgrades": [
                     {
-                        "price": 100,
-                        "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
+                        "price": 1500,
+                        "effects": [{"property": "unlocking_doors_speed", "operation": "add", "value": 1}]
                     },
                     {
-                        "price": 500,
-                        "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
-                    },
-                    {
-                        "price": 1000,
-                        "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
-                    }
-                ]
-            },
-            "top": {
-                "title": "Burning Flashlight",
-                "description": "Will slowly burn enemies that are in the flashlight's light",
-                "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 1,
-                "upgrades": [
-                    {
-                        "price": 10000,
-                        "effects": [{"property": "flashlight_burn_damage", "operation": "add", "value": 1}]
+                        "price": 3000,
+                        "effects": [{"property": "unlocking_doors_speed", "operation": "add", "value": 1}]
                     }
                 ],
                 "right": {
-                    "title": "Increase Flashlight Damage",
-                    "description": "Increases the damage of your flashlight",
+                    "id": "door_hacking_2",
+                    "title": "Door Hacking II",
+                    "description": "A master keycard cracker",
                     "icon": "res://upgrades/icons/upgrade_icon.png",
-                    "active_level": 1,
+                    "active_level": 0,
                     "upgrades": [
                         {
-                            "price": 100,
-                            "effects": [{"property": "flashlight_burn_damage", "operation": "mul", "value": 1.1}]
-                        },
-                        {
-                            "price": 500,
-                            "effects": [{"property": "flashlight_burn_damage", "operation": "mul", "value": 1.2}]
-                        },
-                        {
-                            "price": 1000,
-                            "effects": [{"property": "flashlight_burn_damage", "operation": "mul", "value": 1.3}]
+                            "price": 5000,
+                            "effects": [{"property": "unlocking_doors_speed", "operation": "mul", "value": 1.2}]
                         }
                     ]
+                }
+            }
+        },
+        "right": {
+            "id": "flashlight_2",
+            "title": "Flashlight II",
+            "description": "A wider beam for your flashlight",
+            "icon": "res://upgrades/icons/upgrade_icon.png",
+            "active_level": 0,
+            "upgrades": [
+                {
+                    "price": 900,
+                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
+                }
+            ],
+            "bottom": {
+                "id": "scrap_value_1",
+                "title": "Scrap Value I",
+                "description": "Increases the value of scrap you collect",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 0,
+                "upgrades": [
+                    {
+                        "price": 500,
+                        "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.1}]
+                    },
+                    {
+                        "price": 1000,
+                        "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.1}]
+                    }
+                ],
+                "bottom": {
+                    "id": "scrap_value_2",
+                    "title": "Scrap Value II",
+                    "description": "Better appraisal nets you even more per scrap",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 2500,
+                            "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.15}]
+                        }
+                    ]
+                }
+            },
+            "right": {
+                "id": "brightness",
+                "title": "Brightness",
+                "description": "Increases the brightness of your flashlight",
+                "icon": "res://upgrades/icons/upgrade_icon.png",
+                "active_level": 0,
+                "upgrades": [
+                    {
+                        "price": 1000,
+                        "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
+                    },
+                    {
+                        "price": 2000,
+                        "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
+                    }
+                ],
+                "bottom": {
+                    "id": "fast_processing",
+                    "title": "Fast Processing",
+                    "description": "Deposit scrap into the processor faster",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 600,
+                            "effects": [{"property": "scrap_processing_speed", "operation": "add", "value": 1}]
+                        },
+                        {
+                            "price": 1200,
+                            "effects": [{"property": "scrap_processing_speed", "operation": "add", "value": 1}]
+                        }
+                    ]
+                },
+                "right": {
+                    "id": "range",
+                    "title": "Range",
+                    "description": "Increases the range of your flashlight",
+                    "icon": "res://upgrades/icons/upgrade_icon.png",
+                    "active_level": 0,
+                    "upgrades": [
+                        {
+                            "price": 1200,
+                            "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
+                        },
+                        {
+                            "price": 2400,
+                            "effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
+                        }
+                    ],
+                    "right": {
+                        "id": "scrap_sense",
+                        "title": "Scrap Sense",
+                        "description": "Reveals nearby scrap even through walls",
+                        "icon": "res://upgrades/icons/upgrade_icon.png",
+                        "active_level": 0,
+                        "upgrades": [
+                            {
+                                "price": 3000,
+                                "effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1}]
+                            }
+                        ]
+                    }
                 }
             }
         }
