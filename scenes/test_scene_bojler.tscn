@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bopauxvt65mev" path="res://items/placeholder_items/bottom_right_l.tscn" id="10_8woto"]
 [ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="11_vwlvh"]
 [ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_bj67q"]
+[ext_resource type="PackedScene" uid="uid://588re1fjfhpj" path="res://tetris/tlatko.tscn" id="13_ef4un"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -169,3 +170,7 @@ position = Vector2(-411, 94)
 
 [node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_bj67q")]
 state = NodePath("../GameState")
+
+[node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
+position = Vector2(527, -135)
+tetris = NodePath("../TetrisGrid")

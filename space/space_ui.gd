@@ -24,4 +24,4 @@ func _on_game_state_changed(new_game_state: Globals.GameState) -> void:
 
 func _process(_delta: float) -> void:
 	oxygen_label.text = str(round(state.oxygen_level))
-	money_label.text = str(state.current_scrap)
+	money_label.text = str(state.current_run_peniazky)
