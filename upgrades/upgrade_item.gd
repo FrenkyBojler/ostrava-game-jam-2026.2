@@ -34,7 +34,13 @@ func initialize(start_position: Vector2, upgrade_data: Upgrades.UpgradeItemDTO) 
 func draw_item() -> void:
 	title.text = upgrade_data.title
 	price.text = "$" + str(upgrade_data.get_next_level_price())
-	effects.text = upgrade_data.description
+
+
+	var effects_level: int = upgrade_data.active_level
+	if effects_level >= upgrade_data.upgrades.size():
+		effects_level = upgrade_data.upgrades.size() - 1
+
+	effects.text = upgrade_data.upgrades[effects_level].description
 
 	if upgrade_data.is_max_level():
 		price.text = "MAX"

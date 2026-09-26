@@ -30,7 +30,7 @@ func _ready() -> void:
 	)
 
 func _process(_delta: float) -> void:
-	if can_interact and Input.is_action_just_pressed("interact_p1"):
+	if can_interact and Input.is_action_just_pressed("interact_p1") and not maros.is_dying:
 		space_ship_embark()
 
 func space_ship_embark() -> void:
@@ -54,7 +54,7 @@ func space_ship_embark() -> void:
 	tween.tween_property(self, "position", start_position, 0.06).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	# takeoff: move the ship upwards, gradually accelerating
-	tween.tween_property(self, "position:y", position.y - 400, 2).as_relative().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "position:y", position.y - 800, 2).as_relative().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	tween.play()
 	await tween.finished
 	state.evacuate()

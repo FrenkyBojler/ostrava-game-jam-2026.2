@@ -51,7 +51,7 @@ class UpgradesContainer:
 		for effect: EffectDTO in effects:
 			if effect.operation == "add":
 				value += effect.value
-			elif effect.operation == "multiply":
+			elif effect.operation == "mul":
 				value = value * effect.value if value != 0 else effect.value
 
 		return value
@@ -70,7 +70,7 @@ class UpgradesContainer:
 			UpgradeProperty.GRID_SIZE:
 				return 3
 			UpgradeProperty.SCRAPPER_USES:
-				return 2
+				return 1
 			UpgradeProperty.SCRAP_VALUE:
 				return 1
 			UpgradeProperty.MULTI_PARTS_SCRAPS:
@@ -84,7 +84,7 @@ class UpgradesContainer:
 			UpgradeProperty.OXYGEN_CAPACITY:
 				return 60
 			UpgradeProperty.FLASHLIGHT_SIZE:
-				return 3.125
+				return 5
 			UpgradeProperty.FLASHLIGHT_RANGE:
 				return 3.125
 			UpgradeProperty.DASH_ABILITY:
@@ -102,7 +102,7 @@ class UpgradesContainer:
 			UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS:
 				return 0.75
 			UpgradeProperty.STRENGTH:
-				return 1
+				return 100
 			_:
 				return 0
 
@@ -222,11 +222,13 @@ class UpgradeItemDTO:
 
 class UpgradeDTO:
 	var price: int
+	var description: String
 	var effects: Array[EffectDTO]
 
 	static func from_dict(data: Dictionary) -> UpgradeDTO:
 		var upgrade := UpgradeDTO.new()
 		upgrade.price = UpgradeItemDTO._int_value(data.get("price", 0))
+		upgrade.description = UpgradeItemDTO._string_value(data.get("description", ""))
 		upgrade.effects = []
 
 		var effects_variant: Variant = data.get("effects", [])

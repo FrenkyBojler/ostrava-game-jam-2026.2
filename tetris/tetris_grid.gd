@@ -28,6 +28,7 @@ var game_state: SpaceGameState
 @export var tlatko: Tlatko
 @export var smasher_collision_shape: CollisionShape2D
 @export var label: Label
+@export var pocytac2: Pocytac2
 
 var entry_points: Array[Vector2] = []
 
@@ -44,6 +45,7 @@ func _ready() -> void:
 	assert(tlatko != null, "Missing Tlatko")
 	assert(smasher_collision_shape != null, "Missing Smasher Collision Shape")
 	assert(label != null, "Missing label")
+	assert(pocytac2 != null, "Missing Pocytac2")
 	
 	grid_matrix_size = int(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.GRID_SIZE) + 2)
 
@@ -56,6 +58,7 @@ func _ready() -> void:
 	label.text = "Bring items to squash and earn money!"
 
 func scrap_triggered() -> void:
+	pocytac2.reset_penizky()
 	tlatko.is_going_up = true
 	smasher_collision_shape.disabled = false
 	smasher_anim_player.play("SmashDown")
@@ -185,7 +188,7 @@ func toggle_highlight_all_pieces(value: bool) -> void:
 func _on_body_exited(body: Node) -> void:
 	if body.get_parent() is Maro3D:
 		maro.to_space()
-		label.text = "Bring items to squash and earn money!"
+		label.text = "Bring scraps to squash and earn money!"
 		
 func is_inside(coord: Vector2) -> bool:
 	return coord.x >= 0 and coord.x < grid_matrix_size - 2 and coord.y >= 0 and coord.y < grid_matrix_size -2
@@ -212,6 +215,13 @@ func check_place_item(item: Item, at_position: Vector2) -> bool:
 func place_item(item: Item, at_position: Vector2) -> void:
 	items_placed.push_back(item)
 	item.has_been_placed = true
+	
+	var total_penizky := 0.0
+	for item_placed in items_placed:
+		print_debug(str(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
+		total_penizky += item_placed.item_resource.value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE))
+		total_penizky += combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS))
+	pocytac2.add_penizky(total_penizky)
 
 	maro.picked_item = null
 	item.turn_off_highlight()
@@ -224,6 +234,7 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	toggle_highlight_all_pieces(false)
 	await get_tree().create_timer(0.1).timeout
 	maro.is_in_tetris = false
+	maro.is_near_tetris = false
 	
 	check_combinations()
 	
