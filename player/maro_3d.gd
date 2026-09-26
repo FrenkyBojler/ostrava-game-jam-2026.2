@@ -84,8 +84,6 @@ func _process(delta: float) -> void:
 		picked_item.turn_off_highlight()
 		can_place_item_into_tetris = false
 		
-	visible = not is_in_tetris
-		
 func _handle_tetris_grid() -> void:
 	if not is_in_tetris:
 		return

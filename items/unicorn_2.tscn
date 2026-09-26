@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c3sjccmgtysew"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_qicfb"]
+[ext_resource type="Texture2D" uid="uid://d302ofbp584ke" path="res://assets/collectibles/unicorn_2.PNG" id="2_86brk"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_foqkl"]
+
+[sub_resource type="Resource" id="Resource_foqkl"]
+script = ExtResource("2_foqkl")
+value = 30.0
+colliders = 38
+has_input = true
+input = 1
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Unicorn2" type="StaticBody2D" unique_id=2033496374]
+script = ExtResource("1_qicfb")
+item_resource = SubResource("Resource_foqkl")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=154252489]
+texture = ExtResource("2_86brk")

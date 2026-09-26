@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ctgx7fdvuh7re"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_uniu6"]
+[ext_resource type="PackedScene" uid="uid://c3sjccmgtysew" path="res://items/unicorn_2.tscn" id="2_ft2jo"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_hab7h"]
+[ext_resource type="Texture2D" uid="uid://b88gc5jvn27h8" path="res://assets/collectibles/unicorn_1.PNG" id="3_ft2jo"]
+
+[sub_resource type="Resource" id="Resource_lrroe"]
+script = ExtResource("2_hab7h")
+value = 30.0
+colliders = 19
+has_output = true
+output = 4
+linked_item = ExtResource("2_ft2jo")
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Unicorn1" type="StaticBody2D" unique_id=1873254602]
+script = ExtResource("1_uniu6")
+item_resource = SubResource("Resource_lrroe")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=572457789]
+texture = ExtResource("3_ft2jo")

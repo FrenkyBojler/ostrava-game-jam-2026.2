@@ -15,6 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://588re1fjfhpj" path="res://tetris/tlatko.tscn" id="13_ef4un"]
 [ext_resource type="PackedScene" uid="uid://bi7w35pso0ohf" path="res://items/bojler_1.tscn" id="14_wkxga"]
 [ext_resource type="PackedScene" uid="uid://cs2wbwuygsans" path="res://items/bojler_2.tscn" id="15_1xosx"]
+[ext_resource type="PackedScene" uid="uid://beo51dpwhi1wv" path="res://items/knoflyx.tscn" id="16_vklom"]
+[ext_resource type="PackedScene" uid="uid://c3sjccmgtysew" path="res://items/unicorn_2.tscn" id="17_aymvb"]
+[ext_resource type="PackedScene" uid="uid://ctgx7fdvuh7re" path="res://items/unicorn_1.tscn" id="18_smbq5"]
+[ext_resource type="PackedScene" uid="uid://ouuewfc6ucc1" path="res://items/communicator_2.tscn" id="19_2ubon"]
+[ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="20_mc7l3"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -187,3 +192,18 @@ position = Vector2(1241, -518)
 
 [node name="Bojler2" parent="." unique_id=1618528147 instance=ExtResource("15_1xosx")]
 position = Vector2(1122, -368)
+
+[node name="Knoflyx" parent="." unique_id=1308961928 instance=ExtResource("16_vklom")]
+position = Vector2(848, -311)
+
+[node name="Unicorn2" parent="." unique_id=2033496374 instance=ExtResource("17_aymvb")]
+position = Vector2(1316, -251)
+
+[node name="Unicorn1" parent="." unique_id=1873254602 instance=ExtResource("18_smbq5")]
+position = Vector2(783, -56)
+
+[node name="Communicator2" parent="." unique_id=275515313 instance=ExtResource("19_2ubon")]
+position = Vector2(1024, -229)
+
+[node name="Communicator1" parent="." unique_id=516705421 instance=ExtResource("20_mc7l3")]
+position = Vector2(928, -465)

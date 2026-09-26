@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dgbr5px2kcjlx"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_ytrlj"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_bl5ol"]
+[ext_resource type="Texture2D" uid="uid://h3wd1w64oo1x" path="res://assets/collectibles/communicator_1.PNG" id="2_p4vqg"]
+[ext_resource type="PackedScene" uid="uid://ouuewfc6ucc1" path="res://items/communicator_2.tscn" id="2_wo83j"]
+
+[sub_resource type="Resource" id="Resource_bl5ol"]
+script = ExtResource("2_bl5ol")
+value = 40.0
+colliders = 27
+has_output = true
+output = 8
+linked_item = ExtResource("2_wo83j")
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Communicator1" type="StaticBody2D" unique_id=516705421]
+script = ExtResource("1_ytrlj")
+item_resource = SubResource("Resource_bl5ol")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=189262923]
+texture = ExtResource("2_p4vqg")

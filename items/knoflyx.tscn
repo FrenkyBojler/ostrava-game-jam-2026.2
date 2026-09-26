@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://beo51dpwhi1wv"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_n2jv5"]
+[ext_resource type="Texture2D" uid="uid://db4m4tcjvbshk" path="res://assets/collectibles/knoflyx.PNG" id="2_4oy2y"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_m168k"]
+
+[sub_resource type="Resource" id="Resource_n2jv5"]
+script = ExtResource("2_m168k")
+value = 5.0
+colliders = 16
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Knoflyx" type="StaticBody2D" unique_id=1308961928]
+script = ExtResource("1_n2jv5")
+item_resource = SubResource("Resource_n2jv5")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=662798128]
+texture = ExtResource("2_4oy2y")

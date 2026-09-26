@@ -5,7 +5,7 @@ const outline_material := preload("res://resources/outline_shader_mat.tres")
 const item_cell_highlight = preload("res://items/item_cell_highlight.tscn")
 
 const CELL_SIZE := 50
-const OUTLINE_WIDTH := 10.0
+const OUTLINE_WIDTH := 5.0
 
 const BASE_CELL_WEIGHT = 1.0
 
