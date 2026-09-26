@@ -17,6 +17,11 @@ var picked_item: Item
 
 var last_dir := Direction.Right
 
+var tetris: TetrisGrid
+var is_in_tetris: bool = false
+
+var can_place_item_into_tetris := false
+
 enum Direction {
 	Left, Right
 }
@@ -29,27 +34,50 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var movement_input: Vector2 = controller.get_movement_input(delta)
 	
+	var prev_dir := last_dir
+	
 	if movement_input.x < 0:
 		last_dir = Direction.Left
-	else:
+	elif movement_input.x > 0:
 		last_dir = Direction.Right
 
 	_handle_direction_change()
-	move_and_collide(movement_input)
+	if not is_in_tetris or (is_in_tetris and prev_dir == last_dir):
+		move_and_collide(movement_input)
 
 	if Input.is_action_just_pressed("interact_p1"):
-		if item_to_pick == null and picked_item != null:
+		if (item_to_pick == null and picked_item != null) or picked_item != null and is_in_tetris:
 			_drop_item()
-		elif item_to_pick != null and picked_item != null:
+		elif item_to_pick != null and picked_item != null and not is_in_tetris:
 			_drop_item()
 			_pick_item()
-		else:
+		elif item_to_pick != null and picked_item == null:
 			_pick_item()
-
+			
+	if controller is TetrisController and tetris != null:
+		is_in_tetris = true
+	else:
+		is_in_tetris = false
+	
+	_handle_tetris_grid()
+	
+	if picked_item != null and is_in_tetris:
+		var current_piece := tetris.get_nearest_piece(position)
+		can_place_item_into_tetris = tetris.check_place_item(picked_item, current_piece.grid_position - Vector2.RIGHT * 2 if last_dir == Direction.Left else current_piece.grid_position + Vector2.RIGHT, last_dir == Direction.Left)
+	if picked_item != null and not is_in_tetris:
+		picked_item.turn_off_highlight()
+		can_place_item_into_tetris = false
+		
+func _handle_tetris_grid() -> void:
+	if not is_in_tetris:
+		return
+	pass
+	
 func _handle_direction_change() -> void:
 	sprite.flip_h = last_dir == Direction.Left
 	if picked_item != null:
-		picked_item.position = item_position_left.position if last_dir == Direction.Left else item_position_right.position
+		var target_pos := item_position_left.position - picked_item.get_item_first_cell_position_offset(true) * -1 if last_dir == Direction.Left else item_position_right.position + picked_item.get_item_first_cell_position_offset(false)
+		picked_item.position = target_pos
 
 func _pick_item() -> void:
 	picked_item = item_to_pick
@@ -59,13 +87,19 @@ func _pick_item() -> void:
 	item_to_pick = null
 
 func _drop_item() -> void:
+	if is_in_tetris and can_place_item_into_tetris:
+		tetris.place_item(picked_item, tetris.get_nearest_piece(position).grid_position - Vector2.RIGHT if last_dir == Direction.Left else tetris.get_nearest_piece(position).grid_position + Vector2.RIGHT, last_dir == Direction.Left)
+	elif is_in_tetris and not can_place_item_into_tetris:
+		return
+
 	picked_item.reparent(get_parent())
 	picked_item.get_dropped()
 	picked_item = null
 
 func _on_interact_area_enter(body: Node2D) -> void:
 	if body is Item and (body as Item) != picked_item:
-		(body as Item).toggle_outline(true)
+		if not is_in_tetris or (is_in_tetris and picked_item == null):
+			(body as Item).toggle_outline(true)
 		item_to_pick = body
 
 func _on_interact_area_exit(body: Node2D) -> void:
@@ -73,9 +107,10 @@ func _on_interact_area_exit(body: Node2D) -> void:
 		(body as Item).toggle_outline(false)
 		item_to_pick = null
 
-func to_tetris(entry_pos: Vector2) -> void:
+func to_tetris(entry_pos: Vector2, tetris_grid: TetrisGrid) -> void:
 	controller = tetris_controller
 	position = entry_pos
+	tetris = tetris_grid
 
 func to_space() -> void:
 	controller = space_controller

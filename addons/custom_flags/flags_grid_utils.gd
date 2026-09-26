@@ -3,11 +3,11 @@ extends RefCounted
 
 ## For a multi-select grid (FlagsGridProperty): returns every (x, y)
 ## whose bit is set in `mask`, given the grid's column count.
-static func get_set_coords(mask: int, columns: int) -> Array[Vector2i]:
-	var coords: Array[Vector2i] = []
+static func get_set_coords(mask: int, columns: int) -> Array[Vector2]:
+	var coords: Array[Vector2] = []
 	for i in 32:
 		if mask & (1 << i):
-			coords.append(Vector2i(i % columns, i / columns))
+			coords.append(Vector2(i % columns, i / columns))
 	return coords
 
 ## For a multi-select grid: check a single cell.

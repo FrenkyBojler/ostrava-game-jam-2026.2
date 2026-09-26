@@ -7,12 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://dxfymq28w27j1" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0016.png" id="4_lf5iq"]
 [ext_resource type="Texture2D" uid="uid://bf3vjuiox1ycv" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0015.png" id="5_waadn"]
 [ext_resource type="Script" uid="uid://ce341luvvxmae" path="res://tetris/entry_trigger.gd" id="6_lf5iq"]
+[ext_resource type="Texture2D" uid="uid://bo0als7vbbyb2" path="res://assets/textures/placeholder/lights/circle_a.png" id="8_pwy87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80t16"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
+
 [node name="TetrisGrid" type="Node2D" unique_id=1266041450]
 script = ExtResource("1_as6nv")
-grid_matrix_size = 7
+grid_matrix_size = 9
 exits = Array[Vector2]([Vector2(0, 2), Vector2(3, 0), Vector2(6, 3), Vector2(2, 6)])
 
 [node name="Container" type="Node2D" parent="." unique_id=1668081454]
@@ -32,6 +35,7 @@ texture = ExtResource("3_p2yjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderR/StaticBody2D" unique_id=2129940657]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="BorderT" type="Node2D" parent="." unique_id=981225282]
 visible = false
@@ -44,6 +48,7 @@ texture = ExtResource("3_p2yjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderT/StaticBody2D" unique_id=1487462710]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="BorderTR" type="Node2D" parent="." unique_id=1282016531]
 visible = false
@@ -56,6 +61,7 @@ texture = ExtResource("4_lf5iq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderTR/StaticBody2D" unique_id=2070580296]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="BorderBR" type="Node2D" parent="." unique_id=731838779]
 visible = false
@@ -68,6 +74,7 @@ texture = ExtResource("4_lf5iq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderBR/StaticBody2D" unique_id=613366844]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="BorderB" type="Node2D" parent="." unique_id=1741808888]
 visible = false
@@ -80,6 +87,7 @@ texture = ExtResource("3_p2yjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderB/StaticBody2D" unique_id=159191008]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="BorderBL" type="Node2D" parent="." unique_id=515550206]
 visible = false
@@ -91,6 +99,7 @@ texture = ExtResource("4_lf5iq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderBL/StaticBody2D" unique_id=1553773601]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="BorderL" type="Node2D" parent="." unique_id=1777558844]
 visible = false
@@ -102,6 +111,7 @@ texture = ExtResource("5_waadn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderL/StaticBody2D" unique_id=1339046578]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="BorderTL" type="Node2D" parent="." unique_id=1985262199]
 visible = false
@@ -114,8 +124,14 @@ texture = ExtResource("4_lf5iq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderTL/StaticBody2D" unique_id=1291484532]
 shape = SubResource("RectangleShape2D_80t16")
+disabled = true
 
 [node name="EntryTrigger" type="Area2D" parent="." unique_id=1043671933]
 script = ExtResource("6_lf5iq")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EntryTrigger" unique_id=1437653804]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntryTrigger" unique_id=1441602564]
+shape = SubResource("RectangleShape2D_lrroe")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=325639648]
+position = Vector2(62, 88)
+texture = ExtResource("8_pwy87")

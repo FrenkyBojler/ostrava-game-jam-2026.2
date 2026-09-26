@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dkl7842wtdjw0" path="res://items/placeholder_items/top_right_l.tscn" id="6_dq6g1"]
 [ext_resource type="PackedScene" uid="uid://d3i0oocp0t8gn" path="res://items/placeholder_items/bottom_line.tscn" id="7_sfj0f"]
 [ext_resource type="PackedScene" uid="uid://brlp0fok0sl6j" path="res://items/placeholder_items/center_dot.tscn" id="8_jj3xy"]
+[ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="9_e2ip7"]
+[ext_resource type="PackedScene" uid="uid://bopauxvt65mev" path="res://items/placeholder_items/bottom_right_l.tscn" id="10_8woto"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -46,6 +48,9 @@ position = Vector2(-225, -26)
 texture = ExtResource("2_dq6g1")
 script = ExtResource("3_5tcau")
 
+[node name="TetrisGrid" parent="." unique_id=1266041450 instance=ExtResource("9_e2ip7")]
+position = Vector2(589, -139)
+
 [node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("2_3yj1c")]
 position = Vector2(504, -173)
 
@@ -55,10 +60,13 @@ color = Color(0.015971808, 0.015971798, 0.015971813, 1)
 script = ExtResource("5_5tcau")
 
 [node name="TopRightL" parent="." unique_id=973099346 instance=ExtResource("6_dq6g1")]
-position = Vector2(123, -139)
+position = Vector2(520, -85)
 
 [node name="bottom_line" parent="." unique_id=1321071022 instance=ExtResource("7_sfj0f")]
-position = Vector2(234, -139)
+position = Vector2(625, -209)
 
 [node name="center_dot" parent="." unique_id=1762631102 instance=ExtResource("8_jj3xy")]
-position = Vector2(175, -199)
+position = Vector2(601, -76)
+
+[node name="bottom_right_l" parent="." unique_id=695792490 instance=ExtResource("10_8woto")]
+position = Vector2(547, -217)

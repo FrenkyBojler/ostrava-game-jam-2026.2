@@ -18,7 +18,7 @@ output = 4
 metadata/_custom_type_script = "uid://b301n057bh2be"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
-size = Vector2(8, 7)
+size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lrroe"]
 radius = 17.029387
@@ -27,13 +27,13 @@ radius = 17.029387
 script = ExtResource("1_escr7")
 item = SubResource("Resource_yxfud")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500361953]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_lrroe")
-
 [node name="Sprite" type="Sprite2D" parent="." unique_id=611189393]
 unique_name_in_owner = true
 texture = ExtResource("1_dq4t7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500361953]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_lrroe")
 
 [node name="MaroCamera" type="Camera2D" parent="." unique_id=319745639 node_paths=PackedStringArray("target")]
 zoom = Vector2(7.4, 7.4)
@@ -62,11 +62,12 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1595143311]
 shape = SubResource("CircleShape2D_lrroe")
+debug_color = Color(0.9529412, 0, 0.5529412, 0.039215688)
 
 [node name="ItemPositionRight" type="Marker2D" parent="." unique_id=1947470993]
 unique_name_in_owner = true
-position = Vector2(3, 4)
+position = Vector2(16, 0)
 
 [node name="ItemPositionLeft" type="Marker2D" parent="." unique_id=1851385574]
 unique_name_in_owner = true
-position = Vector2(-5, 4)
+position = Vector2(-16, 0)

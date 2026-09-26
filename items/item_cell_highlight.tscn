@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b55cvsgulr7xd"]
+
+[ext_resource type="Texture2D" uid="uid://dhnu4qu07ohl4" path="res://assets/textures/placeholder/item_cell_highlight.png" id="1_6x1r6"]
+[ext_resource type="Script" uid="uid://csn82upaigy7i" path="res://items/item_cell_highlight.gd" id="1_dywkv"]
+
+[node name="ItemCellHighlight" type="Sprite2D" unique_id=163533588]
+z_index = 20
+texture = ExtResource("1_6x1r6")
+script = ExtResource("1_dywkv")

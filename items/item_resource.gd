@@ -3,7 +3,7 @@ extends Resource
 
 class_name ItemResource
 
-@export_custom(PROPERTY_HINT_FLAGS, "grid:3:00,01,02,10,11,12,20,21,22")
+@export_custom(PROPERTY_HINT_FLAGS, "grid:3:00,10,20,01,11,21,02,12,22")
 var colliders: int = 0
 
 @export_group("Input")
@@ -13,7 +13,7 @@ var has_input: bool = false:
 		has_input = value
 		notify_property_list_changed()
 		
-@export_custom(PROPERTY_HINT_FLAGS, "radiogrid:3:00,01,02,10,11,12,20,21,22")
+@export_custom(PROPERTY_HINT_FLAGS, "radiogrid:3:00,10,20,01,11,21,02,12,22")
 var input: int = 0
 
 @export_group("Output")
@@ -23,7 +23,7 @@ var has_output: bool = false:
 		has_output = value
 		notify_property_list_changed()
 		
-@export_custom(PROPERTY_HINT_FLAGS, "radiogrid:3:00,01,02,10,11,12,20,21,22")
+@export_custom(PROPERTY_HINT_FLAGS, "radiogrid:3:00,10,20,01,11,21,02,12,22")
 var output: int = 0:
 	set(value):
 		output = value
