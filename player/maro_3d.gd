@@ -6,6 +6,7 @@ class_name Maro3D extends CharacterBody2D
 @onready var sprite: Sprite2D = %Sprite
 @onready var item_position_right: Node2D = %ItemPositionRight
 @onready var item_position_left: Node2D = %ItemPositionLeft
+@onready var light: PointLight2D = $MaroLightAmbient
 
 var space_controller: MaroSpaceController = MaroSpaceController.new()
 var tetris_controller: TetrisController = TetrisController.new()
@@ -38,6 +39,8 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("bail_interact_p1") and is_in_tetris:
 		_bail_from_tetris()
+
+	light.texture_scale = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.FLASHLIGHT_SIZE)
 
 	if is_in_tetris:
 		return
