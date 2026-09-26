@@ -88,7 +88,7 @@ class UpgradesContainer:
 			UpgradeProperty.OXYGEN_CAPACITY:
 				return 120
 			UpgradeProperty.FLASHLIGHT_SIZE:
-				return 0.5
+				return 2.5
 			UpgradeProperty.FLASHLIGHT_BRIGHTNESS:
 				return 1
 			UpgradeProperty.FLASHLIGHT_RANGE:
