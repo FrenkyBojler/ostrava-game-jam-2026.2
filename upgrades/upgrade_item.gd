@@ -3,7 +3,7 @@ class_name UpgradeItem extends Control
 @export var item_spacing: float = 32
 
 @onready var title: Label = $MarginContainer/VBoxContainer/Title
-@onready var price: Label = $MarginContainer/VBoxContainer/Price
+@onready var price: Label = $MarginContainer/VBoxContainer/HBoxContainer/Price
 @onready var effects: RichTextLabel = $MarginContainer/VBoxContainer/Effects
 @onready var levels_container: Control = $MarginContainer/VBoxContainer/ActiveLevels
 @onready var disabled_panel: Panel = $DisabledPanel
@@ -18,6 +18,7 @@ class_name UpgradeItem extends Control
 @onready var children_container: Control = $ChildrenContainer
 
 const upgrade_item = preload("res://upgrades/upgrade_item.tscn")
+const filled_gem = preload("res://assets/UI/gem.PNG")
 
 var upgrade_data: Upgrades.UpgradeItemDTO
 
@@ -33,7 +34,7 @@ func initialize(start_position: Vector2, upgrade_data: Upgrades.UpgradeItemDTO) 
 
 func draw_item() -> void:
 	title.text = upgrade_data.title
-	price.text = "$" + str(upgrade_data.get_next_level_price())
+	price.text = str(upgrade_data.get_next_level_price())
 
 
 	var effects_level: int = upgrade_data.active_level
@@ -51,9 +52,7 @@ func draw_item() -> void:
 			item.visible = false
 
 		if i < upgrade_data.active_level:
-			item.self_modulate = Color.YELLOW
-		else:
-			item.self_modulate = Color.WHITE
+			item.texture = filled_gem
 
 		i += 1
 
@@ -79,9 +78,13 @@ func spawn_children() -> void:
 		bottom_connector.visible = true
 
 func spawn_child(direction: Vector2, child_data: Upgrades.UpgradeItemDTO) -> void:
-	var position: Vector2 = direction * (size.x + item_spacing)
+	var used_size: float = size.x
+	if direction == Vector2.UP or direction == Vector2.DOWN:
+		used_size = size.y
+
+	var position: Vector2 = direction * (used_size + item_spacing)
 	if child_data.offset:
-		position += direction * (child_data.offset * (size.x + item_spacing))
+		position += direction * (child_data.offset * (used_size + item_spacing))
 
 	var upgrade_child: UpgradeItem = upgrade_item.instantiate() as UpgradeItem
 	children_container.add_child(upgrade_child)
