@@ -8,6 +8,7 @@ class_name Maro3D extends CharacterBody2D
 @onready var item_position_left: Node2D = %ItemPositionLeft
 @onready var light: PointLight2D = $MaroLightAmbient
 @onready var dash_timer: Timer = $DashTimer
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var space_controller: MaroSpaceController = MaroSpaceController.new()
 var tetris_controller: TetrisController = TetrisController.new()
@@ -42,6 +43,8 @@ func _ready() -> void:
 	dash_timer.timeout.connect(func():
 		dash_cooldown = false
 	)
+	
+	anim_player.play("idle")
 
 func _process(delta: float) -> void:
 	if Globals.current_game_state != Globals.GameState.Running:
@@ -76,6 +79,11 @@ func _process(delta: float) -> void:
 		last_dir = Direction.Left
 	elif movement_input.x > 0:
 		last_dir = Direction.Right
+	
+	if movement_input.length() != 0:
+		anim_player.play("run")
+	else:
+		anim_player.play("idle")
 
 	_handle_direction_change()
 	

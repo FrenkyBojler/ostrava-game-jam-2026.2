@@ -224,6 +224,7 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	toggle_highlight_all_pieces(false)
 	await get_tree().create_timer(0.1).timeout
 	maro.is_in_tetris = false
+	maro.is_near_tetris = false
 	
 	check_combinations()
 	
