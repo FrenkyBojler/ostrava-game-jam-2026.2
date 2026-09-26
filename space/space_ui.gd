@@ -11,6 +11,11 @@ extends CanvasLayer
 func _ready() -> void:
 	Globals.on_game_state_changed.connect(_on_game_state_changed)
 
+	if Globals.current_game_state == Globals.GameState.Running:
+		show()
+	else:
+		hide()
+
 func _on_game_state_changed(new_game_state: Globals.GameState) -> void:
 	if new_game_state == Globals.GameState.Running:
 		show()

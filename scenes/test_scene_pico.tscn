@@ -16,6 +16,7 @@
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
 [node name="SpaceGameState" parent="." unique_id=651551148 instance=ExtResource("1_pcfci")]
+visible = false
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1908072537]
 position = Vector2(74.00006, 181.00003)
@@ -38,7 +39,7 @@ scale = Vector2(0.45005313, 0.45005313)
 texture = ExtResource("1_chnb3")
 
 [node name="Background5" type="Sprite2D" parent="." unique_id=855818720]
-position = Vector2(806.99994, -235)
+position = Vector2(819.00006, -216.00002)
 scale = Vector2(0.45005313, 0.45005313)
 texture = ExtResource("1_chnb3")
 
@@ -53,7 +54,7 @@ texture = ExtResource("2_pcfci")
 script = ExtResource("3_sii7d")
 
 [node name="TetrisGrid" parent="." unique_id=1266041450 instance=ExtResource("4_gqsab")]
-position = Vector2(589, -139)
+position = Vector2(676, -103)
 
 [node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("5_qd24q")]
 position = Vector2(504, -173)

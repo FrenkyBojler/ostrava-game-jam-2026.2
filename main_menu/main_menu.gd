@@ -15,7 +15,6 @@ func _ready() -> void:
 	restart_game_button.visible = false
 	resume_game_button.visible = false
 	
-	
 	if Globals.current_game_state == Globals.GameState.Exited:
 		play_game_button.visible = true
 		resume_game_button.visible = false
@@ -24,6 +23,11 @@ func _ready() -> void:
 		play_game_button.visible = false
 		resume_game_button.visible = true
 		restart_game_button.visible = true
+
+	if Globals.current_game_level == Globals.GameLevel.Upgrades:
+		play_game_button.visible = true
+		resume_game_button.visible = true
+		restart_game_button.visible = false
 
 func _play_game() -> void:
 	Globals.start_game()

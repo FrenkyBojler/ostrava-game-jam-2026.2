@@ -14,12 +14,12 @@ var peniazky: int = 0
 var current_game_state := GameState.Exited 
 var current_game_level := GameLevel.Level1
 
-
 var main_menu_instance: MainMenu
-var upgrades_menu_instance: UpgradesMenu
+var upgrades_menu_instance: CanvasLayer
 
 enum GameState {
 	Running,
+	Upgrades,
 	Exited,
 	Paused,
 }
@@ -53,7 +53,7 @@ func remove_upgrades_menu() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		if current_game_state == GameState.Running:
+		if current_game_state == GameState.Running || current_game_state == GameState.Upgrades:
 			pause_game()
 		else:
 			resume_game()
@@ -61,8 +61,8 @@ func _process(delta: float) -> void:
 func start_game() -> void:
 	current_game_state = GameState.Running
 	current_game_level = GameLevel.Level1
-	on_game_state_changed.emit(current_game_state)
-	
+
+	get_tree().reload_current_scene()
 	remove_menu()
 	remove_upgrades_menu()
 
@@ -79,20 +79,20 @@ func resume_game() -> void:
 	remove_menu()
 
 func restart_game() -> void:
-	remove_menu()
-	current_game_state = GameState.Exited
-	on_game_state_changed.emit(current_game_state)
-
-	get_tree().reload_current_scene()
-	add_menu()
+	start_game()
 
 func to_upgrades() -> void:
 	current_game_level = GameLevel.Upgrades
+	current_game_state = GameState.Upgrades
 	emit_signal("on_game_level_changed", current_game_level)
+	emit_signal("on_game_state_changed", current_game_state)
 	add_upgrades_menu()
 
 func is_paused() -> bool:
 	return current_game_state == GameState.Paused
+
+func is_running() -> bool:
+	return current_game_state == GameState.Running
 
 func reset() -> void:
 	peniazky = 100000

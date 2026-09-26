@@ -9,6 +9,7 @@ var item_instance: UpgradeItem
 func _ready() -> void:
 	Globals.upgrade_bought.connect(_on_upgrade_bought)
 	draw_upgrades()
+	_update_scroll_region()
 
 func draw_upgrades() -> void:
 	item_instance = upgrade_item.instantiate() as UpgradeItem

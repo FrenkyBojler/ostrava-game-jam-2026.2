@@ -13,14 +13,16 @@ func _ready() -> void:
 	assert(item_spawner_parent != null, "Missing item spawner parent")
 	
 	max_oxygen = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CAPACITY)
-	# oxygen_level = max_oxygen
-	oxygen_level = 5
+	oxygen_level = max_oxygen
 	oxygen_consumption_rate = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CONSUMPTION_RATE)
 	current_scrap = 0
 	
 	_spawn_items()
 
 func _process(delta: float) -> void:
+	if not Globals.is_running():
+		return
+
 	oxygen_level -= oxygen_consumption_rate * delta
 	if oxygen_level < 0:
 		oxygen_level = 0
@@ -28,6 +30,7 @@ func _process(delta: float) -> void:
 		_die()
 
 func _die() -> void:
+
 	var penalty: float = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS)
 	var obtained_scrap: int = current_scrap - round(current_scrap * penalty)
 
