@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="9_e2ip7"]
 [ext_resource type="PackedScene" uid="uid://bopauxvt65mev" path="res://items/placeholder_items/bottom_right_l.tscn" id="10_8woto"]
 [ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="11_vwlvh"]
+[ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_bj67q"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
@@ -165,3 +166,6 @@ position = Vector2(-403, 314)
 
 [node name="ItemSpawner33" type="Marker2D" parent="ItemSpawners" unique_id=1261850456]
 position = Vector2(-411, 94)
+
+[node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_bj67q")]
+state = NodePath("../GameState")
