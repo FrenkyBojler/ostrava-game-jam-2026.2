@@ -29,24 +29,36 @@ position = Vector2(2, -147)
 shape = SubResource("CircleShape2D_ic6hy")
 
 [node name="Control" type="Control" parent="." unique_id=360036895]
+custom_minimum_size = Vector2(300, 50)
+custom_maximum_size = Vector2(300, 200)
 layout_mode = 3
 anchors_preset = 0
-offset_top = 12.0
-offset_right = 40.0
-offset_bottom = 52.0
+offset_left = 2.0
+offset_top = -353.0
+offset_right = 42.0
+offset_bottom = -313.0
 
 [node name="Label" type="Label" parent="Control" unique_id=130077665]
-layout_mode = 0
-offset_left = -106.0
-offset_top = -282.0
-offset_right = 116.0
-offset_bottom = -248.0
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -154.25
+offset_top = -35.5
+offset_right = 194.25
+offset_bottom = 35.5
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 0.23137255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-text = "Press F to Evacuate"
+text = "Press F to evacuate and keep all the money"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=685154921]
 position = Vector2(3, -128)
 texture = ExtResource("3_bf2kr")
+texture_scale = 1.4

@@ -83,6 +83,8 @@ func scrap_triggered() -> void:
 		await get_tree().create_timer(smasher_anim_player.get_animation("GoUp").length).timeout
 		tlatko.is_going_up = false
 		smasher_collision_shape.disabled = true
+	else:
+		label.text = "You are out of squashes for this run"
 
 func draw_grid() -> void:
 	container.get_children().map(func(child: Node2D) -> void:

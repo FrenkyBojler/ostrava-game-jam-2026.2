@@ -11,14 +11,12 @@ var is_embarking := false
 func _ready() -> void:
 	assert(state != null, "Missing state")
 	label.visible = false
-	light.visible = false
 
 	$Area2D.body_entered.connect(func(body):
 		if body is Maro3D:
 			maros = body
 			can_interact = true
 			label.visible = true
-			light.visible = true
 	)
 	
 	$Area2D.body_exited.connect(func(body):
@@ -29,7 +27,6 @@ func _ready() -> void:
 			maros = null
 			can_interact = false
 			label.visible = false
-			light.visible = false
 	)
 
 func _process(_delta: float) -> void:

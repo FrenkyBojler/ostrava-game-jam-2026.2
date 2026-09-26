@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwh7n8ao1ju2o" path="res://tetris/tlatko.gd" id="1_ksswq"]
 [ext_resource type="Texture2D" uid="uid://cc8xtsf5un5ei" path="res://assets/map/pocytac.PNG" id="2_ksswq"]
+[ext_resource type="Texture2D" uid="uid://bo0als7vbbyb2" path="res://assets/textures/placeholder/lights/circle_a.png" id="3_7niqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8040v"]
 size = Vector2(153.33333, 23.333332)
@@ -25,6 +26,7 @@ shape = SubResource("RectangleShape2D_8040v")
 shape = SubResource("CircleShape2D_ic6hy")
 
 [node name="Control" type="Control" parent="." unique_id=360036895]
+z_index = 20
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -58,3 +60,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Press F to squash!"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=782292050]
+texture = ExtResource("3_7niqe")
