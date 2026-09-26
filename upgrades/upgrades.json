@@ -136,19 +136,6 @@
                         }
                     ]
                 }
-            },
-            "right": {
-                "id": "obstacle_crossing",
-                "title": "Obstacle Crossing",
-                "description": "Lets you move over small grid obstacles",
-                "icon": "res://upgrades/icons/upgrade_icon.png",
-                "active_level": 0,
-                "upgrades": [
-                    {
-                        "price": 2000,
-                        "effects": [{"property": "move_over_grid_obstacles", "operation": "add", "value": 1}]
-                    }
-                ]
             }
         }
     },
@@ -509,23 +496,6 @@
                         "effects": [{"property": "flashlight_brightness", "operation": "add", "value": 1}]
                     }
                 ],
-                "bottom": {
-                    "id": "fast_processing",
-                    "title": "Fast Processing",
-                    "description": "Deposit scrap into the processor faster",
-                    "icon": "res://upgrades/icons/upgrade_icon.png",
-                    "active_level": 0,
-                    "upgrades": [
-                        {
-                            "price": 600,
-                            "effects": [{"property": "scrap_processing_speed", "operation": "add", "value": 1}]
-                        },
-                        {
-                            "price": 1200,
-                            "effects": [{"property": "scrap_processing_speed", "operation": "add", "value": 1}]
-                        }
-                    ]
-                },
                 "right": {
                     "id": "range",
                     "title": "Range",

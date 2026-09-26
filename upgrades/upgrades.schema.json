@@ -12,8 +12,7 @@
           "type": "string",
           "enum": [
             "grid_size",
-            "move_over_grid_obstacles",
-            "scrap_processing_speed",
+            "scrapper_uses",
             "scrap_value",
             "multi_parts_scraps",
             "scrap_rotation",
@@ -35,7 +34,8 @@
             "flashlight_brightness",
             "flashlight_range",
             "death_penalty_scrap_loss",
-            "extraction_recall"
+            "extraction_recall",
+            "strength"
           ]
         },
         "operation": {

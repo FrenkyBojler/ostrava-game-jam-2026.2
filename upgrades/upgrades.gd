@@ -3,8 +3,7 @@ extends Node
 
 enum UpgradeProperty {
 	GRID_SIZE,
-	MOVE_OVER_GRID_OBSTACLES,
-	SCRAP_PROCESSING_SPEED,
+	SCRAPPER_USES,
 	SCRAP_VALUE,
 	MULTI_PARTS_SCRAPS,
 	SCRAP_ROTATION,
@@ -68,11 +67,9 @@ class UpgradesContainer:
 	func get_property_base_value(property: UpgradeProperty) -> float:
 		match property:
 			UpgradeProperty.GRID_SIZE:
-				return 6
-			UpgradeProperty.MOVE_OVER_GRID_OBSTACLES:
-				return 0
-			UpgradeProperty.SCRAP_PROCESSING_SPEED:
-				return 1
+				return 3
+			UpgradeProperty.SCRAPPER_USES:
+				return 3
 			UpgradeProperty.SCRAP_VALUE:
 				return 1
 			UpgradeProperty.MULTI_PARTS_SCRAPS:
