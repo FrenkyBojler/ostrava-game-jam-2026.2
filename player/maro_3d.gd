@@ -94,7 +94,7 @@ func _handle_tetris_grid() -> void:
 func _handle_direction_change() -> void:
 	sprite.flip_h = last_dir == Direction.Left
 	if picked_item != null:
-		picked_item.position = item_position_right.position + picked_item.get_item_first_cell_position_offset(false)
+		picked_item.position = item_position_right.position
 	#if picked_item != null:
 	#	var target_pos := item_position_left.position - picked_item.get_item_first_cell_position_offset(true) * -1 if last_dir == Direction.Left else item_position_right.position + picked_item.get_item_first_cell_position_offset(false)
 	#	picked_item.position = target_pos

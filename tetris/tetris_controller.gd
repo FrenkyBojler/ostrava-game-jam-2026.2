@@ -1,6 +1,6 @@
 class_name TetrisController extends MaroController
 
-var grid_size: int = 16
+var grid_size: int = 50
 
 func get_movement_input(_delta: float) -> Vector2:
 	# Handle input and movement

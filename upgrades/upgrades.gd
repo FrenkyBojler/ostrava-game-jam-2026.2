@@ -84,7 +84,7 @@ class UpgradesContainer:
 			UpgradeProperty.UNLOCKING_DOORS_SPEED:
 				return 0
 			UpgradeProperty.MOVE_SPEED:
-				return 100
+				return 325
 			UpgradeProperty.OXYGEN_CAPACITY:
 				return 120
 			UpgradeProperty.FLASHLIGHT_SIZE:

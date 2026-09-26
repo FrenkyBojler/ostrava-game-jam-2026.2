@@ -4,10 +4,10 @@ const collision_shape := preload("res://items/collision_shape_rect_64.tres")
 const outline_material := preload("res://resources/outline_shader_mat.tres")
 const item_cell_highlight = preload("res://items/item_cell_highlight.tscn")
 
-const CELL_SIZE := 16
+const CELL_SIZE := 50
 const OUTLINE_WIDTH := 10.0
 
-const BASE_CELL_WEIGHT = 25.0
+const BASE_CELL_WEIGHT = 1.0
 
 @export
 var item_resource: ItemResource

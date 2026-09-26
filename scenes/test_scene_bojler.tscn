@@ -13,50 +13,53 @@
 [ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="11_vwlvh"]
 [ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_bj67q"]
 [ext_resource type="PackedScene" uid="uid://588re1fjfhpj" path="res://tetris/tlatko.tscn" id="13_ef4un"]
+[ext_resource type="PackedScene" uid="uid://bi7w35pso0ohf" path="res://items/bojler_1.tscn" id="14_wkxga"]
+[ext_resource type="PackedScene" uid="uid://cs2wbwuygsans" path="res://items/bojler_2.tscn" id="15_1xosx"]
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1908072537]
 position = Vector2(74.00006, 181.00003)
-scale = Vector2(0.45005313, 0.45005313)
+scale = Vector2(2, 2)
 texture = ExtResource("1_5tcau")
 
 [node name="Background2" type="Sprite2D" parent="." unique_id=617577188]
 position = Vector2(76.00001, -236)
-scale = Vector2(0.45005313, 0.45005313)
+scale = Vector2(2, 2)
 texture = ExtResource("1_5tcau")
 
 [node name="Background3" type="Sprite2D" parent="." unique_id=1481750743]
 position = Vector2(-672.99994, 172.99997)
-scale = Vector2(0.45005313, 0.45005313)
+scale = Vector2(2, 2)
 texture = ExtResource("1_5tcau")
 
 [node name="Background4" type="Sprite2D" parent="." unique_id=1413735568]
 position = Vector2(-682.99994, -232.00002)
-scale = Vector2(0.45005313, 0.45005313)
+scale = Vector2(2, 2)
 texture = ExtResource("1_5tcau")
 
 [node name="Background5" type="Sprite2D" parent="." unique_id=855818720]
 position = Vector2(806.99994, -235)
-scale = Vector2(0.45005313, 0.45005313)
+scale = Vector2(2, 2)
 texture = ExtResource("1_5tcau")
 
 [node name="Background6" type="Sprite2D" parent="." unique_id=1942374240]
-position = Vector2(795.00006, 174.99997)
-scale = Vector2(0.45005313, 0.45005313)
+position = Vector2(795, 175)
+scale = Vector2(2, 2)
 texture = ExtResource("1_5tcau")
 
 [node name="Walls" type="Sprite2D" parent="." unique_id=1503886876]
-position = Vector2(-225, -26)
+position = Vector2(-794, -53)
+scale = Vector2(2, 2)
 texture = ExtResource("2_dq6g1")
 script = ExtResource("3_5tcau")
 
 [node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state") instance=ExtResource("9_e2ip7")]
-position = Vector2(589, -139)
+position = Vector2(1122, -48)
 game_state = NodePath("../GameState")
 
 [node name="Maro3D" parent="." unique_id=808645865 instance=ExtResource("2_3yj1c")]
-position = Vector2(504, -173)
+position = Vector2(758, -440)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
 visible = false
@@ -68,6 +71,7 @@ item_spawner_parent = NodePath("../ItemSpawners")
 items_to_spawn = Array[PackedScene]([ExtResource("7_sfj0f"), ExtResource("10_8woto"), ExtResource("8_jj3xy"), ExtResource("6_dq6g1")])
 
 [node name="ItemSpawners" type="Node2D" parent="." unique_id=397388277]
+scale = Vector2(2, 2)
 
 [node name="ItemSpawner1" type="Marker2D" parent="ItemSpawners" unique_id=337055802]
 position = Vector2(303, 249)
@@ -172,5 +176,14 @@ position = Vector2(-411, 94)
 state = NodePath("../GameState")
 
 [node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
-position = Vector2(512, -231.00002)
+position = Vector2(758, -241.00002)
 tetris = NodePath("../TetrisGrid")
+
+[node name="Bojler1" parent="." unique_id=1206716402 instance=ExtResource("14_wkxga")]
+position = Vector2(1122, -443)
+
+[node name="bottom_line" parent="." unique_id=1321071022 instance=ExtResource("7_sfj0f")]
+position = Vector2(1241, -518)
+
+[node name="Bojler2" parent="." unique_id=1618528147 instance=ExtResource("15_1xosx")]
+position = Vector2(1122, -368)

@@ -23,7 +23,7 @@ var game_state: SpaceGameState
 
 
 @export var exit_border_padding: int = 12
-@export var grid_size: int = 16
+@export var grid_size: int = 50
 @export var grid_matrix_size: int = 5
 @export var exits: Array[Vector2] = [] 
 
@@ -178,6 +178,7 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	for coord in item.get_coords_adjusted_by_first_cell():
 		var coord_adjusted := coord.rotated_coord + at_position
 		pieces[coord_adjusted].toggle_occupy(true)
+
 	toggle_highlight_all_pieces(false)
 	await get_tree().create_timer(0.1).timeout
 	maro.is_in_tetris = false

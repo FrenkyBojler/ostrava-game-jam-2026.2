@@ -18,6 +18,6 @@ item_resource = SubResource("Resource_2wwlh")
 metadata/_custom_type_script = "uid://csco2c5mpou0l"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=918099579]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.781, 0.781)
 texture = ExtResource("2_ov4xg")
 region_rect = Rect2(0, 129, 192, 63)

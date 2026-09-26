@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cs2wbwuygsans"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_xcwjr"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_srdab"]
+[ext_resource type="Texture2D" uid="uid://bc8j6ol8rx1m8" path="res://assets/collectibles/bojler_2.PNG" id="3_uodg2"]
+
+[sub_resource type="Resource" id="Resource_lrroe"]
+script = ExtResource("2_srdab")
+value = 25.0
+colliders = 216
+has_input = true
+input = 1
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Bojler2" type="StaticBody2D" unique_id=1618528147]
+script = ExtResource("1_xcwjr")
+item_resource = SubResource("Resource_lrroe")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1051208358]
+texture = ExtResource("3_uodg2")

@@ -16,6 +16,7 @@
 
 [node name="TetrisGrid" type="Node2D" unique_id=1266041450]
 script = ExtResource("1_as6nv")
+grid_size = 50
 grid_matrix_size = 9
 exits = Array[Vector2]([Vector2(0, 2), Vector2(3, 0), Vector2(6, 3), Vector2(2, 6)])
 
@@ -23,6 +24,7 @@ exits = Array[Vector2]([Vector2(0, 2), Vector2(3, 0), Vector2(6, 3), Vector2(2, 
 
 [node name="Piece" type="Sprite2D" parent="." unique_id=1425992638]
 visible = false
+scale = Vector2(3.125, 3.125)
 texture = ExtResource("2_tgouq")
 script = ExtResource("3_waadn")
 
