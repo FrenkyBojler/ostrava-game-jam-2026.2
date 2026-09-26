@@ -8,18 +8,22 @@
 	"upgrades": [
 		{
 			"price": 10,
+			"description": "Increases the value of scrap you collect by 50%",
 			"effects": [{"property": "scrap_value", "operation": "mul", "value": 1.5}]
 		},
 		{
 			"price": 100,
+			"description": "Doubles the value of scrap you collect",
 			"effects": [{"property": "scrap_value", "operation": "mul", "value": 2}]
 		},
 		{
-			"price": 500,
+			"price": 1500,
+			"description": "Triples the value of scrap you collect",
 			"effects": [{"property": "scrap_value", "operation": "mul", "value": 3}]
 		},
 		{
 			"price": 5000,
+			"description": "Quintuples the value of scrap you collect",
 			"effects": [{"property": "scrap_value", "operation": "mul", "value": 5}]
 		}
 	],
@@ -33,23 +37,28 @@
 		"upgrades": [
 			{
 				"price": 50,
-				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 15}]
+				"description": "Increases the amount of oxygen you can carry by 15%",
+				"effects": [{"property": "oxygen_capacity", "operation": "mul", "value": 1.15}]
 			},
 			{
 				"price": 300,
-				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 30}]
+				"description": "Increases the amount of oxygen you can carry by 30%",
+				"effects": [{"property": "oxygen_capacity", "operation": "mul", "value": 1.3}]
 			},
 			{
 				"price": 600,
-				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 50}]
+				"description": "Increases the amount of oxygen you can carry by 50%",
+				"effects": [{"property": "oxygen_capacity", "operation": "mul", "value": 1.5}]
 			},
 			{
 				"price": 1500,
-				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 75}]
+				"description": "Increases the amount of oxygen you can carry by 75%",
+				"effects": [{"property": "oxygen_capacity", "operation": "mul", "value": 1.75}]
 			},
 			{
 				"price": 4000,
-				"effects": [{"property": "oxygen_capacity", "operation": "add", "value": 100}]
+				"description": "Doubles the amount of oxygen you can carry",
+				"effects": [{"property": "oxygen_capacity", "operation": "mul", "value": 2}]
 			}
 		],
 		"left": {
@@ -61,15 +70,18 @@
 			"upgrades": [
 				{
 					"price": 500,
+					"description": "Reduces oxygen consumption rate by 10%",
 					"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.1}]
 				},
 				{
 					"price": 1000,
-					"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.2}]
+					"description": "Reduces oxygen consumption rate by 25%",
+					"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.25}]
 				},
 				{
-					"price": 2500,
-					"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.3}]
+					"price": 4000,
+					"description": "Halves oxygen consumption rate",
+					"effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.5}]
 				}
 			],
 			"left": {
@@ -81,6 +93,7 @@
 				"upgrades": [
 					{
 						"price": 3000,
+						"description": "Grants a hidden reserve tank triggered when oxygen hits critical",
 						"effects": [{"property": "oxygen_emergency_reserve", "operation": "add", "value": 1}]
 					}
 				]
@@ -95,11 +108,18 @@
 			"upgrades": [
 				{
 					"price": 800,
+					"description": "Grants a small oxygen bonus for each scrap deposited",
 					"effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 2}]
 				},
 				{
 					"price": 1600,
+					"description": "Grants a medium oxygen bonus for each scrap deposited",
 					"effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 4}]
+				},
+				{
+					"price": 3200,
+					"description": "Grants a large oxygen bonus for each scrap deposited",
+					"effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 8}]
 				}
 			],
 			"right": {
@@ -111,10 +131,12 @@
 				"upgrades": [
 					{
 						"price": 3000,
+						"description": "Reduces scrap loss on death by 25%",
 						"effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.25}]
 					},
 					{
 						"price": 5000,
+						"description": "Reduces scrap loss on death by 50%",
 						"effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.5}]
 					}
 				]
@@ -130,18 +152,22 @@
 		"upgrades": [
 			{
 				"price": 50,
+				"description": "Increases flashlight size by a small amount",
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
 			},
 			{
 				"price": 200,
+				"description": "Increases flashlight size by a medium amount",
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 2}]
 			},
 			{
 				"price": 600,
+				"description": "Increases flashlight size by a large amount",
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 3}]
 			},
 			{
 				"price": 1000,
+				"description": "Greatly increases flashlight size",
 				"effects": [{"property": "flashlight_size", "operation": "add", "value": 4.5}]
 			}
 		],
@@ -154,18 +180,22 @@
 			"upgrades": [
 				{
 					"price": 100,
+					"description": "Increases flashlight range by a small amount",
 					"effects": [{"property": "flashlight_range", "operation": "add", "value": 1}]
 				},
 				{
 					"price": 400,
+					"description": "Increases flashlight range by a medium amount",
 					"effects": [{"property": "flashlight_range", "operation": "add", "value": 2}]
 				},
 				{
 					"price": 900,
+					"description": "Increases flashlight range by a large amount",	
 					"effects": [{"property": "flashlight_range", "operation": "add", "value": 3}]
 				},
 				{
 					"price": 1600,
+					"description": "Greatly increases flashlight range",
 					"effects": [{"property": "flashlight_range", "operation": "add", "value": 4.5}]
 				}
 			]
@@ -180,14 +210,17 @@
 		"upgrades": [
 			{
 				"price": 100,
+				"description": "Allows you to use the scrapper one additional time",
 				"effects": [{"property": "scrapper_uses", "operation": "add", "value": 1}]
 			},
 			{
 				"price": 200,
+				"description": "Allows you to use the scrapper two additional times",
 				"effects": [{"property": "scrapper_uses", "operation": "add", "value": 2}]
 			},
 			{
 				"price": 500,
+				"description": "Allows you to use the scrapper three additional times",
 				"effects": [{"property": "scrapper_uses", "operation": "add", "value": 3}]
 			}
 		],
@@ -199,14 +232,17 @@
 			"active_level": 0,
 			"upgrades": [
 				{
+					"description": "Increases the size of the scrapper grid",
 					"price": 100,
 					"effects": [{"property": "grid_size", "operation": "add", "value": 1}]
 				},
 				{
+					"description": "Further increases the size of the scrapper grid",
 					"price": 500,
 					"effects": [{"property": "grid_size", "operation": "add", "value": 2}]
 				},
 				{
+					"description": "Significantly increases the size of the scrapper grid",
 					"price": 5000,
 					"effects": [{"property": "grid_size", "operation": "add", "value": 3}]
 				}
@@ -220,10 +256,12 @@
 				"upgrades": [
 					{
 						"price": 1000,
-						"effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 1}]
+						"description": "Doubles bonus for multi-part scrap pieces",
+						"effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 1.5}]
 					},
 					{
 						"price": 2000,
+						"description": "Triples bonus for multi-part scrap pieces",
 						"effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 3}]
 					}
 				],
@@ -236,11 +274,13 @@
 					"upgrades": [
 						{
 							"price": 2500,
-							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1000}]
+							"description": "Reveals scrap within a small radius",
+							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 750}]
 						},
 						{
 							"price": 5000,
-							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 3000}]
+							"description": "Reveals scrap within a larger radius",
+							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1500}]
 						}
 					]
 				}
@@ -256,23 +296,28 @@
 		"upgrades": [
 			{
 				"price": 50,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 50}]
+				"description": "Increase your move speed by 15%",
+				"effects": [{"property": "move_speed", "operation": "mul", "value": 1.15}]
 			},
 			{
 				"price": 250,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 100}]
+				"description": "Increase your move speed by 25%",
+				"effects": [{"property": "move_speed", "operation": "mul", "value": 1.25}]
 			},
 			{
 				"price": 600,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 200}]
+				"description": "Increase your move speed by 50%",
+				"effects": [{"property": "move_speed", "operation": "mul", "value": 1.5}]
 			},
 			{
 				"price": 1200,
-				"effects": [{"property": "move_speed", "operation": "add", "value": 300}]
+				"description": "Increase your move speed by 75%",
+				"effects": [{"property": "move_speed", "operation": "mul", "value": 1.75}]
 			},
 			{
 				"price": 3000,
-				"effects": [{"property": "move_speed", "operation": "mul", "value": 400}]
+				"description": "Double your move speed",
+				"effects": [{"property": "move_speed", "operation": "mul", "value": 2}]
 			}
 		],
 		"right": {
@@ -284,16 +329,19 @@
 			"upgrades": [
 				{
 					"price": 250,
+					"description": "Allows you to carry two-parts scrap with ease",
 					"effects": [{"property": "strength", "operation": "add", "value": 100}]
 				},
 				{
 					"price": 500,
+					"description": "Allows you to carry three-parts scrap with ease",
 					"effects": [{"property": "strength", "operation": "add", "value": 200}]
 				},
 				{
 					"price": 1500,
+					"description": "Allows you to carry four-parts scrap with ease",
 					"effects": [{"property": "strength", "operation": "add", "value": 300}]
-				},
+				}
 			],
 			"right": {
 				"id": "scrap_rotation",
@@ -304,6 +352,7 @@
 				"upgrades": [
 					{
 						"price": 500,
+						"description": "Allows you to rotate scrap pieces on the scrapper grid",
 						"effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
 					}
 				]
@@ -318,6 +367,7 @@
 			"upgrades": [
 				{
 					"price": 500,
+					"description": "Unlocks the dash ability",
 					"effects": [{"property": "dash_ability", "operation": "add", "value": 1}]
 				}
 			],
@@ -330,10 +380,12 @@
 				"upgrades": [
 					{
 						"price": 1200,
+						"description": "Reduces the dash cooldown by 2 seconds",
 						"effects": [{"property": "dash_cooldown", "operation": "add", "value": 2}]
 					},
 					{
 						"price": 2500,
+						"description": "Reduces the dash cooldown by 3 seconds",
 						"effects": [{"property": "dash_cooldown", "operation": "add", "value": 3}]
 					}
 				],
@@ -346,10 +398,12 @@
 					"upgrades": [
 						{
 							"price": 1000,
+							"description": "Increases dash distance",
 							"effects": [{"property": "dash_distance", "operation": "add", "value": 1}]
 						},
 						{
 							"price": 2000,
+							"description": "Further increases dash distance",
 							"effects": [{"property": "dash_distance", "operation": "add", "value": 1.5}]
 						}
 					]

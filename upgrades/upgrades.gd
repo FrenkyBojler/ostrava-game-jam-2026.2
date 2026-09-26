@@ -222,11 +222,13 @@ class UpgradeItemDTO:
 
 class UpgradeDTO:
 	var price: int
+	var description: String
 	var effects: Array[EffectDTO]
 
 	static func from_dict(data: Dictionary) -> UpgradeDTO:
 		var upgrade := UpgradeDTO.new()
 		upgrade.price = UpgradeItemDTO._int_value(data.get("price", 0))
+		upgrade.description = UpgradeItemDTO._string_value(data.get("description", ""))
 		upgrade.effects = []
 
 		var effects_variant: Variant = data.get("effects", [])
