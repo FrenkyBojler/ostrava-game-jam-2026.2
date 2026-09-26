@@ -34,7 +34,8 @@
             "flashlight_range",
             "death_penalty_scrap_loss",
             "extraction_recall",
-            "strength"
+            "strength",
+            "dash_ability"
           ]
         },
         "operation": {

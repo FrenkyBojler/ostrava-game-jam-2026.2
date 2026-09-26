@@ -68,20 +68,16 @@ class UpgradesContainer:
 	func get_property_base_value(property: UpgradeProperty) -> float:
 		match property:
 			UpgradeProperty.GRID_SIZE:
-				return 4
-			UpgradeProperty.SCRAPPER_USES:
 				return 3
+			UpgradeProperty.SCRAPPER_USES:
+				return 2
 			UpgradeProperty.SCRAP_VALUE:
 				return 1
 			UpgradeProperty.MULTI_PARTS_SCRAPS:
-				return 1
+				return 1.5
 			UpgradeProperty.SCRAP_ROTATION:
-				return 1
-			UpgradeProperty.SCRAP_INDICATORS:
 				return 0
 			UpgradeProperty.SCRAP_REVEAL_RADIUS:
-				return 0
-			UpgradeProperty.UNLOCKING_DOORS_SPEED:
 				return 0
 			UpgradeProperty.MOVE_SPEED:
 				return 325
@@ -89,20 +85,12 @@ class UpgradesContainer:
 				return 60
 			UpgradeProperty.FLASHLIGHT_SIZE:
 				return 2.5
-			UpgradeProperty.FLASHLIGHT_BRIGHTNESS:
-				return 1
-			UpgradeProperty.FLASHLIGHT_RANGE:
-				return 1
-			UpgradeProperty.FLASHLIGHT_BURN_DAMAGE:
-				return 0
 			UpgradeProperty.DASH_ABILITY:
 				return 0
 			UpgradeProperty.DASH_COOLDOWN:
-				return 1.0
+				return 0
 			UpgradeProperty.DASH_DISTANCE:
 				return 1
-			UpgradeProperty.DASH_OXYGEN_CONSUMPTION:
-				return 0
 			UpgradeProperty.OXYGEN_CONSUMPTION_RATE:
 				return 1
 			UpgradeProperty.OXYGEN_BONUS_PER_SCRAP:
@@ -110,9 +98,7 @@ class UpgradesContainer:
 			UpgradeProperty.OXYGEN_EMERGENCY_RESERVE:
 				return 0
 			UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS:
-				return 1
-			UpgradeProperty.EXTRACTION_RECALL:
-				return 0
+				return 0.75
 			UpgradeProperty.STRENGHT:
 				return 1
 			_:

@@ -7,12 +7,20 @@
     "active_level": 0,
     "upgrades": [
         {
-            "price": 500,
-            "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.1}]
+            "price": 10,
+            "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.5}]
         },
         {
-            "price": 1000,
-            "effects": [{"property": "scrap_value", "operation": "mul", "value": 1.25}]
+            "price": 100,
+            "effects": [{"property": "scrap_value", "operation": "mul", "value": 2}]
+        },
+        {
+            "price": 500,
+            "effects": [{"property": "scrap_value", "operation": "mul", "value": 3}]
+        },
+        {
+            "price": 5000,
+            "effects": [{"property": "scrap_value", "operation": "mul", "value": 5}]
         }
     ],
     "bottom": {
@@ -23,12 +31,16 @@
         "active_level": 0,
         "upgrades": [
             {
-                "price": 500,
+                "price": 50,
                 "effects": [{"property": "scrapper_uses", "operation": "add", "value": 1}]
             },
             {
-                "price": 1000,
-                "effects": [{"property": "scrapper_uses", "operation": "add", "value": 1}]
+                "price": 200,
+                "effects": [{"property": "scrapper_uses", "operation": "add", "value": 2}]
+            },
+            {
+                "price": 500,
+                "effects": [{"property": "scrapper_uses", "operation": "add", "value": 3}]
             }
         ],
         "bottom": {
@@ -44,11 +56,11 @@
                 },
                 {
                     "price": 500,
-                    "effects": [{"property": "grid_size", "operation": "add", "value": 1}]
+                    "effects": [{"property": "grid_size", "operation": "add", "value": 2}]
                 },
                 {
                     "price": 5000,
-                    "effects": [{"property": "grid_size", "operation": "add", "value": 1}]
+                    "effects": [{"property": "grid_size", "operation": "add", "value": 3}]
                 }
             ],
             "right": {
@@ -61,10 +73,6 @@
                     {
                         "price": 500,
                         "effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
-                    },
-                    {
-                        "price": 1200,
-                        "effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
                     }
                 ]
             },
@@ -76,8 +84,12 @@
                 "active_level": 0,
                 "upgrades": [
                     {
-                        "price": 2000,
+                        "price": 1000,
                         "effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 1}]
+                    },
+                    {
+                        "price": 2000,
+                        "effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 3}]
                     }
                 ],
                 "right": {
@@ -89,7 +101,11 @@
                     "upgrades": [
                         {
                             "price": 2500,
-                            "effects": [{"property": "scrap_indicators", "operation": "add", "value": 1}]
+                            "effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1000}]
+                        },
+                        {
+                            "price": 5000,
+                            "effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 3000}]
                         }
                     ]
                 }
@@ -106,23 +122,23 @@
         "upgrades": [
             {
                 "price": 100,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+                "effects": [{"property": "move_speed", "operation": "add", "value": 100}]
             },
             {
                 "price": 250,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+                "effects": [{"property": "move_speed", "operation": "add", "value": 200}]
             },
             {
                 "price": 600,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+                "effects": [{"property": "move_speed", "operation": "add", "value": 300}]
             },
             {
                 "price": 1200,
-                "effects": [{"property": "move_speed", "operation": "add", "value": 1}]
+                "effects": [{"property": "move_speed", "operation": "add", "value": 400}]
             },
             {
                 "price": 3000,
-                "effects": [{"property": "move_speed", "operation": "mul", "value": 1.1}]
+                "effects": [{"property": "move_speed", "operation": "mul", "value": 500}]
             }
         ],
         "bottom": {
@@ -134,7 +150,7 @@
             "upgrades": [
                 {
                     "price": 500,
-                    "effects": [{"property": "dash_distance", "operation": "add", "value": 3}]
+                    "effects": [{"property": "dash_ability", "operation": "add", "value": 1}]
                 }
             ],
             "right": {
@@ -146,11 +162,11 @@
                 "upgrades": [
                     {
                         "price": 1200,
-                        "effects": [{"property": "dash_cooldown", "operation": "mul", "value": 0.8}]
+                        "effects": [{"property": "dash_cooldown", "operation": "add", "value": 2}]
                     },
                     {
                         "price": 2500,
-                        "effects": [{"property": "dash_cooldown", "operation": "mul", "value": 0.8}]
+                        "effects": [{"property": "dash_cooldown", "operation": "add", "value": 3}]
                     }
                 ],
                 "right": {
@@ -162,7 +178,7 @@
                     "upgrades": [
                         {
                             "price": 1000,
-                            "effects": [{"property": "dash_distance", "operation": "add", "value": 2}]
+                            "effects": [{"property": "dash_distance", "operation": "add", "value": 1}]
                         },
                         {
                             "price": 2000,
@@ -179,8 +195,20 @@
                 "active_level": 0,
                 "upgrades": [
                     {
-                        "price": 1500,
-                        "effects": [{"property": "strength", "operation": "add", "value": 1}]
+                        "price": 500,
+                        "effects": [{"property": "strength", "operation": "add", "value": 0.25}]
+                    },
+                    {
+                        "price": 1000,
+                        "effects": [{"property": "strength", "operation": "add", "value": 1.5}]
+                    },
+                    {
+                        "price": 2000,
+                        "effects": [{"property": "strength", "operation": "add", "value": 2}]
+                    },
+                    {
+                        "price": 2500,
+                        "effects": [{"property": "strength", "operation": "add", "value": 4}]
                     }
                 ]
             }
@@ -199,11 +227,11 @@
                 },
                 {
                     "price": 400,
-                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
+                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 2}]
                 },
                 {
                     "price": 900,
-                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 1}]
+                    "effects": [{"property": "flashlight_size", "operation": "add", "value": 3}]
                 }
             ],
             "right": {
@@ -215,23 +243,23 @@
                 "upgrades": [
                     {
                         "price": 100,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 15}]
                     },
                     {
                         "price": 400,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 30}]
                     },
                     {
                         "price": 900,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 50}]
                     },
                     {
                         "price": 1800,
-                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 1}]
+                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 75}]
                     },
                     {
                         "price": 4000,
-                        "effects": [{"property": "oxygen_capacity", "operation": "mul", "value": 1.2}]
+                        "effects": [{"property": "oxygen_capacity", "operation": "add", "value": 100}]
                     }
                 ],
                 "bottom": {
@@ -243,15 +271,15 @@
                     "upgrades": [
                         {
                             "price": 500,
-                            "effects": [{"property": "oxygen_consumption_rate", "operation": "mul", "value": 0.9}]
+                            "effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.1}]
                         },
                         {
                             "price": 1000,
-                            "effects": [{"property": "oxygen_consumption_rate", "operation": "mul", "value": 0.9}]
+                            "effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.2}]
                         },
                         {
                             "price": 2500,
-                            "effects": [{"property": "oxygen_consumption_rate", "operation": "mul", "value": 0.85}]
+                            "effects": [{"property": "oxygen_consumption_rate", "operation": "add", "value": -0.3}]
                         }
                     ],
                     "bottom": {
@@ -277,11 +305,11 @@
                     "upgrades": [
                         {
                             "price": 800,
-                            "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 1}]
+                            "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 2}]
                         },
                         {
                             "price": 1600,
-                            "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 1}]
+                            "effects": [{"property": "oxygen_bonus_per_scrap", "operation": "add", "value": 4}]
                         }
                     ],
                     "bottom": {
@@ -292,8 +320,12 @@
                         "active_level": 0,
                         "upgrades": [
                             {
+                                "price": 3000,
+                                "effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.25}]
+                            },
+                            {
                                 "price": 5000,
-                                "effects": [{"property": "death_penalty_scrap_loss", "operation": "mul", "value": 0.5}]
+                                "effects": [{"property": "death_penalty_scrap_loss", "operation": "add", "value": -0.5}]
                             }
                         ]
                     }
