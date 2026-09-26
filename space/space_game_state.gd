@@ -28,12 +28,12 @@ func _ready() -> void:
 	spawned_items += _spawn_items()
 	spawned_items += _spawn_items()
 
+	scraps_indicator.set_items_on_map(spawned_items)
 
 func _process(delta: float) -> void:
 	if not Globals.is_running():
 		return
 
-	scraps_indicator.set_items_on_map(spawned_items.filter(func(item: Item): return item != null and not item.has_been_placed))
 
 	oxygen_level -= oxygen_consumption_rate * delta
 	if oxygen_level < 0:
