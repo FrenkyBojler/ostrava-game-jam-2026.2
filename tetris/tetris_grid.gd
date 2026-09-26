@@ -1,5 +1,8 @@
 class_name TetrisGrid extends Node2D
 
+@export
+var scrap_wait_time = 60.0
+
 @onready var piece: Sprite2D = $Piece
 @onready var container: Node2D = $Container
 @onready var entry_trigger: EntryTrigger = $EntryTrigger
@@ -15,6 +18,8 @@ class_name TetrisGrid extends Node2D
 @onready var border_right: Node2D = $BorderR
 @onready var border_left: Node2D = $BorderL
 
+@onready var scraper_timer: Timer = $ScrapeTimer
+
 @export var exit_border_padding: int = 12
 @export var grid_size: int = 16
 @export var grid_matrix_size: int = 5
@@ -23,16 +28,33 @@ class_name TetrisGrid extends Node2D
 var entry_points: Array[Vector2] = []
 
 var pieces: Dictionary[Vector2, Piece] = {}
+var items_placed: Array[ItemResource] = []
 
 var maro: Maro3D
 
 func _ready() -> void:
 	grid_matrix_size = int(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.GRID_SIZE) + 2)
+	
+	scraper_timer.wait_time = scrap_wait_time / float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_PROCESSING_SPEED))
+	scraper_timer.one_shot = false
+	
+	scraper_timer.timeout.connect(func():
+		scrap_triggered()
+	)
+	
+	scraper_timer.start()
 
 	print_debug("Grid matrix size: %d" % grid_matrix_size)
 	entry_trigger.area_entered.connect(_on_body_entered)
 	entry_trigger.area_exited.connect(_on_body_exited)
 	draw_grid()
+	
+func scrap_triggered() -> void:
+	var value := 0.0
+	for item in items_placed:
+		value += item.value
+
+	#Globals.add_peniazky(value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
 
 func draw_grid() -> void:
 	container.get_children().map(func(child: Node2D) -> void:
@@ -150,6 +172,8 @@ func check_place_item(item: Item, at_position: Vector2) -> bool:
 	return result
 	
 func place_item(item: Item, at_position: Vector2) -> void:
+	items_placed.push_back(item.item_resource)
+	
 	maro.picked_item = null
 	item.turn_off_highlight()
 	item.is_being_placed = false

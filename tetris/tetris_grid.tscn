@@ -145,3 +145,5 @@ debug_color = Color(0.9493025, 0.011668049, 0.5709296, 0.41960785)
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=325639648]
 position = Vector2(62, 88)
 texture = ExtResource("8_pwy87")
+
+[node name="ScrapeTimer" type="Timer" parent="." unique_id=2031278333]

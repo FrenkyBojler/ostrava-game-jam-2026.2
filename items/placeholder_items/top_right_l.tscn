@@ -7,6 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_vk8gi"]
 script = ExtResource("2_b42kv")
+value = 15.0
 colliders = 11
 has_output = true
 output = 64

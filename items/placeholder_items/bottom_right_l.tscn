@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_882qh"]
 script = ExtResource("2_chmc1")
+value = 15.0
 colliders = 416
 metadata/_custom_type_script = "uid://b301n057bh2be"
 

@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_lrroe"]
 script = ExtResource("2_rqqqk")
+value = 5.0
 colliders = 16
 input = 1
 metadata/_custom_type_script = "uid://b301n057bh2be"

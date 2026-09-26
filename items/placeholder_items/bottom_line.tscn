@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_2wwlh"]
 script = ExtResource("2_bkydl")
+value = 10.0
 colliders = 448
 has_input = true
 input = 64

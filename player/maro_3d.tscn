@@ -10,6 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_yxfud"]
 script = ExtResource("2_02rfc")
+value = null
 colliders = 19
 has_input = true
 input = 1

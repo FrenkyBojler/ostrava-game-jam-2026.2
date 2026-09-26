@@ -3,6 +3,9 @@ extends Resource
 
 class_name ItemResource
 
+@export
+var value: float
+
 @export_custom(PROPERTY_HINT_FLAGS, "grid:3:00,10,20,01,11,21,02,12,22")
 var colliders: int = 0
 
