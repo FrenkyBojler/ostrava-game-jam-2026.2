@@ -35,6 +35,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_in_tetris or Globals.current_game_state != Globals.GameState.Running:
 		return
+		
+	if Input.is_action_just_pressed("bail_interact_p1") and is_in_tetris:
+		_bail_from_tetris()
+
+	if is_in_tetris:
+		return
 
 	var movement_input: Vector2 = controller.get_movement_input(delta)
 	
@@ -105,6 +111,17 @@ func _drop_item() -> void:
 	picked_item.reparent(get_parent())
 	picked_item.get_dropped()
 	picked_item = null
+
+func _bail_from_tetris() -> void:
+	if not is_in_tetris:
+		return
+
+	is_near_tetris = false
+	picked_item.is_being_placed = false
+	picked_item.reparent(self)
+	is_in_tetris = false
+	tetris.toggle_highlight_all_pieces(false)
+	_handle_direction_change()
 
 func _on_interact_area_enter(body: Node2D) -> void:
 	if body is Item and (body as Item) != picked_item:
