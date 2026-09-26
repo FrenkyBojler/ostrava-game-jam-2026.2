@@ -7,8 +7,14 @@ class_name Maro3D extends CharacterBody2D
 @onready var item_position_right: Node2D = %ItemPositionRight
 @onready var item_position_left: Node2D = %ItemPositionLeft
 @onready var light: PointLight2D = $MaroLightAmbient
+
+@onready var maro_light_directional: Node2D = $MaroLightDirectional
 @onready var dash_timer: Timer = $DashTimer
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var dead_body: Sprite2D = $DeadBody
+@onready var dead_head: Sprite2D = $DeadHead
+@onready var death_label: Label = $Control/Label
+@onready var death_label_light: Light2D = $DeathLabelLight
 
 var space_controller: MaroSpaceController = MaroSpaceController.new()
 var tetris_controller: TetrisController = TetrisController.new()
@@ -23,6 +29,7 @@ var last_dir := Direction.Right
 var tetris: TetrisGrid
 var is_near_tetris: bool = false
 var is_in_tetris: bool = false
+var is_dying: bool = false
 
 var can_place_item_into_tetris := false
 
@@ -30,6 +37,10 @@ const DASH_BASE_FORCE = 10.0
 const DASH_BASE_COOLDOWN_TIME = 5.0
 
 var dash_cooldown := false
+
+var dead_body_origin: Vector2
+var dead_head_origin: Vector2
+var light_directional_origin: Vector2
 
 enum Direction {
 	Left, Right
@@ -39,7 +50,9 @@ func _ready() -> void:
 	controller = space_controller
 	interact_area.body_entered.connect(_on_interact_area_enter)
 	interact_area.body_exited.connect(_on_interact_area_exit)
-	
+	death_label.modulate.a = 0
+	death_label_light.energy = 0
+
 	dash_timer.timeout.connect(func():
 		dash_cooldown = false
 	)
@@ -47,7 +60,7 @@ func _ready() -> void:
 	anim_player.play("idle")
 
 func _process(delta: float) -> void:
-	if Globals.current_game_state != Globals.GameState.Running:
+	if Globals.current_game_state != Globals.GameState.Running or is_dying:
 		return
 		
 	if Input.is_action_just_pressed("bail_interact_p1") and is_in_tetris:
@@ -169,3 +182,44 @@ func to_tetris(_entry_pos: Vector2, tetris_grid: TetrisGrid) -> void:
 
 func to_space() -> void:
 	controller = space_controller
+
+func play_death() -> void:
+	sprite.visible = false
+	dead_body.visible = true
+	dead_head.visible = true
+	maro_light_directional.is_dying = true
+	is_dying = true
+
+	dead_body_origin = dead_body.position
+	dead_head_origin = dead_head.position
+	light_directional_origin = maro_light_directional.position
+
+	dead_body.scale = Vector2.ZERO
+	dead_head.scale = Vector2.ZERO
+	dead_head.rotation = 0
+	maro_light_directional.rotation = 0
+	maro_light_directional.light.energy = 1.0
+
+	var tween := get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(death_label, "modulate:a", 1.0, 2.0)
+	tween.tween_property(death_label_light, "energy", 1.0, 0.5).set_trans(Tween.TRANS_LINEAR)
+
+	var explode_tween := get_tree().create_tween()
+	explode_tween.set_parallel(true)
+
+	# --- explode outward, all at once ---
+	explode_tween.tween_property(dead_body, "scale", Vector2(1.15, 1.15), 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	explode_tween.tween_property(dead_head, "scale", Vector2.ONE, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	explode_tween.tween_property(dead_head, "position", dead_head_origin + Vector2(0, -48), 0.25).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	explode_tween.tween_property(dead_head, "rotation", deg_to_rad(360), 0.4).set_trans(Tween.TRANS_LINEAR)
+	explode_tween.tween_property(maro_light_directional, "position", light_directional_origin + Vector2(-120, -90), 0.2).set_trans(Tween.TRANS_QUAD)
+	explode_tween.tween_property(maro_light_directional, "rotation", deg_to_rad(360), 0.4).set_trans(Tween.TRANS_LINEAR)
+	explode_tween.tween_property(maro_light_directional.light, "energy", 0.0, 1).set_trans(Tween.TRANS_BOUNCE)
+
+	# --- settle back into place ---
+	explode_tween.chain().tween_property(dead_body, "scale", Vector2.ONE, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	explode_tween.tween_property(dead_head, "position", dead_head_origin + Vector2(10, 48), 0.4).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	explode_tween.tween_property(maro_light_directional, "position", light_directional_origin + Vector2(-120, 10), 0.3).set_trans(Tween.TRANS_BOUNCE)
+	explode_tween.tween_property(maro_light_directional, "rotation", deg_to_rad(405), 0.2).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	explode_tween.tween_property(maro_light_directional.light, "energy", 1.0, 0.5).set_trans(Tween.TRANS_BOUNCE)

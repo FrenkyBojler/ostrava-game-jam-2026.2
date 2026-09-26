@@ -4,14 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://d210dgh2guasw" path="res://assets/textures/placeholder/lights/cone_composed_c.png" id="2_1tmmx"]
 [ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_02rfc"]
 [ext_resource type="Script" uid="uid://ditehidc2oy3h" path="res://player/maro_light.gd" id="2_6yihr"]
+[ext_resource type="Texture2D" uid="uid://b3ti3d7hmdeq6" path="res://assets/character/maro_dead_head.PNG" id="3_18bas"]
 [ext_resource type="Texture2D" uid="uid://bb4mqi7ojrgbb" path="res://assets/character/maro_run_1.PNG" id="3_gr0de"]
 [ext_resource type="Script" uid="uid://prlmkqvnte0e" path="res://player/maro_camera.gd" id="3_n2osa"]
+[ext_resource type="Texture2D" uid="uid://d1ls7sweqiwby" path="res://assets/character/maro_dead_body.PNG" id="4_0eutx"]
 [ext_resource type="Texture2D" uid="uid://c3grsrywxtkcr" path="res://assets/character/svjetlo.PNG" id="6_nx0dt"]
 [ext_resource type="Texture2D" uid="uid://ev742xv04sp2" path="res://assets/textures/placeholder/lights/circle_c.png" id="6_yxfud"]
 [ext_resource type="Texture2D" uid="uid://d3dgm0fmv2kwg" path="res://assets/character/maro_idle.PNG" id="9_khtqc"]
 [ext_resource type="Texture2D" uid="uid://8cl8yhm45kym" path="res://assets/character/maro_run_2.PNG" id="9_shg34"]
 [ext_resource type="Texture2D" uid="uid://y2t4adcikn3y" path="res://assets/character/maro_run_3.PNG" id="10_khtqc"]
 [ext_resource type="Texture2D" uid="uid://cwniwke0y0te2" path="res://assets/character/maro_run_4.PNG" id="11_1fiy5"]
+[ext_resource type="Texture2D" uid="uid://bp65fe1biy0k1" path="res://assets/textures/placeholder/lights/cone_a.png" id="11_7xsg3"]
 [ext_resource type="Texture2D" uid="uid://b1mcbgwd1lbmk" path="res://assets/character/maro_run_5.PNG" id="12_q6aeu"]
 [ext_resource type="Texture2D" uid="uid://bwdgka5k1bph8" path="res://assets/character/maro_run_6.PNG" id="13_p0kep"]
 
@@ -91,6 +94,16 @@ collision_mask = 13
 script = ExtResource("1_escr7")
 item = SubResource("Resource_yxfud")
 
+[node name="DeadBody" type="Sprite2D" parent="." unique_id=1857648971]
+visible = false
+position = Vector2(0, 12)
+texture = ExtResource("4_0eutx")
+
+[node name="DeadHead" type="Sprite2D" parent="." unique_id=913057291]
+visible = false
+position = Vector2(-1, -5)
+texture = ExtResource("3_18bas")
+
 [node name="Sprite" type="Sprite2D" parent="." unique_id=611189393]
 unique_name_in_owner = true
 texture = ExtResource("3_gr0de")
@@ -104,6 +117,7 @@ script = ExtResource("3_n2osa")
 target = NodePath("..")
 
 [node name="MaroLightDirectional" type="Node2D" parent="." unique_id=50866853]
+position = Vector2(13, 2)
 script = ExtResource("2_6yihr")
 
 [node name="Sprite2D" type="Sprite2D" parent="MaroLightDirectional" unique_id=1131480430]
@@ -111,7 +125,7 @@ position = Vector2(5, 19)
 texture = ExtResource("6_nx0dt")
 
 [node name="PointLight2D" type="PointLight2D" parent="MaroLightDirectional" unique_id=1502110705]
-position = Vector2(18.202065, 21.999998)
+position = Vector2(17, 19.999998)
 rotation = 1.5707964
 scale = Vector2(3.125, 3.125)
 range_item_cull_mask = 3
@@ -146,3 +160,30 @@ position = Vector2(-16, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=704345521]
 libraries/ = SubResource("AnimationLibrary_j8b55")
+
+[node name="DeathLabelLight" type="PointLight2D" parent="." unique_id=185653044]
+position = Vector2(-20, -89)
+rotation = -1.5707964
+scale = Vector2(0.4, 0.9)
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("11_7xsg3")
+
+[node name="Control" type="Control" parent="." unique_id=381865108]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 12.0
+offset_right = 40.0
+offset_bottom = 52.0
+
+[node name="Label" type="Label" parent="Control" unique_id=1340550342]
+layout_mode = 0
+offset_left = -173.0
+offset_top = -126.0
+offset_right = 176.0
+offset_bottom = -81.0
+theme_override_colors/font_color = Color(0.8901961, 0, 0.043137256, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Oxygen Tank Depleted"

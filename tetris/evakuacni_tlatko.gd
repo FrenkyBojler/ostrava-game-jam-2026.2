@@ -30,7 +30,7 @@ func _ready() -> void:
 	)
 
 func _process(_delta: float) -> void:
-	if can_interact and Input.is_action_just_pressed("interact_p1"):
+	if can_interact and Input.is_action_just_pressed("interact_p1") and not maros.is_dying:
 		space_ship_embark()
 
 func space_ship_embark() -> void:

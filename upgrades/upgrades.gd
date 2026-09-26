@@ -82,7 +82,7 @@ class UpgradesContainer:
 			UpgradeProperty.MOVE_SPEED:
 				return 325
 			UpgradeProperty.OXYGEN_CAPACITY:
-				return 60
+				return 2
 			UpgradeProperty.FLASHLIGHT_SIZE:
 				return 5
 			UpgradeProperty.FLASHLIGHT_RANGE:

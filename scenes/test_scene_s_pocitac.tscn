@@ -1,34 +1,34 @@
-[gd_scene format=3 uid="uid://ctooxq8o3paoy"]
+[gd_scene format=3 uid="uid://iqukoj1xe2fv"]
 
-[ext_resource type="Texture2D" uid="uid://djrth6tc4rvld" path="res://assets/map/Ground.PNG" id="1_e3eyf"]
-[ext_resource type="Texture2D" uid="uid://bm4shs1by4152" path="res://assets/map/Walls_layer_1.PNG" id="2_0v0sw"]
-[ext_resource type="PackedScene" uid="uid://da7yse1k7rgad" path="res://player/maro_3d.tscn" id="2_3yj1c"]
-[ext_resource type="Script" uid="uid://b6jxchruxw32b" path="res://scenes/walls.gd" id="3_5tcau"]
-[ext_resource type="Texture2D" uid="uid://dcsg72ye0kwwh" path="res://assets/map/Walls_layer_2.PNG" id="4_l43aj"]
-[ext_resource type="Script" uid="uid://d2qxg2shcfebk" path="res://scenes/darken_level.gd" id="5_5tcau"]
-[ext_resource type="Texture2D" uid="uid://btfgwje2stutp" path="res://assets/map/Walls_layer_3.PNG" id="5_6war0"]
-[ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="9_e2ip7"]
-[ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="11_vwlvh"]
-[ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_bj67q"]
-[ext_resource type="PackedScene" uid="uid://588re1fjfhpj" path="res://tetris/tlatko.tscn" id="13_ef4un"]
-[ext_resource type="PackedScene" uid="uid://bi7w35pso0ohf" path="res://items/bojler_1.tscn" id="14_wkxga"]
-[ext_resource type="PackedScene" uid="uid://cs2wbwuygsans" path="res://items/bojler_2.tscn" id="15_1xosx"]
-[ext_resource type="PackedScene" uid="uid://0qafwkpfsh4o" path="res://items/popolnok.tscn" id="15_aymvb"]
-[ext_resource type="PackedScene" uid="uid://be6lbrk5kgac1" path="res://items/pivcos.tscn" id="16_smbq5"]
-[ext_resource type="PackedScene" uid="uid://beo51dpwhi1wv" path="res://items/knoflyx.tscn" id="16_vklom"]
-[ext_resource type="PackedScene" uid="uid://c3sjccmgtysew" path="res://items/unicorn_2.tscn" id="17_aymvb"]
-[ext_resource type="PackedScene" uid="uid://dnhpiox1rqpna" path="res://items/sroubek.tscn" id="17_smbq5"]
-[ext_resource type="PackedScene" uid="uid://b65qcoapwq5dx" path="res://items/bateryje.tscn" id="18_2ubon"]
-[ext_resource type="PackedScene" uid="uid://ctgx7fdvuh7re" path="res://items/unicorn_1.tscn" id="18_smbq5"]
-[ext_resource type="PackedScene" uid="uid://ouuewfc6ucc1" path="res://items/communicator_2.tscn" id="19_2ubon"]
-[ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="20_mc7l3"]
-[ext_resource type="PackedScene" uid="uid://dyoryvjq8dqmv" path="res://space/scraps_indicator.tscn" id="21_mc7l3"]
-[ext_resource type="PackedScene" uid="uid://dlsfw2pxfkywo" path="res://tetris/evakuacni_tlatko.tscn" id="22_oaqi0"]
-[ext_resource type="Texture2D" uid="uid://bm3omtesckvlh" path="res://assets/map/pocytac2.PNG" id="24_oi8fl"]
-[ext_resource type="Script" uid="uid://bn20sw1pked3v" path="res://tetris/pocytac_2.gd" id="25_tdfer"]
-[ext_resource type="Texture2D" uid="uid://dtvmpeo6bew88" path="res://assets/map/Shaft.PNG" id="28_tdfer"]
-[ext_resource type="Texture2D" uid="uid://hx18kuqroxlt" path="res://assets/map/Smushr_bottom.PNG" id="28_tgu2n"]
-[ext_resource type="Texture2D" uid="uid://cbyab446w6aav" path="res://assets/map/Smushr_top.PNG" id="29_bdsn8"]
+[ext_resource type="Texture2D" uid="uid://djrth6tc4rvld" path="res://assets/map/Ground.PNG" id="1_yyyo5"]
+[ext_resource type="Texture2D" uid="uid://bm4shs1by4152" path="res://assets/map/Walls_layer_1.PNG" id="2_ddjcw"]
+[ext_resource type="Script" uid="uid://b6jxchruxw32b" path="res://scenes/walls.gd" id="3_fa1pe"]
+[ext_resource type="Texture2D" uid="uid://dcsg72ye0kwwh" path="res://assets/map/Walls_layer_2.PNG" id="4_te0li"]
+[ext_resource type="Texture2D" uid="uid://btfgwje2stutp" path="res://assets/map/Walls_layer_3.PNG" id="5_d5fp3"]
+[ext_resource type="Script" uid="uid://d2qxg2shcfebk" path="res://scenes/darken_level.gd" id="6_7m2ah"]
+[ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="7_oag0h"]
+[ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="8_6jyti"]
+[ext_resource type="PackedScene" uid="uid://ouuewfc6ucc1" path="res://items/communicator_2.tscn" id="9_d5e5k"]
+[ext_resource type="PackedScene" uid="uid://cs2wbwuygsans" path="res://items/bojler_2.tscn" id="10_v1dme"]
+[ext_resource type="PackedScene" uid="uid://bi7w35pso0ohf" path="res://items/bojler_1.tscn" id="11_wkddl"]
+[ext_resource type="PackedScene" uid="uid://beo51dpwhi1wv" path="res://items/knoflyx.tscn" id="12_e2sr4"]
+[ext_resource type="PackedScene" uid="uid://ctgx7fdvuh7re" path="res://items/unicorn_1.tscn" id="13_s6wwt"]
+[ext_resource type="PackedScene" uid="uid://c3sjccmgtysew" path="res://items/unicorn_2.tscn" id="14_eqrtu"]
+[ext_resource type="PackedScene" uid="uid://0qafwkpfsh4o" path="res://items/popolnok.tscn" id="15_ia4i7"]
+[ext_resource type="PackedScene" uid="uid://be6lbrk5kgac1" path="res://items/pivcos.tscn" id="16_788qs"]
+[ext_resource type="PackedScene" uid="uid://dnhpiox1rqpna" path="res://items/sroubek.tscn" id="17_lxlyg"]
+[ext_resource type="PackedScene" uid="uid://b65qcoapwq5dx" path="res://items/bateryje.tscn" id="18_1uf16"]
+[ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="19_twopd"]
+[ext_resource type="PackedScene" uid="uid://588re1fjfhpj" path="res://tetris/tlatko.tscn" id="20_6nn14"]
+[ext_resource type="PackedScene" uid="uid://dyoryvjq8dqmv" path="res://space/scraps_indicator.tscn" id="21_2ar6m"]
+[ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="22_eht3p"]
+[ext_resource type="PackedScene" uid="uid://dlsfw2pxfkywo" path="res://tetris/evakuacni_tlatko.tscn" id="23_phmxa"]
+[ext_resource type="Texture2D" uid="uid://bm3omtesckvlh" path="res://assets/map/pocytac2.PNG" id="24_7ivad"]
+[ext_resource type="Script" uid="uid://bn20sw1pked3v" path="res://tetris/pocytac_2.gd" id="25_561bx"]
+[ext_resource type="PackedScene" uid="uid://da7yse1k7rgad" path="res://player/maro_3d.tscn" id="26_o75t1"]
+[ext_resource type="Texture2D" uid="uid://dtvmpeo6bew88" path="res://assets/map/Shaft.PNG" id="27_mi7jv"]
+[ext_resource type="Texture2D" uid="uid://cbyab446w6aav" path="res://assets/map/Smushr_top.PNG" id="28_qmghc"]
+[ext_resource type="Texture2D" uid="uid://hx18kuqroxlt" path="res://assets/map/Smushr_bottom.PNG" id="29_y5nqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdfer"]
 size = Vector2(381, 429)
@@ -93,32 +93,32 @@ size = Vector2(228, 22)
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=645242479]
-texture = ExtResource("1_e3eyf")
+texture = ExtResource("1_yyyo5")
 
 [node name="Walls" type="Sprite2D" parent="." unique_id=1503886876]
 y_sort_enabled = true
-texture = ExtResource("2_0v0sw")
-script = ExtResource("3_5tcau")
+texture = ExtResource("2_ddjcw")
+script = ExtResource("3_fa1pe")
 
 [node name="Windows" type="Sprite2D" parent="." unique_id=1203293692]
 y_sort_enabled = true
-texture = ExtResource("4_l43aj")
-script = ExtResource("3_5tcau")
+texture = ExtResource("4_te0li")
+script = ExtResource("3_fa1pe")
 coll_only = true
 
 [node name="Walls2" type="Sprite2D" parent="." unique_id=1157405699]
 y_sort_enabled = true
-texture = ExtResource("5_6war0")
-script = ExtResource("3_5tcau")
+texture = ExtResource("5_d5fp3")
+script = ExtResource("3_fa1pe")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
 color = Color(0.015971808, 0.015971798, 0.015971813, 1)
-script = ExtResource("5_5tcau")
+script = ExtResource("6_7m2ah")
 
-[node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent", "scraps_indicator", "maros") instance=ExtResource("11_vwlvh")]
+[node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent", "scraps_indicator", "maros") instance=ExtResource("7_oag0h")]
 item_spawner_parent = NodePath("../ItemSpawners")
 scraps_indicator = NodePath("../ScrapsIndicator")
-items_to_spawn = Array[PackedScene]([ExtResource("20_mc7l3"), ExtResource("19_2ubon"), ExtResource("15_1xosx"), ExtResource("14_wkxga"), ExtResource("16_vklom"), ExtResource("18_smbq5"), ExtResource("17_aymvb"), ExtResource("15_aymvb"), ExtResource("16_smbq5"), ExtResource("17_smbq5"), ExtResource("18_2ubon")])
+items_to_spawn = Array[PackedScene]([ExtResource("8_6jyti"), ExtResource("9_d5e5k"), ExtResource("10_v1dme"), ExtResource("11_wkddl"), ExtResource("12_e2sr4"), ExtResource("13_s6wwt"), ExtResource("14_eqrtu"), ExtResource("15_ia4i7"), ExtResource("16_788qs"), ExtResource("17_lxlyg"), ExtResource("18_1uf16")])
 maros = NodePath("../YSorting/Maro3D")
 
 [node name="ItemSpawners" type="Node2D" parent="." unique_id=397388277]
@@ -224,17 +224,17 @@ position = Vector2(-403, 314)
 [node name="ItemSpawner33" type="Marker2D" parent="ItemSpawners" unique_id=1261850456]
 position = Vector2(-411, 94)
 
-[node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_bj67q")]
+[node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("19_twopd")]
 state = NodePath("../GameState")
 
-[node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
+[node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("20_6nn14")]
 position = Vector2(-530, 197)
 tetris = NodePath("../TetrisGrid")
 
-[node name="ScrapsIndicator" parent="." unique_id=1017566690 node_paths=PackedStringArray("maro") instance=ExtResource("21_mc7l3")]
+[node name="ScrapsIndicator" parent="." unique_id=1017566690 node_paths=PackedStringArray("maro") instance=ExtResource("21_2ar6m")]
 maro = NodePath("../YSorting/Maro3D")
 
-[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state", "smasher_anim_player", "tlatko", "smasher_collision_shape", "pocytac2") instance=ExtResource("9_e2ip7")]
+[node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state", "smasher_anim_player", "tlatko", "smasher_collision_shape", "pocytac2") instance=ExtResource("22_eht3p")]
 position = Vector2(0, -8)
 game_state = NodePath("../GameState")
 smasher_anim_player = NodePath("../YSorting/ShaftParent/Shaft/AnimationPlayer")
@@ -245,14 +245,14 @@ pocytac2 = NodePath("../YSorting/Pocytac2")
 [node name="YSorting" type="Node2D" parent="." unique_id=2021691054]
 y_sort_enabled = true
 
-[node name="EvakuacniTlatko" parent="YSorting" unique_id=2133668735 node_paths=PackedStringArray("state") instance=ExtResource("22_oaqi0")]
+[node name="EvakuacniTlatko" parent="YSorting" unique_id=2133668735 node_paths=PackedStringArray("state") instance=ExtResource("23_phmxa")]
 position = Vector2(988, 243)
 state = NodePath("../../GameState")
 
 [node name="Pocytac2" type="Sprite2D" parent="YSorting" unique_id=2015728460]
 position = Vector2(227, -243)
-texture = ExtResource("24_oi8fl")
-script = ExtResource("25_tdfer")
+texture = ExtResource("24_7ivad")
+script = ExtResource("25_561bx")
 
 [node name="Control" type="Control" parent="YSorting/Pocytac2" unique_id=593255722]
 z_index = 20
@@ -279,7 +279,7 @@ text = "$0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Maro3D" parent="YSorting" unique_id=808645865 instance=ExtResource("2_3yj1c")]
+[node name="Maro3D" parent="YSorting" unique_id=808645865 instance=ExtResource("26_o75t1")]
 position = Vector2(920, 322)
 
 [node name="ShaftParent" type="StaticBody2D" parent="YSorting" unique_id=570644799]
@@ -291,7 +291,7 @@ shape = SubResource("RectangleShape2D_tdfer")
 
 [node name="Shaft" type="Sprite2D" parent="YSorting/ShaftParent" unique_id=1509823261]
 position = Vector2(0, -619)
-texture = ExtResource("28_tdfer")
+texture = ExtResource("27_mi7jv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSorting/ShaftParent/Shaft" unique_id=342421374]
 libraries/ = SubResource("AnimationLibrary_ah7kf")
@@ -301,14 +301,14 @@ position = Vector2(0, 286)
 
 [node name="SmushTop" type="Sprite2D" parent="YSorting/SmushTopParent" unique_id=1121509194]
 position = Vector2(0, -739)
-texture = ExtResource("29_bdsn8")
+texture = ExtResource("28_qmghc")
 
 [node name="SmushBottomParent" type="Node2D" parent="YSorting" unique_id=1248382945]
 position = Vector2(0, 79)
 
 [node name="SmushrBottom" type="Sprite2D" parent="YSorting/SmushBottomParent" unique_id=1282102350]
 position = Vector2(0, -79)
-texture = ExtResource("28_tgu2n")
+texture = ExtResource("29_y5nqq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSorting/SmushBottomParent/SmushrBottom" unique_id=1696115831]
 position = Vector2(-348, 79)

@@ -3,6 +3,7 @@ class_name SpaceGameState extends Node2D
 @export var item_spawner_parent: Node2D
 @export var scraps_indicator: ScrapsIndicator
 @export var items_to_spawn: Array[PackedScene]
+@export var maros: Maro3D
 
 var max_oxygen: float
 var oxygen_level: float
@@ -17,6 +18,7 @@ var spawned_items: Array[Item] = []
 func _ready() -> void:
 	assert(item_spawner_parent != null, "Missing item spawner parent")
 	assert(scraps_indicator != null, "Missing scraps indicator")
+	assert(maros != null, "Chybí ti Maroš")
 	
 	max_oxygen = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CAPACITY)
 	oxygen_level = max_oxygen
@@ -35,9 +37,9 @@ func _process(delta: float) -> void:
 	if not Globals.is_running():
 		return
 
-	if starting_to_embark:
+	if starting_to_embark or maros.is_dying:
 		return
-		
+
 	oxygen_level -= oxygen_consumption_rate * delta
 	if oxygen_level < 0:
 		oxygen_level = 0
@@ -49,6 +51,10 @@ func _process(delta: float) -> void:
 			_die()
 
 func _die() -> void:
+	maros.play_death()
+
+	await get_tree().create_timer(2.5).timeout
+
 	var penalty: float = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS)
 	var obtained_scrap: int = current_run_peniazky - round(current_run_peniazky * penalty)
 
