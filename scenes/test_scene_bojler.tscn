@@ -66,7 +66,7 @@ position = Vector2(520, -85)
 position = Vector2(625, -209)
 
 [node name="center_dot" parent="." unique_id=1762631102 instance=ExtResource("8_jj3xy")]
-position = Vector2(601, -76)
+position = Vector2(533, -59)
 
 [node name="bottom_right_l" parent="." unique_id=695792490 instance=ExtResource("10_8woto")]
 position = Vector2(547, -217)

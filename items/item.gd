@@ -13,8 +13,16 @@ var item_resource: ItemResource
 var image : Sprite2D
 
 var colliders: Array[CollisionShape2D] = []
-var coords: Array[Vector2]
+var original_coords: Array[Vector2]
 var cell_highlights: Dictionary[Vector2, ItemCellHighlight] = {}
+
+# number of rotations applied to the right e.g: 2 would mean twice to the right, -1 would mean once to the left
+var rotations_applied := 0
+
+var is_being_placed := false
+
+var tetris: TetrisGrid
+var current_grid_position_of_first_cell: Vector2
 
 func _ready() -> void:
 	image = _find_image()
@@ -23,11 +31,54 @@ func _ready() -> void:
 	_add_outline_shader()
 	_add_collision_shapes()
 	
-	coords = FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
+	original_coords = FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
 	
-func toggle_highlight(coord: Vector2, value: bool) -> void:
-	image.visible = false
-	cell_highlights[coord].toggle_highlight(value)
+func _process(delta: float) -> void:
+	if is_being_placed:
+		var target_pos: Vector2 = Vector2.ZERO
+		var target_grid_pos: Vector2 = Vector2.ZERO
+		
+		if Input.is_action_just_pressed("move_left_p1"):
+			target_pos = Vector2.LEFT * CELL_SIZE
+			target_grid_pos = current_grid_position_of_first_cell + Vector2.LEFT
+		elif Input.is_action_just_pressed("move_right_p1"):
+			target_pos = Vector2.RIGHT * CELL_SIZE
+			target_grid_pos = current_grid_position_of_first_cell + Vector2.RIGHT
+		elif Input.is_action_just_pressed("move_up_p1"):
+			target_pos = Vector2.UP * CELL_SIZE
+			target_grid_pos = current_grid_position_of_first_cell + Vector2.UP
+		elif Input.is_action_just_pressed("move_down_p1"):
+			target_pos = Vector2.DOWN * CELL_SIZE
+			target_grid_pos = current_grid_position_of_first_cell + Vector2.DOWN
+		elif Input.is_action_just_pressed("rotate_item_p1"):
+			pass
+			#rotate_right()
+			#current_grid_position_of_first_cell = tetris.get_nearest_piece(position + get_item_first_cell_position_offset(false)).grid_position
+			#position = current_grid_position_of_first_cell + get_item_first_cell_position_offset(false)
+			
+		var result := true
+		for coord in get_coords():
+			var coord_adjusted := get_coord_adjusted_by_first_cell(coord).rotated_coord + target_grid_pos
+			if not tetris.is_inside(coord_adjusted):
+				result = false
+
+		if result:
+			position += target_pos
+			current_grid_position_of_first_cell = target_grid_pos
+
+		var can_place := tetris.check_place_item(self, current_grid_position_of_first_cell)
+		
+		if can_place and Input.is_action_just_pressed("interact_p1"):
+			print_debug("TADY")
+			tetris.place_item(self, current_grid_position_of_first_cell)
+			
+func start_placing(tetris: TetrisGrid, start_position: Vector2) -> void:
+	self.tetris = tetris
+	current_grid_position_of_first_cell = start_position
+	is_being_placed = true
+
+func toggle_highlight(coord: GlobalTypesGlobal.ItemCell, value: bool) -> void:
+	cell_highlights[coord.original_coord].toggle_highlight(value)
 
 func _add_collision_shapes() -> void:
 	var coords := FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
@@ -35,6 +86,9 @@ func _add_collision_shapes() -> void:
 		var collision_shape_2d := CollisionShape2D.new()
 		collision_shape_2d.name = "collider_" + str(coord)
 		collision_shape_2d.shape = collision_shape
+		
+		set_collision_layer_value(1, 4)
+		set_collision_mask_value(1, 4)
 		
 		add_child(collision_shape_2d)
 		collision_shape_2d.position = Vector2(coord.x * CELL_SIZE - CELL_SIZE, coord.y * CELL_SIZE - CELL_SIZE)
@@ -78,32 +132,76 @@ func get_dropped() -> void:
 func get_image() -> Sprite2D:
 	return image
 	
-func _get_item_first_cell_coord() -> Vector2:
-	var coords := FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
+func _get_item_first_cell_coord() -> GlobalTypesGlobal.ItemCell:
+	var coords := get_coords()
 	var leftest_topest_coord := coords[0]
 	for coord in coords:
-		if coord.length() < leftest_topest_coord.length():
+		if coord.rotated_coord.length() < leftest_topest_coord.rotated_coord.length():
 			leftest_topest_coord = coord
-		elif coord.length() == leftest_topest_coord.length() and coord.x < leftest_topest_coord.x:
+		elif coord.rotated_coord.length() == leftest_topest_coord.rotated_coord.length() and coord.rotated_coord.x < leftest_topest_coord.rotated_coord.x:
 			leftest_topest_coord = coord
 	return leftest_topest_coord
 
-func _get_item_last_cell_coord() -> Vector2:
-	var coords := FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
+func _get_item_last_cell_coord() -> GlobalTypesGlobal.ItemCell:
+	var coords := get_coords()
 	var leftest_topest_coord := coords[0]
 	for coord in coords:
-		if coord.length() > leftest_topest_coord.length():
+		if coord.rotated_coord.length() > leftest_topest_coord.rotated_coord.length():
 			leftest_topest_coord = coord
-		elif coord.length() == leftest_topest_coord.length() and coord.x > leftest_topest_coord.x:
+		elif coord.rotated_coord.length() == leftest_topest_coord.rotated_coord.length() and coord.rotated_coord.x > leftest_topest_coord.rotated_coord.x:
 			leftest_topest_coord = coord
 	return leftest_topest_coord
 
 func get_item_first_cell_position_offset(is_left: bool) -> Vector2:
-	var offset = Vector2(1, 1) - (_get_item_first_cell_coord() if not is_left else _get_item_last_cell_coord())
+	var offset = Vector2(1, 1) - (_get_item_first_cell_coord().rotated_coord if not is_left else _get_item_last_cell_coord().rotated_coord)
 	return offset * CELL_SIZE
 	
-func get_coords_adjusted_by_first_cell() -> Array[Vector2]:
-	return coords.map(get_coord_adjusted_by_first_cell)
+func get_coords() -> Array[GlobalTypesGlobal.ItemCell]:
+	var coords_mask := item_resource.colliders
+	var result_arry: Array[GlobalTypesGlobal.ItemCell] = []
 	
-func get_coord_adjusted_by_first_cell(coord: Vector2) -> Vector2:
-	return coord - _get_item_first_cell_coord()
+	for i: int in abs(rotations_applied):
+		if rotations_applied > 0:
+			coords_mask = FlagsGridUtils.rotate_mask_cw(coords_mask, 3)
+		else:
+			coords_mask = FlagsGridUtils.rotate_mask_ccw(coords_mask, 3)
+			
+	var rotated_coords := FlagsGridUtils.get_set_coords(coords_mask, 3)
+	
+	for i in len(rotated_coords):
+		var item_cell = GlobalTypesGlobal.ItemCell.new()
+		item_cell.original_coord = original_coords.get(i)
+		item_cell.rotated_coord = rotated_coords.get(i)
+		
+		result_arry.push_back(item_cell)
+
+	return result_arry
+
+func get_coords_adjusted_by_first_cell() -> Array[GlobalTypesGlobal.ItemCell]:
+	return get_coords().map(get_coord_adjusted_by_first_cell)
+	
+func get_coord_adjusted_by_first_cell(coord: GlobalTypesGlobal.ItemCell) -> GlobalTypesGlobal.ItemCell:
+	var result_item_cell := GlobalTypesGlobal.ItemCell.new()
+	result_item_cell.original_coord = coord.original_coord - _get_item_first_cell_coord().original_coord
+	result_item_cell.rotated_coord = coord.rotated_coord - _get_item_first_cell_coord().rotated_coord
+	
+	return result_item_cell
+
+func _handle_image_rotation() -> void:
+	rotation_degrees = 90 * rotations_applied
+	
+func rotate_right() -> void:
+	rotations_applied += 1
+	
+	if rotations_applied == 4:
+		rotations_applied = 0
+		
+	_handle_image_rotation()
+	
+func rotate_left() -> void:
+	rotations_applied -= 1
+	
+	if rotations_applied == -4:
+		rotations_applied = 0
+	
+	_handle_image_rotation()

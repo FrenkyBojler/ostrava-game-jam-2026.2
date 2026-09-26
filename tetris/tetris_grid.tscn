@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dxfymq28w27j1" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0016.png" id="4_lf5iq"]
 [ext_resource type="Texture2D" uid="uid://bf3vjuiox1ycv" path="res://assets/kenney_tiny-dungeon/Tiles/tile_0015.png" id="5_waadn"]
 [ext_resource type="Script" uid="uid://ce341luvvxmae" path="res://tetris/entry_trigger.gd" id="6_lf5iq"]
+[ext_resource type="Script" uid="uid://ch1ulr5wihq2n" path="res://tetris/entry_collider.gd" id="8_ojk5r"]
 [ext_resource type="Texture2D" uid="uid://bo0als7vbbyb2" path="res://assets/textures/placeholder/lights/circle_a.png" id="8_pwy87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80t16"]
@@ -126,11 +127,20 @@ texture = ExtResource("4_lf5iq")
 shape = SubResource("RectangleShape2D_80t16")
 disabled = true
 
-[node name="EntryTrigger" type="Area2D" parent="." unique_id=1043671933]
+[node name="EntryTrigger" type="Area2D" parent="." unique_id=1456654704]
 script = ExtResource("6_lf5iq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntryTrigger" unique_id=1441602564]
 shape = SubResource("RectangleShape2D_lrroe")
+
+[node name="EntryCollider" type="StaticBody2D" parent="." unique_id=630999243]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("8_ojk5r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntryCollider" unique_id=157696243]
+shape = SubResource("RectangleShape2D_lrroe")
+debug_color = Color(0.9493025, 0.011668049, 0.5709296, 0.41960785)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=325639648]
 position = Vector2(62, 88)

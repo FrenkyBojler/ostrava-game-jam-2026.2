@@ -24,6 +24,8 @@ size = Vector2(16, 16)
 radius = 17.029387
 
 [node name="Maro3D" type="CharacterBody2D" unique_id=197759219]
+collision_layer = 13
+collision_mask = 13
 script = ExtResource("1_escr7")
 item = SubResource("Resource_yxfud")
 

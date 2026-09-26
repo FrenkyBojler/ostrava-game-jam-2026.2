@@ -3,6 +3,7 @@ class_name TetrisGrid extends Node2D
 @onready var piece: Sprite2D = $Piece
 @onready var container: Node2D = $Container
 @onready var entry_trigger: EntryTrigger = $EntryTrigger
+@onready var entry_collider: EntryCollider = $EntryCollider
 
 # Borders
 @onready var border_top: Node2D = $BorderT
@@ -23,6 +24,8 @@ var entry_points: Array[Vector2] = []
 
 var pieces: Dictionary[Vector2, Piece] = {}
 
+var maro: Maro3D
+
 func initialize(size: int, matrix_size: int, exits_arr: Array[Vector2]) -> void:
 	grid_size = size
 	grid_matrix_size = matrix_size
@@ -30,8 +33,8 @@ func initialize(size: int, matrix_size: int, exits_arr: Array[Vector2]) -> void:
 	draw_grid()
 
 func _ready() -> void:
-	entry_trigger.body_entered.connect(_on_body_entered)
-	entry_trigger.body_exited.connect(_on_body_exited)
+	entry_trigger.area_entered.connect(_on_body_entered)
+	entry_trigger.area_exited.connect(_on_body_exited)
 	draw_grid()
 
 func draw_grid() -> void:
@@ -53,6 +56,10 @@ func draw_grid() -> void:
 
 	var half_grid_size: int = grid_size / 2.0
 	entry_trigger.resize_self(
+		(grid_size * (grid_matrix_size - 2)) - exit_border_padding,
+		grid_size + exit_border_padding
+	)
+	entry_collider.resize_self(
 		(grid_size * (grid_matrix_size - 2)) - exit_border_padding,
 		grid_size + exit_border_padding
 	)
@@ -87,10 +94,16 @@ func draw_border(x: int, y: int) -> void:
 	border_instance.position = Vector2(x * grid_size, y * grid_size)
 	border_instance.visible = true
 	container.add_child(border_instance)
+	
+func start_placing_item(item: Item) -> void:
+	print("TADY 2")
+	item.reparent(self)
+	item.position = pieces[Vector2((grid_matrix_size - 2) / 2, (grid_matrix_size - 2) / 2)].position + item.get_item_first_cell_position_offset(false)
+	item.start_placing(self, pieces[Vector2((grid_matrix_size - 2) / 2, (grid_matrix_size - 2) / 2)].grid_position)
 
-func _on_body_entered(body: Node) -> void:
-	if body is Maro3D:
-		var maro: Maro3D = body as Maro3D
+func _on_body_entered(body: Area2D) -> void:
+	if body.get_parent() is Maro3D:
+		maro = body.get_parent() as Maro3D
 
 		var nearest_piece = get_nearest_piece(maro.position)
 		if nearest_piece != null:
@@ -115,18 +128,20 @@ func toggle_highlight_all_pieces(value: bool) -> void:
 		piece.toggle_highlight(value) 
 
 func _on_body_exited(body: Node) -> void:
-	if body is Maro3D:
-		var maro: Maro3D = body as Maro3D
+	if body.get_parent() is Maro3D:
 		maro.to_space()
 		
-func _is_inside(coord: Vector2) -> bool:
+func is_inside(coord: Vector2) -> bool:
 	return coord.x >= 0 and coord.x < grid_matrix_size - 2 and coord.y >= 0 and coord.y < grid_matrix_size -2
 
-func check_place_item(item: Item, at_position: Vector2, is_left: bool) -> bool:
+func check_place_item(item: Item, at_position: Vector2) -> bool:
+	if is_inside(at_position):
+		toggle_highlight_all_pieces(false)
+		pieces[at_position].toggle_highlight(true)
 	var result = true
-	for coord in item.coords:
-		var coord_adjusted = item.get_coord_adjusted_by_first_cell(coord) + at_position
-		if not _is_inside(coord_adjusted):
+	for coord in item.get_coords():
+		var coord_adjusted = item.get_coord_adjusted_by_first_cell(coord).rotated_coord + at_position
+		if not is_inside(coord_adjusted):
 			item.toggle_highlight(coord, false)
 			result = false
 			continue
@@ -136,9 +151,13 @@ func check_place_item(item: Item, at_position: Vector2, is_left: bool) -> bool:
 			continue
 	return result
 	
-func place_item(item: Item, at_position: Vector2, is_left: bool) -> void:
-	#item.visible = false
+func place_item(item: Item, at_position: Vector2) -> void:
+	maro.picked_item = null
 	item.turn_off_highlight()
+	item.is_being_placed = false
+	
 	for coord in item.get_coords_adjusted_by_first_cell():
-		var coord_adjusted = coord + at_position
+		var coord_adjusted := coord.rotated_coord + at_position
 		pieces[coord_adjusted].toggle_occupy(true)
+	await get_tree().create_timer(0.1).timeout
+	maro.is_in_tetris = false
