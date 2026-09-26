@@ -123,6 +123,7 @@
 	},
 	"left": {
 		"id": "flashlight_size",
+		"offset": 2,
 		"title": "Flash Light Size",
 		"description": "Increases the size of your flashlight",
 		"icon": "res://upgrades/icons/upgrade_icon.png",
@@ -263,6 +264,7 @@
 	"right": {
 		"id": "move_speed",
 		"title": "Move Speed",
+		"offset": 1,
 		"description": "Increases the speed at which you can move around the map",
 		"icon": "res://upgrades/icons/upgrade_icon.png",
 		"active_level": 0,
