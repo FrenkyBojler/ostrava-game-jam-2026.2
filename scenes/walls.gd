@@ -2,6 +2,9 @@ class_name Walls extends Sprite2D
 
 @onready var image := texture.get_image()
 
+@export
+var coll_only: bool
+
 func _ready() -> void:
 	# Put this sprite on its own light layer (bit 2) so it can still be lit
 	# normally, while excluding that layer from the light's shadow test —
@@ -25,7 +28,8 @@ func _ready() -> void:
 
 	var occluders := Node2D.new()
 	occluders.position = body_offset
-	add_child(occluders)
+	if not coll_only:
+		add_child(occluders)
 
 	for polygon in polygons:
 		if polygon.size() < 3:

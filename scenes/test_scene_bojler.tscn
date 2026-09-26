@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://ctooxq8o3paoy"]
 
-[ext_resource type="Texture2D" uid="uid://clrapckwnheoe" path="res://assets/textures/placeholder/map_ai_background.png" id="1_5tcau"]
+[ext_resource type="Texture2D" uid="uid://djrth6tc4rvld" path="res://assets/map/Ground.PNG" id="1_e3eyf"]
+[ext_resource type="Texture2D" uid="uid://bm4shs1by4152" path="res://assets/map/Walls_layer_1.PNG" id="2_0v0sw"]
 [ext_resource type="PackedScene" uid="uid://da7yse1k7rgad" path="res://player/maro_3d.tscn" id="2_3yj1c"]
-[ext_resource type="Texture2D" uid="uid://dxdgqqmuh6egl" path="res://assets/textures/placeholder/map_ai_walls.png" id="2_dq6g1"]
 [ext_resource type="Script" uid="uid://b6jxchruxw32b" path="res://scenes/walls.gd" id="3_5tcau"]
+[ext_resource type="Texture2D" uid="uid://dcsg72ye0kwwh" path="res://assets/map/Walls_layer_2.PNG" id="4_l43aj"]
 [ext_resource type="Script" uid="uid://d2qxg2shcfebk" path="res://scenes/darken_level.gd" id="5_5tcau"]
+[ext_resource type="Texture2D" uid="uid://btfgwje2stutp" path="res://assets/map/Walls_layer_3.PNG" id="5_6war0"]
 [ext_resource type="PackedScene" uid="uid://cxex76o8gv40p" path="res://tetris/tetris_grid.tscn" id="9_e2ip7"]
 [ext_resource type="PackedScene" uid="uid://doixr4x3c55f1" path="res://space/space_game_state.tscn" id="11_vwlvh"]
 [ext_resource type="PackedScene" uid="uid://ccr1v5yf5jbpr" path="res://space/space_ui.tscn" id="12_bj67q"]
@@ -25,40 +27,23 @@
 
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1908072537]
-position = Vector2(74.00006, 181.00003)
-scale = Vector2(2, 2)
-texture = ExtResource("1_5tcau")
-
-[node name="Background2" type="Sprite2D" parent="." unique_id=617577188]
-position = Vector2(76.00001, -236)
-scale = Vector2(2, 2)
-texture = ExtResource("1_5tcau")
-
-[node name="Background3" type="Sprite2D" parent="." unique_id=1481750743]
-position = Vector2(-672.99994, 172.99997)
-scale = Vector2(2, 2)
-texture = ExtResource("1_5tcau")
-
-[node name="Background4" type="Sprite2D" parent="." unique_id=1413735568]
-position = Vector2(-682.99994, -232.00002)
-scale = Vector2(2, 2)
-texture = ExtResource("1_5tcau")
-
-[node name="Background5" type="Sprite2D" parent="." unique_id=855818720]
-position = Vector2(806.99994, -235)
-scale = Vector2(2, 2)
-texture = ExtResource("1_5tcau")
-
-[node name="Background6" type="Sprite2D" parent="." unique_id=1942374240]
-position = Vector2(795, 175)
-scale = Vector2(2, 2)
-texture = ExtResource("1_5tcau")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=645242479]
+texture = ExtResource("1_e3eyf")
 
 [node name="Walls" type="Sprite2D" parent="." unique_id=1503886876]
-position = Vector2(-794, -53)
-scale = Vector2(2, 2)
-texture = ExtResource("2_dq6g1")
+y_sort_enabled = true
+texture = ExtResource("2_0v0sw")
+script = ExtResource("3_5tcau")
+
+[node name="Windows" type="Sprite2D" parent="." unique_id=1203293692]
+y_sort_enabled = true
+texture = ExtResource("4_l43aj")
+script = ExtResource("3_5tcau")
+coll_only = true
+
+[node name="Walls2" type="Sprite2D" parent="." unique_id=1157405699]
+y_sort_enabled = true
+texture = ExtResource("5_6war0")
 script = ExtResource("3_5tcau")
 
 [node name="TetrisGrid" parent="." unique_id=1266041450 node_paths=PackedStringArray("game_state") instance=ExtResource("9_e2ip7")]
