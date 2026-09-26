@@ -3,7 +3,6 @@ class_name SpaceGameState extends Node2D
 @export var item_spawner_parent: Node2D
 @export var items_to_spawn: Array[PackedScene]
 
-var current_scrap: int
 var max_oxygen: float
 var oxygen_level: float
 var oxygen_consumption_rate: float
@@ -17,7 +16,7 @@ func _ready() -> void:
 	max_oxygen = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CAPACITY)
 	oxygen_level = max_oxygen
 	oxygen_consumption_rate = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_CONSUMPTION_RATE)
-	current_scrap = 0
+	current_run_peniazky = 0
 	
 	_spawn_items()
 	_spawn_items()
@@ -38,7 +37,7 @@ func _process(delta: float) -> void:
 func _die() -> void:
 
 	var penalty: float = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.DEATH_PENALTY_SCRAP_LOSS)
-	var obtained_scrap: int = current_scrap - round(current_scrap * penalty)
+	var obtained_scrap: int = current_run_peniazky - round(current_run_peniazky * penalty)
 
 	Globals.add_peniazky(obtained_scrap)
 	Globals.to_upgrades()
