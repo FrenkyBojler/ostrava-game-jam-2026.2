@@ -32,7 +32,6 @@ item = SubResource("Resource_yxfud")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=611189393]
 unique_name_in_owner = true
-y_sort_enabled = true
 texture = ExtResource("3_02rfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500361953]
