@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bi7w35pso0ohf"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_nmpka"]
+[ext_resource type="Texture2D" uid="uid://bj523ynyb7y4a" path="res://assets/collectibles/bojler_1.PNG" id="2_h4oql"]
+
+[node name="Bojler1" type="StaticBody2D" unique_id=1206716402]
+script = ExtResource("1_nmpka")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=280103161]
+texture = ExtResource("2_h4oql")

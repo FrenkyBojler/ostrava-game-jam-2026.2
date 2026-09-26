@@ -7,6 +7,8 @@ const item_cell_highlight = preload("res://items/item_cell_highlight.tscn")
 const CELL_SIZE := 16
 const OUTLINE_WIDTH := 10.0
 
+const BASE_CELL_WEIGHT = 25.0
+
 @export
 var item_resource: ItemResource
 
@@ -32,7 +34,6 @@ func _ready() -> void:
 	_add_collision_shapes()
 	
 	original_coords = FlagsGridUtils.get_set_coords(item_resource.colliders, 3)
-
 
 func _process(delta: float) -> void:
 	if Globals.current_game_state != Globals.GameState.Running:
@@ -72,7 +73,10 @@ func _process(delta: float) -> void:
 		
 		if can_place and Input.is_action_just_pressed("interact_p1"):
 			tetris.place_item(self, current_grid_position_of_first_cell)
-			
+
+func get_weight() -> float:
+	return original_coords.size() * BASE_CELL_WEIGHT
+
 func start_placing(tetris: TetrisGrid, start_position: Vector2) -> void:
 	self.tetris = tetris
 	current_grid_position_of_first_cell = start_position

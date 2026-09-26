@@ -41,10 +41,15 @@ func _process(delta: float) -> void:
 
 	if is_in_tetris:
 		return
-
-	var movement_input: Vector2 = controller.get_movement_input(delta)
+		
+	var move_speed := Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MOVE_SPEED) as float
 	
-	var prev_dir := last_dir
+	var adjusted_move_speed := move_speed if picked_item == null else move_speed - (picked_item.get_weight() / Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.STRENGHT) as float)
+
+	var horizontal_input := Input.get_axis("move_left_p1", "move_right_p1")
+	var vertical_input := Input.get_axis("move_up_p1", "move_down_p1")
+
+	var movement_input := Vector2(horizontal_input, vertical_input) * adjusted_move_speed * delta
 	
 	if movement_input.x < 0:
 		last_dir = Direction.Left
@@ -71,7 +76,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("rotate_item_p1") and picked_item != null:
 		picked_item.rotate_right()
 	
-	_handle_tetris_grid()
 	
 	if picked_item != null and is_in_tetris:
 		var current_piece := tetris.get_nearest_piece(position)
@@ -134,7 +138,7 @@ func _on_interact_area_exit(body: Node2D) -> void:
 		(body as Item).toggle_outline(false)
 		item_to_pick = null
 
-func to_tetris(entry_pos: Vector2, tetris_grid: TetrisGrid) -> void:
+func to_tetris(_entry_pos: Vector2, tetris_grid: TetrisGrid) -> void:
 	#controller = tetris_controller
 	#position = entry_pos
 	tetris = tetris_grid

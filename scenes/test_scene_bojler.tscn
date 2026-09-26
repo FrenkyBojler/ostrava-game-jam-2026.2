@@ -172,5 +172,5 @@ position = Vector2(-411, 94)
 state = NodePath("../GameState")
 
 [node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
-position = Vector2(527, -135)
+position = Vector2(512, -231.00002)
 tetris = NodePath("../TetrisGrid")

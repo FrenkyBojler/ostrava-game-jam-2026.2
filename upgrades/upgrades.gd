@@ -24,6 +24,7 @@ enum UpgradeProperty {
 	EXTRACTION_RECALL,
 	SCRAP_INDICATORS,
 	MOVE_SPEED,
+	STRENGHT,
 	OXYGEN_CAPACITY,
 	FLASHLIGHT_SIZE,
 	FLASHLIGHT_BRIGHTNESS,
@@ -83,7 +84,7 @@ class UpgradesContainer:
 			UpgradeProperty.UNLOCKING_DOORS_SPEED:
 				return 0
 			UpgradeProperty.MOVE_SPEED:
-				return 300
+				return 100
 			UpgradeProperty.OXYGEN_CAPACITY:
 				return 120
 			UpgradeProperty.FLASHLIGHT_SIZE:
@@ -110,6 +111,8 @@ class UpgradesContainer:
 				return 1
 			UpgradeProperty.EXTRACTION_RECALL:
 				return 0
+			UpgradeProperty.STRENGHT:
+				return 1
 			_:
 				return 0
 
