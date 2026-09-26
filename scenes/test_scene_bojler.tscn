@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://588re1fjfhpj" path="res://tetris/tlatko.tscn" id="13_ef4un"]
 [ext_resource type="PackedScene" uid="uid://bi7w35pso0ohf" path="res://items/bojler_1.tscn" id="14_wkxga"]
 [ext_resource type="PackedScene" uid="uid://cs2wbwuygsans" path="res://items/bojler_2.tscn" id="15_1xosx"]
+[ext_resource type="PackedScene" uid="uid://0qafwkpfsh4o" path="res://items/popolnok.tscn" id="15_aymvb"]
+[ext_resource type="PackedScene" uid="uid://be6lbrk5kgac1" path="res://items/pivcos.tscn" id="16_smbq5"]
 [ext_resource type="PackedScene" uid="uid://beo51dpwhi1wv" path="res://items/knoflyx.tscn" id="16_vklom"]
 [ext_resource type="PackedScene" uid="uid://c3sjccmgtysew" path="res://items/unicorn_2.tscn" id="17_aymvb"]
 [ext_resource type="PackedScene" uid="uid://ctgx7fdvuh7re" path="res://items/unicorn_1.tscn" id="18_smbq5"]
@@ -69,7 +71,7 @@ script = ExtResource("5_5tcau")
 
 [node name="GameState" parent="." unique_id=651551148 node_paths=PackedStringArray("item_spawner_parent") instance=ExtResource("11_vwlvh")]
 item_spawner_parent = NodePath("../ItemSpawners")
-items_to_spawn = Array[PackedScene]([ExtResource("20_mc7l3"), ExtResource("19_2ubon"), ExtResource("15_1xosx"), ExtResource("14_wkxga"), ExtResource("16_vklom"), ExtResource("18_smbq5"), ExtResource("17_aymvb")])
+items_to_spawn = Array[PackedScene]([ExtResource("20_mc7l3"), ExtResource("19_2ubon"), ExtResource("15_1xosx"), ExtResource("14_wkxga"), ExtResource("16_vklom"), ExtResource("18_smbq5"), ExtResource("17_aymvb"), ExtResource("15_aymvb"), ExtResource("16_smbq5")])
 
 [node name="ItemSpawners" type="Node2D" parent="." unique_id=397388277]
 position = Vector2(-300, 0)
@@ -180,3 +182,9 @@ state = NodePath("../GameState")
 [node name="Tlatko" parent="." unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
 position = Vector2(758, -241.00002)
 tetris = NodePath("../TetrisGrid")
+
+[node name="Communicator1" parent="." unique_id=516705421 instance=ExtResource("20_mc7l3")]
+position = Vector2(779, 50)
+
+[node name="Communicator2" parent="." unique_id=275515313 instance=ExtResource("19_2ubon")]
+position = Vector2(779, 129)

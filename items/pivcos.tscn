@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://be6lbrk5kgac1"]
+
+[ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_1kolp"]
+[ext_resource type="Texture2D" uid="uid://d1a0excttgh48" path="res://assets/collectibles/pivingo.PNG" id="2_uwkh5"]
+[ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_y8axn"]
+
+[sub_resource type="Resource" id="Resource_1kolp"]
+script = ExtResource("2_y8axn")
+value = 10.0
+id = "pivco"
+colliders = 3
+metadata/_custom_type_script = "uid://b301n057bh2be"
+
+[node name="Pivcos" type="StaticBody2D" unique_id=445528826]
+script = ExtResource("1_1kolp")
+item_resource = SubResource("Resource_1kolp")
+metadata/_custom_type_script = "uid://csco2c5mpou0l"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1222392190]
+texture = ExtResource("2_uwkh5")

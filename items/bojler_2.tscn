@@ -6,10 +6,12 @@
 
 [sub_resource type="Resource" id="Resource_lrroe"]
 script = ExtResource("2_srdab")
-value = 25.0
+value = 30.0
+id = "bojler2"
 colliders = 216
 has_input = true
 input = 1
+linked_item_id = null
 metadata/_custom_type_script = "uid://b301n057bh2be"
 
 [node name="Bojler2" type="StaticBody2D" unique_id=1618528147]

@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://csco2c5mpou0l" path="res://items/item.gd" id="1_nmpka"]
 [ext_resource type="Script" uid="uid://b301n057bh2be" path="res://items/item_resource.gd" id="2_0siu8"]
 [ext_resource type="Texture2D" uid="uid://bj523ynyb7y4a" path="res://assets/collectibles/bojler_1.PNG" id="2_h4oql"]
-[ext_resource type="PackedScene" uid="uid://cs2wbwuygsans" path="res://items/bojler_2.tscn" id="2_y2ph5"]
 
 [sub_resource type="Resource" id="Resource_ef4un"]
 script = ExtResource("2_0siu8")
+value = 30.0
+id = "bojler1"
 colliders = 27
 has_output = true
 output = 8
-linked_item = ExtResource("2_y2ph5")
+linked_item_id = "bojler2"
 metadata/_custom_type_script = "uid://b301n057bh2be"
 
 [node name="Bojler1" type="StaticBody2D" unique_id=1206716402]
