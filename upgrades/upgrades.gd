@@ -84,7 +84,7 @@ class UpgradesContainer:
 			UpgradeProperty.OXYGEN_CAPACITY:
 				return 60
 			UpgradeProperty.FLASHLIGHT_SIZE:
-				return 3.125
+				return 5
 			UpgradeProperty.FLASHLIGHT_RANGE:
 				return 3.125
 			UpgradeProperty.DASH_ABILITY:

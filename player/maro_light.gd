@@ -5,8 +5,8 @@ extends Node2D
 
 
 func _ready() -> void:
-	light.scale.x = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.FLASHLIGHT_RANGE)
-	light.scale.y = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.FLASHLIGHT_SIZE)
+	light.scale.x = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.FLASHLIGHT_SIZE)
+	light.scale.y = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.FLASHLIGHT_RANGE)
 
 func _process(delta: float) -> void:
 	if Globals.current_game_state != Globals.GameState.Running:

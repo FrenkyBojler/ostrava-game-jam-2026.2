@@ -110,7 +110,6 @@ texture = ExtResource("5_6war0")
 script = ExtResource("3_5tcau")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
-visible = false
 color = Color(0.015971808, 0.015971798, 0.015971813, 1)
 script = ExtResource("5_5tcau")
 

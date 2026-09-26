@@ -125,6 +125,7 @@ scale = Vector2(0.45, 0.45)
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("6_yxfud")
+texture_scale = 1.55
 
 [node name="InteractArea" type="Area2D" parent="." unique_id=1869545915]
 unique_name_in_owner = true
