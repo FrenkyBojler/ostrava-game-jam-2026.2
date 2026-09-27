@@ -1,5 +1,9 @@
 class_name Maro3D extends CharacterBody2D
 
+const grass_sounds_clip = preload("res://sounds/2.ogg")
+const metal_sounds_clip = preload("res://sounds/7.ogg")
+const cave_sounds_clip = preload("res://sounds/1.ogg")
+
 @export var item: ItemResource
 @onready var interact_area: Area2D = %InteractArea
 
@@ -108,10 +112,7 @@ func _process(delta: float) -> void:
 		last_dir = Direction.Right
 	
 	if movement_input.length() != 0:
-		if is_na_metalu:
-			anim_player.play("run_na_metalu")
-		else:
-			anim_player.play("run") if not is_na_polu else anim_player.play("run_na_polu")
+		anim_player.play("run")
 	else:
 		anim_player.play("idle")
 
@@ -139,6 +140,15 @@ func _process(delta: float) -> void:
 		picked_item.turn_off_highlight()
 		can_place_item_into_tetris = false
 		
+func play_foot_sound() -> void:
+	if is_na_metalu:
+		$StepSounds.stream = metal_sounds_clip
+	elif is_na_polu:
+		$StepSounds.stream = cave_sounds_clip
+	else:
+		$StepSounds.stream = grass_sounds_clip
+	$StepSounds.play()
+
 func play_no() -> void:
 	$NoSound.play()
 func play_swoosh() -> void:
