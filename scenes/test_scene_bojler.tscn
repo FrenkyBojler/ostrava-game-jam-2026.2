@@ -100,9 +100,9 @@ size = Vector2(5305, 82)
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=645242479]
 texture = ExtResource("1_e3eyf")
 
-[node name="Walls" type="Sprite2D" parent="." unique_id=1503886876]
+[node name="Walls2" type="Sprite2D" parent="." unique_id=1157405699]
 y_sort_enabled = true
-texture = ExtResource("2_0v0sw")
+texture = ExtResource("5_6war0")
 script = ExtResource("3_5tcau")
 
 [node name="Windows" type="Sprite2D" parent="." unique_id=1203293692]
@@ -111,9 +111,9 @@ texture = ExtResource("4_l43aj")
 script = ExtResource("3_5tcau")
 coll_only = true
 
-[node name="Walls2" type="Sprite2D" parent="." unique_id=1157405699]
+[node name="Walls" type="Sprite2D" parent="." unique_id=1503886876]
 y_sort_enabled = true
-texture = ExtResource("5_6war0")
+texture = ExtResource("2_0v0sw")
 script = ExtResource("3_5tcau")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]

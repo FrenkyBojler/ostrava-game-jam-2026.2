@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var money_label: Label = $HBoxContainer/Label
-@onready var start_game_btn: Button = $BottomContainer/StartGame
+@onready var start_game_btn: Button = $BottomContainer/TextureRect/StartGame
 
 func _ready() -> void:
 	Globals.upgrade_bought.connect(_on_upgrade_bought)
