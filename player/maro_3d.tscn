@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dh80wdi3j5wqa" path="res://sounds/lowRandom.ogg" id="21_j8b55"]
 [ext_resource type="AudioStream" uid="uid://clbj2hgdlhbrg" path="res://sounds/handleCoins.ogg" id="22_k5gum"]
 [ext_resource type="AudioStream" uid="uid://d118gtjed6yvt" path="res://sounds/cloth2.ogg" id="23_lmrm8"]
+[ext_resource type="AudioStream" uid="uid://chwlfj3bopgxh" path="res://sounds/Death 3.wav" id="23_lx2ry"]
 [ext_resource type="AudioStream" uid="uid://dweopi8odux1m" path="res://sounds/Jellyfish in Space.mp3" id="24_lx2ry"]
 [ext_resource type="AudioStream" uid="uid://5gtvklilhe8s" path="res://sounds/swosh-01.wav" id="25_tnnwq"]
 
@@ -243,3 +244,6 @@ volume_db = -10.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1460093330]
 current = true
+
+[node name="Death" type="AudioStreamPlayer2D" parent="." unique_id=2019552221]
+stream = ExtResource("23_lx2ry")

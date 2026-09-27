@@ -220,6 +220,7 @@ func to_space() -> void:
 	controller = space_controller
 
 func play_death() -> void:
+	$Death.play()
 	sprite.visible = false
 	dead_body.visible = true
 	dead_head.visible = true
