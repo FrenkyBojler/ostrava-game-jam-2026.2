@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://027d2eqca4eh" path="res://tetris/evakuacni_tlatko.gd" id="1_6iqmt"]
 [ext_resource type="Texture2D" uid="uid://dampm4icni74j" path="res://assets/map/lod.PNG" id="2_6iqmt"]
 [ext_resource type="Texture2D" uid="uid://ev742xv04sp2" path="res://assets/textures/placeholder/lights/circle_c.png" id="3_bf2kr"]
+[ext_resource type="Texture2D" uid="uid://flabv4tqw350" path="res://assets/map/kormidel.PNG" id="3_q55d4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8040v"]
-size = Vector2(195.33333, 119.166664)
+size = Vector2(195.33333, 131.16666)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ic6hy"]
 radius = 210.02644
@@ -17,8 +18,14 @@ script = ExtResource("1_6iqmt")
 position = Vector2(0, -142)
 texture = ExtResource("2_6iqmt")
 
+[node name="Kormidel" type="Sprite2D" parent="." unique_id=77025899]
+visible = false
+position = Vector2(0, -78)
+texture = ExtResource("3_q55d4")
+offset = Vector2(-5.475, 0.733)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=248082095]
-position = Vector2(0, -20.583332)
+position = Vector2(0, -14.583334)
 shape = SubResource("RectangleShape2D_8040v")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1542013681]
@@ -59,6 +66,6 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=685154921]
-position = Vector2(3, -128)
+position = Vector2(5, -129)
 texture = ExtResource("3_bf2kr")
 texture_scale = 1.4
