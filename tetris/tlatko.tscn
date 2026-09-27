@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bwh7n8ao1ju2o" path="res://tetris/tlatko.gd" id="1_ksswq"]
 [ext_resource type="Texture2D" uid="uid://cc8xtsf5un5ei" path="res://assets/map/pocytac.PNG" id="2_ksswq"]
 [ext_resource type="Texture2D" uid="uid://bo0als7vbbyb2" path="res://assets/textures/placeholder/lights/circle_a.png" id="3_7niqe"]
-[ext_resource type="AudioStream" uid="uid://bwinrhkp1xejr" path="res://sounds/click.1.ogg" id="4_spsg2"]
+[ext_resource type="AudioStream" uid="uid://bwinrhkp1xejr" path="res://sounds/click.1.ogg" id="4_imukr"]
+[ext_resource type="AudioStream" uid="uid://b1tv24knvltuw" path="res://sounds/dragon-studio-hard-heavy-impact-515256.mp3" id="4_spsg2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8040v"]
 size = Vector2(153.33333, 23.333332)
@@ -66,4 +67,7 @@ text = "Press F to squash!"
 texture = ExtResource("3_7niqe")
 
 [node name="TlatkoSounds" type="AudioStreamPlayer2D" parent="." unique_id=990649455]
+stream = ExtResource("4_imukr")
+
+[node name="SmushSound" type="AudioStreamPlayer2D" parent="." unique_id=1893122660]
 stream = ExtResource("4_spsg2")

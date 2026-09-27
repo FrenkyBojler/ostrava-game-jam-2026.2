@@ -5,6 +5,7 @@ extends StaticBody2D
 @onready var light: PointLight2D = $PointLight2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var kormidel: Sprite2D = $Kormidel
+@onready var takeoff_sound: AudioStreamPlayer2D = $TakeoffSound
 
 var lodka_closed = preload("res://assets/map/lod_closed.PNG")
 
@@ -52,6 +53,8 @@ func space_ship_embark() -> void:
 	# set the ship's sprite to the closed version before takeoff
 	sprite.texture = lodka_closed
 	kormidel.show()
+
+	takeoff_sound.play()
 
 	# rotate kormidel before takeoff
 	tween.tween_property(kormidel, "rotation_degrees", 360, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

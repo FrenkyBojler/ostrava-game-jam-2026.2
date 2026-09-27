@@ -5,6 +5,7 @@ class_name Tlatko extends StaticBody2D
 
 @onready var label = $Control/Label
 @onready var label_number = $Control/Number
+@onready var sound: AudioStreamPlayer2D = $SmushSound
 
 
 var can_interact := false
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 
 	if can_interact and Input.is_action_just_pressed("interact_p1") and not is_going_up:
 		$TlatkoSounds.play()
+		sound.play()
 		tetris.scrap_triggered()
 		cooldown = cooldown_time
 	
