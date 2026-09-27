@@ -247,6 +247,25 @@
 					"effects": [{"property": "grid_size", "operation": "add", "value": 3}]
 				}
 			],
+			"right": {
+				"id": "scrap_indicators",
+				"title": "Scrap Indicators",
+				"description": "Shows indicators for scrap",
+				"icon": "res://upgrades/icons/upgrade_icon.png",
+				"active_level": 0,
+				"upgrades": [
+					{
+						"price": 2500,
+						"description": "Reveals scrap within a small radius",
+						"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 750}]
+					},
+					{
+						"price": 5000,
+						"description": "Reveals scrap within a larger radius",
+						"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1500}]
+					}
+				]
+			},
 			"left": {
 				"id": "multi_parts_scraps",
 				"title": "Multipliers Scraps",
@@ -264,26 +283,7 @@
 						"description": "Triples bonus for multi-part scrap pieces",
 						"effects": [{"property": "multi_parts_scraps", "operation": "add", "value": 3}]
 					}
-				],
-				"left": {
-					"id": "scrap_indicators",
-					"title": "Scrap Indicators",
-					"description": "Shows indicators for scrap",
-					"icon": "res://upgrades/icons/upgrade_icon.png",
-					"active_level": 0,
-					"upgrades": [
-						{
-							"price": 2500,
-							"description": "Reveals scrap within a small radius",
-							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 750}]
-						},
-						{
-							"price": 5000,
-							"description": "Reveals scrap within a larger radius",
-							"effects": [{"property": "scrap_reveal_radius", "operation": "add", "value": 1500}]
-						}
-					]
-				}
+				]
 			}
 		}
 	},

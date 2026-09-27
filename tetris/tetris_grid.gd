@@ -74,9 +74,9 @@ func scrap_triggered() -> void:
 	for piece in pieces.values():
 		piece.occuppied = false
 		
-	game_state.add_peniazky(value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
 	var bonus_oxygen: float = size_collected * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_BONUS_PER_SCRAP))
 	game_state.add_oxygen(bonus_oxygen)
+	game_state.add_peniazky(value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
 	game_state.add_peniazky(combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS)))
 	combined_items_value = 0.0
 	
@@ -235,7 +235,8 @@ func place_item(item: Item, at_position: Vector2) -> void:
 	for item_placed in items_placed:
 		print_debug(str(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE)))
 		total_penizky += item_placed.item_resource.value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.SCRAP_VALUE))
-		total_penizky += combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS))
+	
+	total_penizky += combined_items_value * float(Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.MULTI_PARTS_SCRAPS))
 	pocytac2.add_penizky(total_penizky)
 
 	
