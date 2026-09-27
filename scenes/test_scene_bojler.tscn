@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://ouuewfc6ucc1" path="res://items/communicator_2.tscn" id="19_2ubon"]
 [ext_resource type="PackedScene" uid="uid://dgbr5px2kcjlx" path="res://items/communicator_1.tscn" id="20_mc7l3"]
 [ext_resource type="PackedScene" uid="uid://dyoryvjq8dqmv" path="res://space/scraps_indicator.tscn" id="21_mc7l3"]
+[ext_resource type="Texture2D" uid="uid://b0d0yoop1nfk4" path="res://assets/map/shutre.PNG" id="22_ah7kf"]
 [ext_resource type="PackedScene" uid="uid://dlsfw2pxfkywo" path="res://tetris/evakuacni_tlatko.tscn" id="22_oaqi0"]
 [ext_resource type="Texture2D" uid="uid://bm3omtesckvlh" path="res://assets/map/pocytac2.PNG" id="24_oi8fl"]
 [ext_resource type="Script" uid="uid://bn20sw1pked3v" path="res://tetris/pocytac_2.gd" id="25_tdfer"]
@@ -90,6 +91,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ah7kf"]
 size = Vector2(228, 22)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrroe"]
+size = Vector2(5305, 82)
+
 [node name="TestScene" type="Node2D" unique_id=1292865584]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=645242479]
@@ -112,6 +116,7 @@ texture = ExtResource("5_6war0")
 script = ExtResource("3_5tcau")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=238247864]
+visible = false
 color = Color(0.015971808, 0.015971798, 0.015971813, 1)
 script = ExtResource("5_5tcau")
 
@@ -126,103 +131,70 @@ position = Vector2(-300, 0)
 scale = Vector2(2, 2)
 
 [node name="ItemSpawner1" type="Marker2D" parent="ItemSpawners" unique_id=337055802]
-position = Vector2(303, 249)
+position = Vector2(1373.5, 647.5)
 
 [node name="ItemSpawner2" type="Marker2D" parent="ItemSpawners" unique_id=828164043]
-position = Vector2(127, 314)
+position = Vector2(1255, 746)
 
 [node name="ItemSpawner3" type="Marker2D" parent="ItemSpawners" unique_id=1860033497]
-position = Vector2(-55, 274)
+position = Vector2(933, 787.5)
 
 [node name="ItemSpawner4" type="Marker2D" parent="ItemSpawners" unique_id=230239425]
-position = Vector2(-221, 249)
+position = Vector2(-445, 504.5)
 
 [node name="ItemSpawner5" type="Marker2D" parent="ItemSpawners" unique_id=524606295]
-position = Vector2(-235, 94)
+position = Vector2(-837, 584.5)
 
 [node name="ItemSpawner6" type="Marker2D" parent="ItemSpawners" unique_id=1824264085]
-position = Vector2(-55, -131)
+position = Vector2(1004, -748)
 
 [node name="ItemSpawner7" type="Marker2D" parent="ItemSpawners" unique_id=751184965]
-position = Vector2(329, -307)
+position = Vector2(1373.5, -748)
 
 [node name="ItemSpawner8" type="Marker2D" parent="ItemSpawners" unique_id=1368426492]
-position = Vector2(201, -398)
+position = Vector2(524, -514)
 
 [node name="ItemSpawner9" type="Marker2D" parent="ItemSpawners" unique_id=613360105]
-position = Vector2(-75, -398)
+position = Vector2(712, -575)
 
 [node name="ItemSpawner10" type="Marker2D" parent="ItemSpawners" unique_id=1210569085]
-position = Vector2(-235, -398)
+position = Vector2(897.5, -453)
 
 [node name="ItemSpawner11" type="Marker2D" parent="ItemSpawners" unique_id=592998735]
-position = Vector2(-235, -307)
+position = Vector2(1295, -418.5)
 
 [node name="ItemSpawner12" type="Marker2D" parent="ItemSpawners" unique_id=1363012194]
-position = Vector2(-67, -307)
+position = Vector2(1028.5, -224)
 
 [node name="ItemSpawner13" type="Marker2D" parent="ItemSpawners" unique_id=1867172561]
-position = Vector2(-246, -192)
+position = Vector2(1228, -34)
 
 [node name="ItemSpawner14" type="Marker2D" parent="ItemSpawners" unique_id=80845674]
-position = Vector2(-403, -193)
+position = Vector2(1388, 173)
 
 [node name="ItemSpawner15" type="Marker2D" parent="ItemSpawners" unique_id=1804291839]
-position = Vector2(-403, -307)
+position = Vector2(-1043, -735.5)
 
 [node name="ItemSpawner16" type="Marker2D" parent="ItemSpawners" unique_id=182631668]
-position = Vector2(-403, -398)
+position = Vector2(-743, -619.5)
 
 [node name="ItemSpawner17" type="Marker2D" parent="ItemSpawners" unique_id=751897945]
-position = Vector2(-743, -307)
+position = Vector2(-264, -575)
 
 [node name="ItemSpawner18" type="Marker2D" parent="ItemSpawners" unique_id=2099518545]
-position = Vector2(-723, -406)
+position = Vector2(-1091.5, -131)
 
 [node name="ItemSpawner19" type="Marker2D" parent="ItemSpawners" unique_id=774101689]
-position = Vector2(-858, -307)
+position = Vector2(-460.5, -285)
 
 [node name="ItemSpawner20" type="Marker2D" parent="ItemSpawners" unique_id=915237695]
-position = Vector2(-867, -165)
+position = Vector2(164, -735.5)
 
-[node name="ItemSpawner21" type="Marker2D" parent="ItemSpawners" unique_id=1694281231]
-position = Vector2(-723, -181)
+[node name="ItemSpawner21" type="Marker2D" parent="ItemSpawners" unique_id=1140437480]
+position = Vector2(-685, 0)
 
-[node name="ItemSpawner22" type="Marker2D" parent="ItemSpawners" unique_id=833685250]
-position = Vector2(-582, -131)
-
-[node name="ItemSpawner23" type="Marker2D" parent="ItemSpawners" unique_id=309156362]
-position = Vector2(-858, -24)
-
-[node name="ItemSpawner24" type="Marker2D" parent="ItemSpawners" unique_id=1063280561]
-position = Vector2(-706, -31)
-
-[node name="ItemSpawner25" type="Marker2D" parent="ItemSpawners" unique_id=956095927]
-position = Vector2(-521, -24)
-
-[node name="ItemSpawner26" type="Marker2D" parent="ItemSpawners" unique_id=527690291]
-position = Vector2(-582, 68)
-
-[node name="ItemSpawner27" type="Marker2D" parent="ItemSpawners" unique_id=299616258]
-position = Vector2(-743, 94)
-
-[node name="ItemSpawner28" type="Marker2D" parent="ItemSpawners" unique_id=2083324068]
-position = Vector2(-892, 94)
-
-[node name="ItemSpawner29" type="Marker2D" parent="ItemSpawners" unique_id=2072514179]
-position = Vector2(-877, 228)
-
-[node name="ItemSpawner30" type="Marker2D" parent="ItemSpawners" unique_id=65318485]
-position = Vector2(-723, 314)
-
-[node name="ItemSpawner31" type="Marker2D" parent="ItemSpawners" unique_id=720956878]
-position = Vector2(-568, 274)
-
-[node name="ItemSpawner32" type="Marker2D" parent="ItemSpawners" unique_id=1800146648]
-position = Vector2(-403, 314)
-
-[node name="ItemSpawner33" type="Marker2D" parent="ItemSpawners" unique_id=1261850456]
-position = Vector2(-411, 94)
+[node name="ItemSpawner22" type="Marker2D" parent="ItemSpawners" unique_id=2144734903]
+position = Vector2(859, 292.5)
 
 [node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_bj67q")]
 state = NodePath("../GameState")
@@ -241,16 +213,21 @@ pocytac2 = NodePath("../YSorting/Pocytac2")
 [node name="YSorting" type="Node2D" parent="." unique_id=2021691054]
 y_sort_enabled = true
 
+[node name="Shutre" type="Sprite2D" parent="YSorting" unique_id=447292373]
+light_mask = 2
+visibility_layer = 2
+texture = ExtResource("22_ah7kf")
+
 [node name="Tlatko" parent="YSorting" unique_id=218626272 node_paths=PackedStringArray("tetris") instance=ExtResource("13_ef4un")]
 position = Vector2(-530, 188)
 tetris = NodePath("../../TetrisGrid")
 
 [node name="EvakuacniTlatko" parent="YSorting" unique_id=2133668735 node_paths=PackedStringArray("state") instance=ExtResource("22_oaqi0")]
-position = Vector2(988, 243)
+position = Vector2(717, 699)
 state = NodePath("../../GameState")
 
 [node name="Pocytac2" type="Sprite2D" parent="YSorting" unique_id=2015728460]
-position = Vector2(229, -161)
+position = Vector2(304, 107)
 texture = ExtResource("24_oi8fl")
 script = ExtResource("25_tdfer")
 
@@ -280,7 +257,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Maro3D" parent="YSorting" unique_id=808645865 instance=ExtResource("2_3yj1c")]
-position = Vector2(920, 322)
+position = Vector2(502, 742)
 
 [node name="ShaftParent" type="StaticBody2D" parent="YSorting" unique_id=570644799]
 position = Vector2(0, -229)
@@ -323,3 +300,33 @@ position = Vector2(343, 79)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSorting/SmushBottomParent/SmushrBottom/StaticBody2D2" unique_id=603088813]
 position = Vector2(4, 35)
 shape = SubResource("RectangleShape2D_ah7kf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=359710276]
+position = Vector2(0, 1658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1647179045]
+position = Vector2(1.5, 31)
+shape = SubResource("RectangleShape2D_lrroe")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1903175320]
+position = Vector2(-8, -1716)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=958286561]
+position = Vector2(1.5, 31)
+shape = SubResource("RectangleShape2D_lrroe")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1542881137]
+position = Vector2(-2665, 230)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1776809996]
+position = Vector2(1.5, 31)
+shape = SubResource("RectangleShape2D_lrroe")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1926267210]
+position = Vector2(2730, 230)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1832942377]
+position = Vector2(1.5, 31)
+shape = SubResource("RectangleShape2D_lrroe")

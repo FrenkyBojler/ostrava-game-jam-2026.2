@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b2njd3v5y064o" path="res://upgrades/upgrade_item.gd" id="1_x37dt"]
 [ext_resource type="Texture2D" uid="uid://dfmr02ti1sgd8" path="res://upgrades/icons/shoppingCart.png" id="2_bsqem"]
-[ext_resource type="Texture2D" uid="uid://c87ih8ww1bqnr" path="res://upgrades/icons/star.png" id="2_euu1s"]
-[ext_resource type="Texture2D" uid="uid://jrawrpe2j6el" path="res://upgrades/icons/bar_square_large.png" id="2_x37dt"]
+[ext_resource type="Texture2D" uid="uid://cpdvwn3w5d0xt" path="res://assets/UI/karte.PNG" id="2_tdtie"]
+[ext_resource type="Texture2D" uid="uid://p4m2hjybvy0y" path="res://assets/UI/koin.PNG" id="4_eh6ck"]
+[ext_resource type="Texture2D" uid="uid://bm53dnp61kklm" path="res://assets/UI/ungem.PNG" id="4_r1nq0"]
+[ext_resource type="Texture2D" uid="uid://cy6pmp5mjdy0v" path="res://assets/UI/penis.PNG" id="6_eh6ck"]
+[ext_resource type="Texture2D" uid="uid://bpexirfjpb13d" path="res://assets/UI/penis_h.png" id="7_tcolb"]
 
 [node name="UpgradeItem" type="Control" unique_id=1323262610]
-custom_minimum_size = Vector2(125, 125)
-custom_maximum_size = Vector2(125, 125)
+custom_minimum_size = Vector2(150, 200)
+custom_maximum_size = Vector2(150, 200)
+propagate_maximum_size = true
 layout_mode = 3
 anchor_right = 0.091000006
 anchor_bottom = 0.162
@@ -22,8 +26,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_x37dt")
-expand_mode = 1
+texture = ExtResource("2_tdtie")
+expand_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1199880712]
 layout_mode = 1
@@ -32,9 +36,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 15
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1707885160]
@@ -57,15 +61,29 @@ theme_override_font_sizes/font_size = 10
 text = "Scrap Collector"
 horizontal_alignment = 1
 
-[node name="Price" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1635172134]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=382243752]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=974375201]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=614553191]
+custom_minimum_size = Vector2(16, 16)
+custom_maximum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("4_eh6ck")
+
+[node name="Price" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1635172134]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 10
-text = "$200"
+text = "200"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=619596614]
 layout_mode = 2
-theme_override_constants/margin_top = 10
 
 [node name="Effects" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2074652532]
 layout_mode = 2
@@ -88,25 +106,25 @@ size_flags_vertical = 10
 custom_minimum_size = Vector2(16, 16)
 custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("2_euu1s")
+texture = ExtResource("4_r1nq0")
 
 [node name="Level2" type="TextureRect" parent="MarginContainer/VBoxContainer/ActiveLevels" unique_id=588183108]
 custom_minimum_size = Vector2(16, 16)
 custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("2_euu1s")
+texture = ExtResource("4_r1nq0")
 
 [node name="Level3" type="TextureRect" parent="MarginContainer/VBoxContainer/ActiveLevels" unique_id=1939901441]
 custom_minimum_size = Vector2(16, 16)
 custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("2_euu1s")
+texture = ExtResource("4_r1nq0")
 
 [node name="Level4" type="TextureRect" parent="MarginContainer/VBoxContainer/ActiveLevels" unique_id=338612935]
 custom_minimum_size = Vector2(16, 16)
 custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
-texture = ExtResource("2_euu1s")
+texture = ExtResource("4_r1nq0")
 
 [node name="Connectors" type="Control" parent="." unique_id=1713855438]
 layout_mode = 1
@@ -119,8 +137,8 @@ mouse_filter = 1
 
 [node name="Top" type="MarginContainer" parent="Connectors" unique_id=800860421]
 visible = false
-custom_minimum_size = Vector2(5, 32)
-custom_maximum_size = Vector2(5, 32)
+custom_minimum_size = Vector2(17, 47)
+custom_maximum_size = Vector2(17, 47)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -129,19 +147,20 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
-theme_override_constants/margin_top = -33
+theme_override_constants/margin_top = -27
 
 [node name="TextureRect" type="TextureRect" parent="Connectors/Top" unique_id=1173814037]
-custom_minimum_size = Vector2(5, 32)
-custom_maximum_size = Vector2(5, 32)
+custom_minimum_size = Vector2(17, 47)
+custom_maximum_size = Vector2(17, 47)
 layout_mode = 2
-texture = ExtResource("2_x37dt")
+texture = ExtResource("7_tcolb")
 expand_mode = 1
 
 [node name="Bot" type="MarginContainer" parent="Connectors" unique_id=2020416953]
 visible = false
-custom_minimum_size = Vector2(5, 32)
-custom_maximum_size = Vector2(5, 32)
+custom_minimum_size = Vector2(17, 47)
+custom_maximum_size = Vector2(17, 47)
+propagate_maximum_size = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -153,19 +172,19 @@ offset_top = -64.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_top = 33
+theme_override_constants/margin_top = 38
 
 [node name="TextureRect" type="TextureRect" parent="Connectors/Bot" unique_id=800659434]
-custom_minimum_size = Vector2(5, 32)
-custom_maximum_size = Vector2(5, 32)
+custom_minimum_size = Vector2(17, 47)
+custom_maximum_size = Vector2(17, 47)
 layout_mode = 2
-texture = ExtResource("2_x37dt")
+texture = ExtResource("7_tcolb")
 expand_mode = 1
 
 [node name="Left" type="MarginContainer" parent="Connectors" unique_id=151789595]
 visible = false
-custom_minimum_size = Vector2(32, 5)
-custom_maximum_size = Vector2(32, 5)
+custom_minimum_size = Vector2(47, 17)
+custom_maximum_size = Vector2(47, 17)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -174,19 +193,18 @@ offset_top = -2.5
 offset_right = 32.0
 offset_bottom = 2.5
 grow_vertical = 2
-theme_override_constants/margin_left = -33
+theme_override_constants/margin_left = -44
 
 [node name="TextureRect" type="TextureRect" parent="Connectors/Left" unique_id=2120107304]
-custom_minimum_size = Vector2(32, 5)
-custom_maximum_size = Vector2(32, 5)
 layout_mode = 2
-texture = ExtResource("2_x37dt")
-expand_mode = 1
+texture = ExtResource("6_eh6ck")
+flip_v = true
 
 [node name="Right" type="MarginContainer" parent="Connectors" unique_id=815351104]
 visible = false
-custom_minimum_size = Vector2(32, 5)
-custom_maximum_size = Vector2(32, 5)
+custom_minimum_size = Vector2(47, 17)
+custom_maximum_size = Vector2(47, 17)
+propagate_maximum_size = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -198,14 +216,13 @@ offset_top = -2.5
 offset_bottom = 2.5
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_left = 33
+theme_override_constants/margin_left = 41
 
-[node name="TextureRect" type="TextureRect" parent="Connectors/Right" unique_id=272211039]
-custom_minimum_size = Vector2(32, 5)
-custom_maximum_size = Vector2(32, 5)
+[node name="TextureRect" type="TextureRect" parent="Connectors/Right" unique_id=742604467]
+custom_maximum_size = Vector2(47, 17)
 layout_mode = 2
-texture = ExtResource("2_x37dt")
-expand_mode = 1
+texture = ExtResource("6_eh6ck")
+flip_v = true
 
 [node name="ChildrenContainer" type="Control" parent="." unique_id=672276726]
 anchors_preset = 0

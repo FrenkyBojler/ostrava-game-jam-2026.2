@@ -352,7 +352,7 @@
 				"upgrades": [
 					{
 						"price": 500,
-						"description": "Allows you to rotate scrap pieces on the scrapper grid",
+						"description": "Enables rotation of scrap pieces in scrapper [press R to rotate]",
 						"effects": [{"property": "scrap_rotation", "operation": "add", "value": 1}]
 					}
 				]
@@ -367,7 +367,7 @@
 			"upgrades": [
 				{
 					"price": 500,
-					"description": "Unlocks the dash ability",
+					"description": "Unlocks the dash ability [press shift to dash]",
 					"effects": [{"property": "dash_ability", "operation": "add", "value": 1}]
 				}
 			],
@@ -404,7 +404,7 @@
 						{
 							"price": 2000,
 							"description": "Further increases dash distance",
-							"effects": [{"property": "dash_distance", "operation": "add", "value": 1.5}]
+							"effects": [{"property": "dash_distance", "operation": "add", "value": 2}]
 						}
 					]
 				}

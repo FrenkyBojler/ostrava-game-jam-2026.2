@@ -3,6 +3,10 @@ extends StaticBody2D
 @export var state: SpaceGameState
 @onready var label: Label = $Control/Label
 @onready var light: PointLight2D = $PointLight2D
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var kormidel: Sprite2D = $Kormidel
+
+var lodka_closed = preload("res://assets/map/lod_closed.PNG")
 
 var can_interact := false
 var maros: Maro3D
@@ -45,6 +49,13 @@ func space_ship_embark() -> void:
 	var start_position := position
 	var tween := get_tree().create_tween()
 
+	# set the ship's sprite to the closed version before takeoff
+	sprite.texture = lodka_closed
+	kormidel.show()
+
+	# rotate kormidel before takeoff
+	tween.tween_property(kormidel, "rotation_degrees", 360, 1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
 	# shake the ship slightly before takeoff, always returning to its start position
 	const SHAKE_STRENGTH := 6.0
 	const SHAKE_COUNT := 10
@@ -54,7 +65,7 @@ func space_ship_embark() -> void:
 	tween.tween_property(self, "position", start_position, 0.06).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 	# takeoff: move the ship upwards, gradually accelerating
-	tween.tween_property(self, "position:y", position.y - 800, 2).as_relative().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "position:y", position.y - 1600, 2).as_relative().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	tween.play()
 	await tween.finished
 	state.evacuate()
