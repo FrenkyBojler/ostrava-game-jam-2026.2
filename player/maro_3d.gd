@@ -139,6 +139,9 @@ func _process(delta: float) -> void:
 		picked_item.turn_off_highlight()
 		can_place_item_into_tetris = false
 		
+func play_no() -> void:
+	$NoSound.play()
+
 func _handle_tetris_grid() -> void:
 	if not is_in_tetris:
 		return
@@ -153,6 +156,7 @@ func _handle_direction_change() -> void:
 	#	picked_item.position = target_pos
 
 func _pick_item() -> void:
+	$Pickup.play()
 	picked_item = item_to_pick
 	picked_item.get_picked_up()
 	picked_item.reparent(self)
@@ -163,16 +167,19 @@ func _drop_item() -> void:
 	if is_in_tetris and can_place_item_into_tetris:
 		tetris.place_item(picked_item, tetris.get_nearest_piece(position).grid_position - Vector2.RIGHT if last_dir == Direction.Left else tetris.get_nearest_piece(position).grid_position + Vector2.RIGHT)
 	elif is_in_tetris and not can_place_item_into_tetris:
+		play_no()
 		return
 
 	picked_item.reparent(get_parent())
 	picked_item.get_dropped()
 	picked_item = null
+	$Drop.play()
 
 func _bail_from_tetris() -> void:
 	if not is_in_tetris:
 		return
-
+	
+	play_no()
 	is_near_tetris = false
 	picked_item.is_being_placed = false
 	picked_item.reparent(self)

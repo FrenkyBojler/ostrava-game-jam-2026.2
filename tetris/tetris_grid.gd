@@ -213,6 +213,7 @@ func check_place_item(item: Item, at_position: Vector2) -> bool:
 	return result
 	
 func place_item(item: Item, at_position: Vector2) -> void:
+	$AudioStreamPlayer2D.play()
 	items_placed.push_back(item)
 	item.has_been_placed = true
 	

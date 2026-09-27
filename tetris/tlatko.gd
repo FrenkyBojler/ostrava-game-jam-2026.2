@@ -43,6 +43,7 @@ func _process(delta: float) -> void:
 		return
 
 	if can_interact and Input.is_action_just_pressed("interact_p1") and not is_going_up:
+		$TlatkoSounds.play()
 		tetris.scrap_triggered()
 		cooldown = cooldown_time
 	

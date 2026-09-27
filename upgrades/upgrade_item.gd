@@ -123,5 +123,6 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_upgrade_bought(upgrade: Upgrades.UpgradeItemDTO) -> void:
 	if upgrade_data.id == upgrade.id:
+		$AudioStreamPlayer2D.play()
 		upgrade_data = upgrade
 		draw_item()

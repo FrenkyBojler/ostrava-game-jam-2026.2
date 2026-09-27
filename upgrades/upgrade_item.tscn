@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bm53dnp61kklm" path="res://assets/UI/ungem.PNG" id="4_r1nq0"]
 [ext_resource type="Texture2D" uid="uid://cy6pmp5mjdy0v" path="res://assets/UI/penis.PNG" id="6_eh6ck"]
 [ext_resource type="Texture2D" uid="uid://bpexirfjpb13d" path="res://assets/UI/penis_h.png" id="7_tcolb"]
+[ext_resource type="AudioStream" uid="uid://e2lsoelmoh0n" path="res://sounds/click3.wav" id="8_tcolb"]
 
 [node name="UpgradeItem" type="Control" unique_id=1323262610]
 custom_minimum_size = Vector2(150, 200)
@@ -237,3 +238,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=107942705]
+stream = ExtResource("8_tcolb")
