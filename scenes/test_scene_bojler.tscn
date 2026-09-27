@@ -174,7 +174,7 @@ position = Vector2(1228, -34)
 position = Vector2(1388, 173)
 
 [node name="ItemSpawner15" type="Marker2D" parent="ItemSpawners" unique_id=1804291839]
-position = Vector2(-1043, -735.5)
+position = Vector2(-906.5, -135.5)
 
 [node name="ItemSpawner16" type="Marker2D" parent="ItemSpawners" unique_id=182631668]
 position = Vector2(-743, -619.5)
@@ -196,6 +196,30 @@ position = Vector2(-685, 0)
 
 [node name="ItemSpawner22" type="Marker2D" parent="ItemSpawners" unique_id=2144734903]
 position = Vector2(859, 292.5)
+
+[node name="ItemSpawner23" type="Marker2D" parent="ItemSpawners" unique_id=125739105]
+position = Vector2(33, 773)
+
+[node name="ItemSpawner24" type="Marker2D" parent="ItemSpawners" unique_id=40077344]
+position = Vector2(442, 721.5)
+
+[node name="ItemSpawner25" type="Marker2D" parent="ItemSpawners" unique_id=1283537743]
+position = Vector2(-774.5, 783.5)
+
+[node name="ItemSpawner26" type="Marker2D" parent="ItemSpawners" unique_id=2116428625]
+position = Vector2(-405, 782.5)
+
+[node name="ItemSpawner27" type="Marker2D" parent="ItemSpawners" unique_id=1075104464]
+position = Vector2(1295.5, 397)
+
+[node name="ItemSpawner28" type="Marker2D" parent="ItemSpawners" unique_id=1804995854]
+position = Vector2(738, -82)
+
+[node name="ItemSpawner29" type="Marker2D" parent="ItemSpawners" unique_id=1500321606]
+position = Vector2(-1093, 165)
+
+[node name="ItemSpawner30" type="Marker2D" parent="ItemSpawners" unique_id=438715942]
+position = Vector2(-573, 266)
 
 [node name="SpaceUI" parent="." unique_id=2144076685 node_paths=PackedStringArray("state") instance=ExtResource("12_bj67q")]
 state = NodePath("../GameState")
