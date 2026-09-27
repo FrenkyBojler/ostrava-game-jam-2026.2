@@ -161,7 +161,7 @@ func _on_body_entered(body: Area2D) -> void:
 		maro = body.get_parent() as Maro3D
 		
 		if maro.picked_item != null:
-			label.text = "Press F to drop items"
+			label.text = "Press F to drop items, press G to cancel"
 		
 		var nearest_piece := get_nearest_piece(maro.position)
 		if nearest_piece != null:
