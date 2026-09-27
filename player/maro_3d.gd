@@ -217,6 +217,7 @@ func to_tetris(_entry_pos: Vector2, tetris_grid: TetrisGrid) -> void:
 	is_near_tetris = true
 
 func to_space() -> void:
+	is_near_tetris = false
 	controller = space_controller
 
 func play_death() -> void:
