@@ -71,3 +71,4 @@ stream = ExtResource("4_imukr")
 
 [node name="SmushSound" type="AudioStreamPlayer2D" parent="." unique_id=1893122660]
 stream = ExtResource("4_spsg2")
+volume_db = -10.0

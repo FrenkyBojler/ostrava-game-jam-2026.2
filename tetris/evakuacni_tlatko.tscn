@@ -73,4 +73,3 @@ texture_scale = 1.4
 
 [node name="TakeoffSound" type="AudioStreamPlayer2D" parent="." unique_id=207702028]
 stream = ExtResource("5_nsejh")
-volume_db = 10.0
