@@ -96,7 +96,7 @@ func is_running() -> bool:
 	return current_game_state == GameState.Running
 
 func reset() -> void:
-	peniazky = 0
+	peniazky = 1000000
 	upgrades.reset()
 
 func add_peniazky(amount: int) -> void:

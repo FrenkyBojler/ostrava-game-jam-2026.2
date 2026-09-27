@@ -298,7 +298,7 @@ theme_override_font_sizes/font_size = 32
 text = "Oxygen Tank Depleted"
 
 [node name="StepSounds" type="AudioStreamPlayer2D" parent="." unique_id=930937748]
-volume_db = -30.0
+volume_db = -5.0
 
 [node name="NoSound" type="AudioStreamPlayer2D" parent="." unique_id=1053287013]
 stream = ExtResource("21_j8b55")
@@ -310,7 +310,6 @@ volume_db = -5.0
 
 [node name="Drop" type="AudioStreamPlayer2D" parent="." unique_id=2080205395]
 stream = ExtResource("23_lmrm8")
-volume_db = -5.0
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1309865838]
 stream = ExtResource("24_lx2ry")
@@ -320,3 +319,6 @@ autoplay = true
 [node name="Swoosh" type="AudioStreamPlayer2D" parent="." unique_id=91237167]
 stream = ExtResource("25_tnnwq")
 volume_db = -10.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1460093330]
+current = true
