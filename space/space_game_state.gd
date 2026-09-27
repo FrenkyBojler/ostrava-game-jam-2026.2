@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		oxygen_level = 0
 	if oxygen_level == 0:
 		if Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_EMERGENCY_RESERVE) > 0 and not emergency_reserve_used:
-			oxygen_level = Globals.upgrades.get_property_value(Upgrades.UpgradeProperty.OXYGEN_EMERGENCY_RESERVE)
+			oxygen_level = max_oxygen
 			emergency_reserve_used = true
 		else:
 			_die()

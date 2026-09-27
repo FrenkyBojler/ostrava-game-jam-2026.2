@@ -72,11 +72,14 @@ func _process(delta: float) -> void:
 			if result:
 				position += target_pos
 				current_grid_position_of_first_cell = target_grid_pos
+				tetris.maro.play_swoosh()
 
 		var can_place := tetris.check_place_item(self, current_grid_position_of_first_cell)
 		
 		if can_place and Input.is_action_just_pressed("interact_p1"):
 			tetris.place_item(self, current_grid_position_of_first_cell)
+		elif not can_place and Input.is_action_just_pressed("interact_p1"):
+			tetris.maro.play_no()
 
 func get_weight() -> float:
 	return original_coords.size() * BASE_CELL_WEIGHT

@@ -1,5 +1,9 @@
 class_name Maro3D extends CharacterBody2D
 
+const grass_sounds_clip = preload("res://sounds/2.ogg")
+const metal_sounds_clip = preload("res://sounds/7.ogg")
+const cave_sounds_clip = preload("res://sounds/1.ogg")
+
 @export var item: ItemResource
 @onready var interact_area: Area2D = %InteractArea
 
@@ -45,6 +49,9 @@ var light_directional_origin: Vector2
 enum Direction {
 	Left, Right
 }
+
+var is_na_polu := false
+var is_na_metalu := false
 
 func _ready() -> void:
 	controller = space_controller
@@ -133,6 +140,20 @@ func _process(delta: float) -> void:
 		picked_item.turn_off_highlight()
 		can_place_item_into_tetris = false
 		
+func play_foot_sound() -> void:
+	if is_na_metalu:
+		$StepSounds.stream = metal_sounds_clip
+	elif is_na_polu:
+		$StepSounds.stream = cave_sounds_clip
+	else:
+		$StepSounds.stream = grass_sounds_clip
+	$StepSounds.play()
+
+func play_no() -> void:
+	$NoSound.play()
+func play_swoosh() -> void:
+	$Swoosh.play()
+
 func _handle_tetris_grid() -> void:
 	if not is_in_tetris:
 		return
@@ -147,6 +168,7 @@ func _handle_direction_change() -> void:
 	#	picked_item.position = target_pos
 
 func _pick_item() -> void:
+	$Pickup.play()
 	picked_item = item_to_pick
 	picked_item.get_picked_up()
 	picked_item.reparent(self)
@@ -157,16 +179,19 @@ func _drop_item() -> void:
 	if is_in_tetris and can_place_item_into_tetris:
 		tetris.place_item(picked_item, tetris.get_nearest_piece(position).grid_position - Vector2.RIGHT if last_dir == Direction.Left else tetris.get_nearest_piece(position).grid_position + Vector2.RIGHT)
 	elif is_in_tetris and not can_place_item_into_tetris:
+		play_no()
 		return
 
 	picked_item.reparent(get_parent())
 	picked_item.get_dropped()
 	picked_item = null
+	$Drop.play()
 
 func _bail_from_tetris() -> void:
 	if not is_in_tetris:
 		return
-
+	
+	play_no()
 	is_near_tetris = false
 	picked_item.is_being_placed = false
 	picked_item.reparent(self)
@@ -195,6 +220,7 @@ func to_space() -> void:
 	controller = space_controller
 
 func play_death() -> void:
+	$Death.play()
 	sprite.visible = false
 	dead_body.visible = true
 	dead_head.visible = true

@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ce341luvvxmae" path="res://tetris/entry_trigger.gd" id="6_lf5iq"]
 [ext_resource type="Script" uid="uid://ch1ulr5wihq2n" path="res://tetris/entry_collider.gd" id="8_ojk5r"]
 [ext_resource type="Texture2D" uid="uid://bo0als7vbbyb2" path="res://assets/textures/placeholder/lights/circle_a.png" id="8_pwy87"]
+[ext_resource type="AudioStream" uid="uid://e2lsoelmoh0n" path="res://sounds/click3.wav" id="10_xleml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80t16"]
 
@@ -173,3 +174,6 @@ debug_color = Color(0.9493025, 0.011668049, 0.5709296, 0.41960785)
 top_level = true
 scale = Vector2(2.07, 2.07)
 texture = ExtResource("8_pwy87")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=254771591]
+stream = ExtResource("10_xleml")

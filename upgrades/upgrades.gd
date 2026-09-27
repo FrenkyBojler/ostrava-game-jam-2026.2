@@ -70,7 +70,7 @@ class UpgradesContainer:
 			UpgradeProperty.GRID_SIZE:
 				return 3
 			UpgradeProperty.SCRAPPER_USES:
-				return 1
+				return 10
 			UpgradeProperty.SCRAP_VALUE:
 				return 1
 			UpgradeProperty.MULTI_PARTS_SCRAPS:

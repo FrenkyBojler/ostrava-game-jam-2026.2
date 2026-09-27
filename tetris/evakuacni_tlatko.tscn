@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dampm4icni74j" path="res://assets/map/lod.PNG" id="2_6iqmt"]
 [ext_resource type="Texture2D" uid="uid://ev742xv04sp2" path="res://assets/textures/placeholder/lights/circle_c.png" id="3_bf2kr"]
 [ext_resource type="Texture2D" uid="uid://flabv4tqw350" path="res://assets/map/kormidel.PNG" id="3_q55d4"]
+[ext_resource type="AudioStream" uid="uid://d0edco006v2fm" path="res://sounds/dragon-studio-door-closed-382707.mp3" id="5_nsejh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8040v"]
 size = Vector2(195.33333, 131.16666)
@@ -69,3 +70,7 @@ autowrap_mode = 2
 position = Vector2(5, -129)
 texture = ExtResource("3_bf2kr")
 texture_scale = 1.4
+
+[node name="TakeoffSound" type="AudioStreamPlayer2D" parent="." unique_id=207702028]
+stream = ExtResource("5_nsejh")
+volume_db = 10.0
