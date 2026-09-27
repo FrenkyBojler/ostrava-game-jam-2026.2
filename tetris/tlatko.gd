@@ -41,15 +41,20 @@ func _process(delta: float) -> void:
 		return
 
 	if number_of_interactions >= max_interactions:
+		if can_interact and Input.is_action_just_pressed("interact_p1"):
+			$TlatkoSounds.play()
 		return
 
 	if can_interact and Input.is_action_just_pressed("interact_p1") and not is_going_up:
 		$TlatkoSounds.play()
-		sound.play()
 		tetris.scrap_triggered()
 		cooldown = cooldown_time
 	
 		number_of_interactions += 1
 
+		sound.play()
+
 		if number_of_interactions >= max_interactions:
 			label.text = "Max interactions reached"
+			await get_tree().create_timer(1).timeout
+			sound.stop()
