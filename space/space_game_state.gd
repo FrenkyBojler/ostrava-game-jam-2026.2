@@ -26,6 +26,7 @@ func _ready() -> void:
 	current_run_peniazky = 0
 	
 	spawned_items += _spawn_items()
+	spawned_items += _spawn_items()
 
 	scraps_indicator.set_items_on_map(spawned_items)
 
