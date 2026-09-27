@@ -72,6 +72,7 @@ func _process(delta: float) -> void:
 			if result:
 				position += target_pos
 				current_grid_position_of_first_cell = target_grid_pos
+				tetris.maro.play_swoosh()
 
 		var can_place := tetris.check_place_item(self, current_grid_position_of_first_cell)
 		

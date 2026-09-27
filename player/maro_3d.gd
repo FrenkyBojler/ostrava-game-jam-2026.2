@@ -141,6 +141,8 @@ func _process(delta: float) -> void:
 		
 func play_no() -> void:
 	$NoSound.play()
+func play_swoosh() -> void:
+	$Swoosh.play()
 
 func _handle_tetris_grid() -> void:
 	if not is_in_tetris:
