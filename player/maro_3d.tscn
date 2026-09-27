@@ -96,16 +96,22 @@ item = SubResource("Resource_yxfud")
 
 [node name="DeadBody" type="Sprite2D" parent="." unique_id=1857648971]
 visible = false
+light_mask = 2
+visibility_layer = 2
 position = Vector2(0, 12)
 texture = ExtResource("4_0eutx")
 
 [node name="DeadHead" type="Sprite2D" parent="." unique_id=913057291]
 visible = false
+light_mask = 2
+visibility_layer = 2
 position = Vector2(-1, -5)
 texture = ExtResource("3_18bas")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=611189393]
 unique_name_in_owner = true
+light_mask = 2
+visibility_layer = 2
 texture = ExtResource("3_gr0de")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=500361953]
@@ -121,6 +127,8 @@ position = Vector2(13, 2)
 script = ExtResource("2_6yihr")
 
 [node name="Sprite2D" type="Sprite2D" parent="MaroLightDirectional" unique_id=1131480430]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(5, 19)
 texture = ExtResource("6_nx0dt")
 

@@ -14,21 +14,22 @@ var max_y := 1090.448
 var min_x := -1667.455
 var max_x := 1678.668
 
+const BG_HALF_WIDTH := 5308.0 / 2.0   # 2654
+const BG_HALF_HEIGHT := 3296.0 / 2.0  # 1648
+
 func _ready() -> void:
 	assert(target != null, "Missing target!")
-	offset_x = global_position.x - target.global_position.x
-	offset_y = global_position.y - target.global_position.y
-	
+	offset = global_position - target.global_position
+
+	# If the background's top-left corner is NOT at world (0,0),
+	# add its position here instead of assuming it's centered on origin.
+	limit_left = -BG_HALF_WIDTH
+	limit_right = BG_HALF_WIDTH
+	limit_top = -BG_HALF_HEIGHT
+	limit_bottom = BG_HALF_HEIGHT
+
 	top_level = true
 
 func _process(delta: float) -> void:
 	global_position = lerp(global_position, Vector2(target.global_position.x + offset_x, target.global_position.y + offset_y), follow_speed * delta)
 	
-	if global_position.y < min_y:
-		global_position.y = min_y
-	if global_position.y > max_y:
-		global_position.y = max_y
-	if global_position.x > max_x:
-		global_position.x = max_x
-	if global_position.x < min_x:
-		global_position.x = min_x
