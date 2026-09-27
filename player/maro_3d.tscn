@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://bp65fe1biy0k1" path="res://assets/textures/placeholder/lights/cone_a.png" id="11_7xsg3"]
 [ext_resource type="Texture2D" uid="uid://b1mcbgwd1lbmk" path="res://assets/character/maro_run_5.PNG" id="12_q6aeu"]
 [ext_resource type="Texture2D" uid="uid://bwdgka5k1bph8" path="res://assets/character/maro_run_6.PNG" id="13_p0kep"]
+[ext_resource type="AudioStream" uid="uid://c568fgv8t0k0a" path="res://sounds/2.ogg" id="17_oal1a"]
+[ext_resource type="AudioStream" uid="uid://dcpsso36c4gh" path="res://sounds/7.ogg" id="18_ddi7u"]
+[ext_resource type="AudioStream" uid="uid://dxl35oiqfiqc8" path="res://sounds/1.ogg" id="18_oal1a"]
 
 [sub_resource type="Resource" id="Resource_yxfud"]
 script = ExtResource("2_02rfc")
@@ -80,12 +83,105 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_gr0de"), ExtResource("9_shg34"), ExtResource("10_khtqc"), ExtResource("11_1fiy5"), ExtResource("12_q6aeu"), ExtResource("13_p0kep")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepSounds")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.46699297,
+"start_offset": 0.0,
+"stream": ExtResource("17_oal1a")
+}, {
+"end_offset": 0.46699297,
+"start_offset": 0.0012098264,
+"stream": ExtResource("17_oal1a")
+}],
+"times": PackedFloat32Array(0.13333334, 0.53333336)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_k5gum"]
+resource_name = "run_na_metalu"
+length = 0.8000033750567586
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.26666665, 0.4, 0.53333336, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_gr0de"), ExtResource("9_shg34"), ExtResource("10_khtqc"), ExtResource("11_1fiy5"), ExtResource("12_q6aeu"), ExtResource("13_p0kep")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepSounds")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.46699297,
+"start_offset": 0.0,
+"stream": ExtResource("18_ddi7u")
+}, {
+"end_offset": 0.46699297,
+"start_offset": 0.0012098264,
+"stream": ExtResource("18_ddi7u")
+}],
+"times": PackedFloat32Array(0.13333334, 0.53333336)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_j8b55"]
+resource_name = "run_na_polu"
+length = 0.8000033750567586
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.26666665, 0.4, 0.53333336, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_gr0de"), ExtResource("9_shg34"), ExtResource("10_khtqc"), ExtResource("11_1fiy5"), ExtResource("12_q6aeu"), ExtResource("13_p0kep")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepSounds")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.46699297,
+"start_offset": 0.0,
+"stream": ExtResource("18_oal1a")
+}, {
+"end_offset": 0.46699297,
+"start_offset": 0.0012098264,
+"stream": ExtResource("18_oal1a")
+}],
+"times": PackedFloat32Array(0.13333334, 0.53333336)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8b55"]
 _data = {
 &"RESET": SubResource("Animation_oal1a"),
 &"idle": SubResource("Animation_gr0de"),
-&"run": SubResource("Animation_ddi7u")
+&"run": SubResource("Animation_ddi7u"),
+&"run_na_metalu": SubResource("Animation_k5gum"),
+&"run_na_polu": SubResource("Animation_j8b55")
 }
 
 [node name="Maro3D" type="CharacterBody2D" unique_id=197759219]
@@ -195,3 +291,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Oxygen Tank Depleted"
+
+[node name="StepSounds" type="AudioStreamPlayer2D" parent="." unique_id=930937748]
+volume_db = -20.438

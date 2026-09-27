@@ -46,6 +46,9 @@ enum Direction {
 	Left, Right
 }
 
+var is_na_polu := false
+var is_na_metalu := false
+
 func _ready() -> void:
 	controller = space_controller
 	interact_area.body_entered.connect(_on_interact_area_enter)
@@ -105,7 +108,10 @@ func _process(delta: float) -> void:
 		last_dir = Direction.Right
 	
 	if movement_input.length() != 0:
-		anim_player.play("run")
+		if is_na_metalu:
+			anim_player.play("run_na_metalu")
+		else:
+			anim_player.play("run") if not is_na_polu else anim_player.play("run_na_polu")
 	else:
 		anim_player.play("idle")
 

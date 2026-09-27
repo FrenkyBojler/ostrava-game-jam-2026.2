@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dtvmpeo6bew88" path="res://assets/map/Shaft.PNG" id="28_tdfer"]
 [ext_resource type="Texture2D" uid="uid://hx18kuqroxlt" path="res://assets/map/Smushr_bottom.PNG" id="28_tgu2n"]
 [ext_resource type="Texture2D" uid="uid://cbyab446w6aav" path="res://assets/map/Smushr_top.PNG" id="29_bdsn8"]
+[ext_resource type="Script" uid="uid://cbiw36o7vj65d" path="res://scenes/polo.gd" id="31_jo57l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdfer"]
 size = Vector2(381, 429)
@@ -330,3 +331,38 @@ rotation = 1.5707964
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1832942377]
 position = Vector2(1.5, 31)
 shape = SubResource("RectangleShape2D_lrroe")
+
+[node name="KrokyNaPolu" type="Area2D" parent="." unique_id=1745582746]
+script = ExtResource("31_jo57l")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=641405498]
+polygon = PackedVector2Array(-2348, -851, -1956, -1322, -1868, -1311, -1859, -1368, -965, -1375, -961, -1306, -924, -1301, -922, -1274, -490, -1271, -605, -1069, -988, -1072, -970, -1150, -1726, -1104, -1940, -778, -2374, -803)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=2094894368]
+polygon = PackedVector2Array(-2645, -732, -2650, -576, -2190, -580, -2182, -470, -2237, -407, -2652, -410, -2650, -89, -2453, -96, -2439, -44, -2249, -38, -2219, -102, -1984, -101, -1715, -409, -2084, -415, -2087, -516, -2035, -582, -1475, -581, -1491, -466, -1671, -278, -1510, -280, -1494, -179, -1540, -120, -1775, -118, -2048, 176, -2045, 205, -1627, 201, -1547, 97, -1473, 102, -1459, 218, -1571, 338, -1281, 342, -1125, 99, -1154, 91, -1149, 75, -1353, 71, -1348, 30, -1385, 30, -1389, -80, -1015, -526, -930, -529, -919, -482, -858, -555, -897, -571, -839, -690, -1306, -707, -1317, -670, -1646, -658, -1622, -754, -1895, -765, -1933, -721, -2158, -725, -2150, -783, -2263, -798, -2310, -730)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=1422089995]
+polygon = PackedVector2Array(-2156, 1189, -2079, 1095, -2020, 1099, -1990, 1053, -1836, 1048, -1837, 1138, -1762, 1147, -1608, 947, -1361, 952, -1319, 905, -1231, 905, -1037, 660, -881, 662, -1000, 783, -1001, 905, -975, 905, -959, 957, -862, 953, -859, 965, -1082, 1229, -1156, 1213, -1188, 1274, -1662, 1269, -1695, 1332, -1822, 1336, -1813, 1267, -2175, 1279, -2176, 1258, -2158, 1241)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=1252503027]
+polygon = PackedVector2Array(870, 1333, 945, 1414, 946, 1357, 1027, 1358, 1274, 1645, 2031, 1649, 1902, 1504, 1892, 1416, 1979, 1399, 2184, 1642, 2428, 1650, 2326, 1553, 2333, 1434, 2653, 1437, 2651, 1132, 2631, 1132, 2575, 1082, 2496, 1081, 2467, 1039, 2325, 1040, 2336, 1180, 2293, 1180, 2306, 1221, 2248, 1236, 2264, 1285, 1863, 1276, 1869, 1384, 1784, 1385, 1659, 1234, 1570, 1236, 1565, 1197, 877, 1190)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=2005059981]
+polygon = PackedVector2Array(1097, 438, 1240, 439, 1264, 470, 1503, 468, 1851, 859, 1724, 855, 1633, 753, 1366, 761, 1074, 437, 1093, 438)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=394084492]
+polygon = PackedVector2Array(1981, 404, 2143, 562, 2652, 554, 2660, 146, 2646, 136, 2395, -136, 2298, -135, 2280, -178, 2056, -185, 1996, -236, 2104, -274, 2063, -350, 2067, -369, 1991, -483, 1934, -495, 1855, -580, 1506, -586, 1502, -528, 1491, -533, 1464, -481, 1435, -445, 1395, -429, 1470, -316, 1619, -305, 1786, -46, 1756, -29, 1836, 65, 1950, 108, 2309, 102, 2358, 247, 2104, 233, 2124, 342, 2070, 335, 2092, 396)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=658192155]
+polygon = PackedVector2Array(1109, -744, 1309, -747, 1345, -710, 1943, -726, 1935, -758, 1955, -767, 1921, -820, 1831, -919, 1795, -923, 1720, -1013, 1317, -1022, 1272, -1067, 1276, -1116, 1605, -1110, 1545, -1205, 1462, -1200, 1422, -1259, 849, -1264, 840, -1225, 807, -1222, 845, -1124, 512, -1117, 508, -1082, 639, -911, 744, -906, 784, -837, 957, -831, 949, -889, 991, -898, 897, -972, 1006, -975, 1147, -785, 1121, -778)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="KrokyNaPolu" unique_id=1242348288]
+polygon = PackedVector2Array(1294, -1476, 1355, -1405, 1399, -1340, 1467, -1338, 1516, -1301, 1584, -1298, 1679, -1216, 1845, -1228, 1865, -1135, 2072, -1143, 2042, -1169, 2647, -1164, 2650, -1650, 2095, -1643, 2229, -1393, 2185, -1360, 2156, -1367, 1910, -1641, 1270, -1648, 1327, -1494)
+
+[node name="KrokyNaMetalu" type="Area2D" parent="." unique_id=697255953]
+script = ExtResource("31_jo57l")
+is_metal = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="KrokyNaMetalu" unique_id=650275982]
+position = Vector2(1642, 1261)
+polygon = PackedVector2Array(-2262, -922, -2079, -1404, -1240, -1398, -1039, -895, -2273, -895)
