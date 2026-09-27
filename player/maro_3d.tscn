@@ -298,7 +298,7 @@ theme_override_font_sizes/font_size = 32
 text = "Oxygen Tank Depleted"
 
 [node name="StepSounds" type="AudioStreamPlayer2D" parent="." unique_id=930937748]
-volume_db = -20.438
+volume_db = -30.0
 
 [node name="NoSound" type="AudioStreamPlayer2D" parent="." unique_id=1053287013]
 stream = ExtResource("21_j8b55")
