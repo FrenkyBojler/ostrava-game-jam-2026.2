@@ -5,8 +5,8 @@ extends CanvasLayer
 
 @onready var oxygen_label: Label = $Topbar/VBoxContainer/HBoxContainer/OxygenLabel
 @onready var money_label: Label = $Topbar/VBoxContainer/HBoxContainer2/MoneyLabel
-@onready var stopky_label: Label = $Topbar/VBoxContainer2/TextureRect/Label
-@onready var zlatacek_label: Label = $Topbar/VBoxContainer2/HBoxContainer/Label
+@onready var stopky_label: Label = $Topbar/TextureRect/Label
+@onready var zlatacek_label: Label = $Topbar/HBoxContainer/Label
 
 
 

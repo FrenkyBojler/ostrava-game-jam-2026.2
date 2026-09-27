@@ -21,8 +21,6 @@ func _ready() -> void:
 	assert(target != null, "Missing target!")
 	offset = global_position - target.global_position
 
-	# If the background's top-left corner is NOT at world (0,0),
-	# add its position here instead of assuming it's centered on origin.
 	limit_left = -BG_HALF_WIDTH
 	limit_right = BG_HALF_WIDTH
 	limit_top = -BG_HALF_HEIGHT

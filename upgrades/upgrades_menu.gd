@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var money_label: Label = $MarginContainer/HBoxContainer/MoneyLabel
+@onready var money_label: Label = $HBoxContainer/Label
 @onready var start_game_btn: Button = $BottomContainer/StartGame
 
 func _ready() -> void:

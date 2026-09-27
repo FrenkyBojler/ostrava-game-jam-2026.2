@@ -16,40 +16,43 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Topbar" unique_id=826741973]
+[node name="HBoxContainer" type="HBoxContainer" parent="Topbar" unique_id=911081909]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -212.0
+offset_bottom = 97.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="Topbar/HBoxContainer" unique_id=633739849]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "150"
+
+[node name="TextureRect2" type="TextureRect" parent="Topbar/HBoxContainer" unique_id=2128135616]
+custom_maximum_size = Vector2(278, 359)
+layout_mode = 2
+texture = ExtResource("2_2bni4")
+
+[node name="TextureRect" type="TextureRect" parent="Topbar" unique_id=196830689]
+custom_maximum_size = Vector2(278, 359)
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -278.0
+offset_top = -359.0
 grow_horizontal = 0
 grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Topbar/VBoxContainer2" unique_id=911081909]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 2
-
-[node name="Label" type="Label" parent="Topbar/VBoxContainer2/HBoxContainer" unique_id=633739849]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 60
-text = "150"
-
-[node name="TextureRect2" type="TextureRect" parent="Topbar/VBoxContainer2/HBoxContainer" unique_id=2128135616]
-custom_maximum_size = Vector2(278, 359)
-layout_mode = 2
-texture = ExtResource("2_2bni4")
-
-[node name="TextureRect" type="TextureRect" parent="Topbar/VBoxContainer2" unique_id=196830689]
-custom_maximum_size = Vector2(278, 359)
-layout_mode = 2
 texture = ExtResource("2_6o5v5")
 
-[node name="Label" type="Label" parent="Topbar/VBoxContainer2/TextureRect" unique_id=1571733542]
+[node name="Label" type="Label" parent="Topbar/TextureRect" unique_id=1571733542]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,6 +70,7 @@ theme_override_font_sizes/font_size = 60
 text = "60s"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Topbar" unique_id=1648366624]
+visible = false
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0

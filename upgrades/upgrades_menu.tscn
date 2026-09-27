@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0rsqf7p82450" path="res://upgrades/upgrades_menu.gd" id="1_uo6sb"]
 [ext_resource type="Script" uid="uid://cuxcivfy844ai" path="res://upgrades/upgrades_menu_scroll.gd" id="2_esf6p"]
+[ext_resource type="Texture2D" uid="uid://p4m2hjybvy0y" path="res://assets/UI/koin.PNG" id="3_f6bxi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo6sb"]
 bg_color = Color(0.16370696, 0.16370699, 0.16370687, 1)
@@ -37,6 +38,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=504623915]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -76,3 +78,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 32
 text = "DEPLOY TO NEXT STAGE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1880173830]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -212.0
+offset_bottom = 97.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=527574318]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "150"
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=1701836318]
+custom_maximum_size = Vector2(278, 359)
+layout_mode = 2
+texture = ExtResource("3_f6bxi")
